@@ -28,6 +28,10 @@ export default function SoftwareLogo({ cls, mark, label, title, lines }) {
     if (start.current && Math.hypot(e.clientX - start.current[0], e.clientY - start.current[1]) > MOVE_TOLERANCE) clear();
   };
 
+  const icon = typeof mark === 'string' ? (
+    <img src={mark} alt={label} />
+  ) : mark;
+
   return (
     <span
       tabIndex={0}
@@ -41,7 +45,7 @@ export default function SoftwareLogo({ cls, mark, label, title, lines }) {
       onBlur={clear}
       onContextMenu={(e) => e.preventDefault()}
     >
-      {mark}
+      <span className="logo-mark" aria-hidden="true">{icon}</span>
       <span className="peek">
         {title}
         <small>
