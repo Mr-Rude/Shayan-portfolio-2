@@ -1,0 +1,638 @@
+/* Mobile overrides. Load after styles.css, structure.css, and effects.css. */
+:root {
+  --nav-height: 84px;
+}
+
+@media (max-width: 760px) {
+  :root {
+    --nav-height: 72px;
+    --mobile-gutter: 16px;
+  }
+
+  html {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-padding-top: var(--nav-height);
+  }
+
+  body {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  header {
+    height: var(--nav-height);
+  }
+
+  .nav {
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .name {
+    flex: 0 0 auto;
+    max-width: 82px;
+    overflow: hidden;
+    font-size: 23px;
+    letter-spacing: -1px;
+  }
+
+  .nav-links {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: center;
+    gap: 2px;
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+
+  .nav-links a,
+  .nav-links a:last-child {
+    min-width: 0;
+    padding: 7px 2px;
+    border-radius: 14px;
+    text-align: center;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .preview-bar {
+    min-height: 26px;
+    height: auto;
+    padding: 5px 10px;
+    gap: 5px;
+    overflow: hidden;
+    font-size: 7px;
+    white-space: nowrap;
+  }
+
+  .preview-bar button {
+    padding: 4px 6px;
+    font-size: 8px;
+  }
+
+  /* One 16px gutter on every page. Sections nested inside a padded stage add none of their own. */
+  .wrap,
+  .wrap.detail,
+  #portfolio {
+    width: 100%;
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--mobile-gutter);
+    padding-right: var(--mobile-gutter);
+  }
+
+  #about,
+  #skills,
+  #contact {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .wrap.home {
+    width: 100%;
+    padding: 0;
+  }
+
+  .home-stage,
+  .project-stage,
+  #about-stage,
+  #contact-stage,
+  .about-stage,
+  .contact-stage {
+    scroll-snap-align: none;
+    scroll-margin-top: var(--nav-height);
+  }
+
+  .home-stage#intro-stage,
+  #intro-stage.home-stage {
+    min-height: calc(100svh - var(--nav-height) - 26px);
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .home-stage#intro-stage .hero,
+  #intro-stage.home-stage .hero,
+  .hero {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .home-stage#intro-stage .hero,
+  #intro-stage.home-stage .hero {
+    align-self: stretch;
+  }
+
+  .hero-top {
+    padding-top: 14px;
+    font-size: 7px;
+    letter-spacing: 2px;
+  }
+
+  .portrait {
+    width: min(77vw, 300px);
+    height: 78%;
+    max-height: 410px;
+    object-fit: contain;
+    object-position: center bottom;
+    mask-image: linear-gradient(#000 91%, transparent);
+  }
+
+  .hero-rings {
+    inset: 0 -18vw;
+  }
+
+  .hero-rings svg {
+    width: max(145%, 76svh);
+    top: 55%;
+    opacity: .45;
+  }
+
+  .logo {
+    width: 43px;
+    height: 43px;
+    border-radius: 12px;
+    font-size: 17px;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .u { left: 5%; top: 18%; }
+  .b { right: 6%; top: 18%; }
+  .m { left: 13%; top: 41%; }
+  .pr { right: 3%; top: 43%; }
+  .ai { left: 3%; top: 67%; }
+  .ae { left: 20%; top: 82%; }
+  .pt { right: 20%; top: 70%; }
+  .gpt { right: 4%; top: 84%; font-size: 12px; }
+
+  .logo .peek,
+  .logo:hover .peek,
+  .logo:focus .peek {
+    display: none;
+    top: auto;
+    bottom: calc(100% + 8px);
+    width: min(220px, calc(100vw - 32px));
+    height: 112px;
+    padding: 12px;
+    font-size: 10px;
+    pointer-events: none;
+  }
+
+  .logo:is(.u, .m, .ai, .ae) .peek {
+    left: 0;
+    right: auto;
+  }
+
+  .logo:is(.b, .pr, .pt, .gpt) .peek {
+    left: auto;
+    right: 0;
+  }
+
+  .logo.is-previewing {
+    z-index: 30;
+    transform: rotate(0) scale(1.04);
+    border-color: var(--green);
+  }
+
+  .logo.is-previewing .peek {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .role,
+  .home-stage .role {
+    width: 100%;
+    height: auto;
+    min-height: 78px;
+    margin: 0;
+    padding: 14px var(--mobile-gutter) 16px;
+  }
+
+  .role h1 {
+    max-width: 100%;
+    font-size: clamp(27px, 8.1vw, 34px);
+    line-height: .98;
+    letter-spacing: .025em;
+    white-space: normal;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 48px 0 14px;
+    gap: 12px;
+  }
+
+  .section-head p {
+    max-width: 320px;
+    font-size: 12px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .projects {
+    display: block;
+  }
+
+  .project-stage,
+  .home-stage.project-stage {
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    padding: 14px 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .project-stage .project-tile:not(:only-child) {
+    width: calc((100% - 12px) / 2);
+  }
+
+  .project-tile {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    align-items: center;
+  }
+
+  .project-tile > .software-heading,
+  .project-stage > .software-heading {
+    grid-column: 1 / -1;
+    margin: 0 0 2px;
+    color: var(--green);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .project-tile:has(> .card.wide) {
+    grid-template-columns: 1fr;
+  }
+
+  .projects .project-stage .card,
+  .projects .project-stage .card:not(.wide),
+  .projects .project-stage .card.wide,
+  .project-tile > .card {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    justify-self: stretch;
+    flex: none;
+    border-radius: 14px;
+    transform: none;
+  }
+
+  .projects .project-stage .card:not(.wide),
+  .project-tile > .card:not(.wide) {
+    aspect-ratio: 9 / 16;
+  }
+
+  .projects .project-stage .card.wide,
+  .project-tile > .card.wide {
+    aspect-ratio: 16 / 9;
+  }
+
+  .projects .card .card-copy,
+  .projects .card:is(:hover, :focus) .card-copy {
+    min-height: 0;
+    padding: 28px 12px 12px;
+    opacity: 1;
+    transform: none;
+    border-top: 0;
+    background: linear-gradient(transparent, #090a12e8 52%, #090a12f5);
+    backdrop-filter: none;
+    pointer-events: none;
+  }
+
+  .projects .card .card-copy h3,
+  .projects .card:not(.wide) .card-copy h3 {
+    margin: 4px 20px 0 0;
+    font-size: clamp(14px, 4.1vw, 18px);
+    line-height: 1.12;
+  }
+
+  .projects .card .card-copy small {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .projects .card .card-copy p {
+    display: none;
+  }
+
+  .projects .card .arrow,
+  .projects .card:is(:hover, :focus) .arrow {
+    right: 10px;
+    bottom: 10px;
+    display: block;
+    opacity: 1;
+    font-size: 16px;
+    pointer-events: none;
+  }
+
+  .projects .card:is(:hover, :focus),
+  .projects .card:is(:hover, :focus) .art {
+    transform: none;
+    filter: none;
+  }
+
+  /* Keep the label clear of the ratio badge on narrow cards. */
+  .media-label {
+    left: 10px;
+    right: 44px;
+    top: 11px;
+    overflow: hidden;
+    font-size: 6px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .ratio {
+    right: 8px;
+    top: 7px;
+    font-size: 6px;
+  }
+
+  #about-stage,
+  .about-stage {
+    width: 100%;
+    min-height: 0;
+    margin-top: 34px;
+    padding: 0 var(--mobile-gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #about-stage > .about,
+  .about-stage > .about,
+  .about {
+    width: 100%;
+    margin-top: 0;
+    padding: 38px 0;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about h2 {
+    font-size: clamp(43px, 13vw, 54px);
+  }
+
+  .about p {
+    margin-bottom: 16px;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .experience {
+    gap: 12px;
+    padding: 13px 0;
+    font-size: 9px;
+  }
+
+  #about-stage > .skills,
+  .about-stage > .skills,
+  .skills {
+    width: 100%;
+    padding: 34px 0 40px;
+  }
+
+  .tags {
+    gap: 7px;
+    margin-top: 18px;
+  }
+
+  .tags span {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  #contact-stage,
+  .contact-stage {
+    width: 100%;
+    min-height: 0;
+    padding: 0 var(--mobile-gutter);
+    display: flex;
+    align-items: stretch;
+  }
+
+  #contact-stage > .contact,
+  .contact-stage > .contact,
+  .contact {
+    width: 100%;
+    margin: 0;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-radius: 18px;
+  }
+
+  .object {
+    min-height: 220px;
+  }
+
+  .ring {
+    width: 130px;
+    height: 165px;
+    border-width: 20px;
+  }
+
+  .contact-copy {
+    padding: 28px 22px;
+  }
+
+  .contact h2 {
+    font-size: 36px;
+  }
+
+  .contact-list {
+    margin-top: 22px;
+  }
+
+  .contact-row {
+    gap: 12px;
+    padding: 12px 0;
+    font-size: 10px;
+  }
+
+  /* Footers sit inside a padded wrapper, so they line up with its content edge. */
+  footer,
+  .contact-stage footer {
+    align-items: center;
+    gap: 12px;
+    padding: 18px 0 28px;
+  }
+
+  footer a,
+  .back {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Portfolio index page: twelve square cards in a compact two-column grid. */
+  .portfolio-page .portfolio-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .portfolio-page .portfolio-grid .card.portfolio-card {
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1;
+    border-radius: 12px;
+  }
+
+  .portfolio-page .portfolio-grid .card-copy {
+    border-top: 0;
+    padding: 28px 10px 9px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .portfolio-page .portfolio-grid .card-copy h3 {
+    margin: 3px 16px 0 0;
+    font-size: 13px;
+  }
+
+  /* Case studies retain the media rhythm while collapsing every split. */
+  .wrap.detail {
+    padding-top: 34px;
+  }
+
+  .detail-intro,
+  .detail-split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .detail-intro {
+    margin: 26px 0 32px;
+  }
+
+  .detail h1 {
+    font-size: clamp(42px, 14vw, 56px);
+    letter-spacing: -2px;
+  }
+
+  .detail p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .detail-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    font-size: 8px;
+  }
+
+  .detail .card,
+  .detail .card.wide {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .detail-split {
+    margin: 28px 0;
+  }
+
+  .detail-end {
+    padding: 38px 0;
+  }
+}
+
+@media (max-width: 370px) {
+  :root { --mobile-gutter: 13px; }
+
+  .name {
+    max-width: 72px;
+    font-size: 21px;
+  }
+
+  .nav-links {
+    font-size: 9px;
+  }
+
+  .nav-links a,
+  .nav-links a:last-child {
+    padding-left: 1px;
+    padding-right: 1px;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  }
+
+  .nav-links a:last-child {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .project-tile {
+    gap: 8px;
+  }
+
+  .project-stage,
+  .home-stage.project-stage {
+    gap: 8px;
+  }
+
+  .project-stage .project-tile:not(:only-child) {
+    width: calc((100% - 8px) / 2);
+  }
+
+  .projects .card .card-copy h3,
+  .projects .card:not(.wide) .card-copy h3 {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 760px) and (hover: hover) and (pointer: fine) {
+  .logo:hover .peek,
+  .logo:focus-visible .peek {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .logo.is-previewing { transform: rotate(0); }
+}
+/* Keep paired phone cards at their full column width. */
+@media (max-width:760px) {
+  .project-stage .project-tile { display:flex; flex-direction:column; align-items:stretch; }
+  .home .logo .peek, .home .logo:is(:hover,:focus-visible) .peek { display:none; }
+  .home .logo.is-previewing .peek { display:flex; }
+  .portfolio-grid .card-copy p { display:none; }
+  .portfolio-grid .card-copy small { font-size:7px; }
+  .name { max-width:none; font-size:21px; }
+}
+@media (max-width:370px) {
+  .name { font-size:19px; }
+}

@@ -1,0 +1,48 @@
+:root{--nav-height:84px}
+[hidden]{display:none!important}
+header{height:var(--nav-height)}
+.home-stage{scroll-margin-top:var(--nav-height)}
+#intro-stage{height:calc(100svh - var(--nav-height) - 32px);min-height:560px}
+#intro-stage .hero{height:calc(100% - var(--role-height))}
+.projects{display:block}
+.project-stage{height:calc(100svh - var(--nav-height));min-height:560px;display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,60px);padding:28px 0}
+.project-tile{min-width:0;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.project-stage .project-tile:only-child{width:min(100%,calc((100svh - 190px)*1.77778))}
+.project-stage .project-tile:not(:only-child){width:min(calc((100% - 24px)/2),calc((100svh - 170px)*.5625))}
+.software-heading{font-size:clamp(20px,2vw,38px);font-weight:500;letter-spacing:-.03em;margin:0;color:#f2edf9}
+.projects .project-stage .project-tile .card{display:block;width:100%;height:auto;flex:none}
+.projects .project-stage .project-tile:only-child .card{aspect-ratio:16/9}
+.projects .project-stage .project-tile:not(:only-child) .card{aspect-ratio:9/16}
+.projects .project-stage .project-tile .card{max-width:none}
+.about-stage,.contact-stage{width:var(--reading-width);margin:auto;min-height:calc(100svh - var(--nav-height));display:flex;flex-direction:column;justify-content:center}
+.about-stage .about,.about-stage .skills,.contact-stage .contact,.contact-stage footer{width:100%;margin-left:0;margin-right:0}
+.about-stage .about{margin-top:0}
+.contact-stage .contact{margin-bottom:0}
+.contact-stage footer{padding-top:28px}
+.portfolio-page{width:min(1100px,calc(100% - 56px));max-width:none;padding:52px 0 0}
+.page-heading{margin-bottom:36px}
+.page-heading h1{font-size:clamp(42px,5vw,76px);font-weight:400;letter-spacing:-.05em;margin:0 0 10px}
+.page-heading p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
+.portfolio-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.portfolio-grid .portfolio-card{width:100%;aspect-ratio:1;min-width:0}
+.portfolio-grid .card-copy{padding:40px 16px 16px}
+.portfolio-grid .card-copy h3{font-size:clamp(16px,1.6vw,24px)}
+.portfolio-grid .card-copy p{font-size:11px}
+.portfolio-grid .arrow{right:12px;bottom:10px;font-size:20px}
+.portfolio-page footer{margin-top:45px}
+.detail-end a{display:inline-block;color:var(--green);padding:12px 20px;border:1px solid #c1ff8050;border-radius:30px}
+@media(max-width:700px){
+ :root{--nav-height:72px}
+ header{height:var(--nav-height)}
+ #intro-stage{height:auto;min-height:calc(100svh - var(--nav-height) - 32px)}
+ #intro-stage .hero{height:calc(100svh - var(--nav-height) - 32px - 90px);min-height:420px}
+ .home-stage{scroll-snap-align:start}
+ .project-stage{height:auto;min-height:0;padding:45px 0;display:flex;gap:16px}
+ .project-stage .project-tile:only-child{width:100%}
+ .project-stage .project-tile:not(:only-child){width:calc((100% - 16px)/2)}
+ .software-heading{font-size:clamp(15px,4vw,24px)}
+ .about-stage,.contact-stage{width:calc(100% - 36px);min-height:0;padding:40px 0}
+ .portfolio-page{width:calc(100% - 36px);padding-top:36px}
+ .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+ .portfolio-grid .card-copy h3{font-size:15px}
+}

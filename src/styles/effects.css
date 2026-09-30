@@ -1,0 +1,113 @@
+/* Entrance timing for the portrait and its orbiting software marks. */
+.home .portrait {
+  animation: portrait-pop 560ms cubic-bezier(.2,.8,.25,1) both;
+}
+
+@keyframes portrait-pop {
+  0% { opacity: 0; transform: translateX(-50%) scale(.86); }
+  72% { opacity: 1; transform: translateX(-50%) scale(1.025); }
+  100% { opacity: 1; transform: translateX(-50%) scale(1); }
+}
+
+.home .logo {
+  opacity: 1;
+  animation: logo-pop-jiggle 620ms cubic-bezier(.2,.75,.25,1) backwards;
+  animation-delay: 650ms;
+}
+.home .logo.u { animation-delay: 650ms; }
+.home .logo.b { animation-delay: 720ms; }
+.home .logo.m { animation-delay: 790ms; }
+.home .logo.pr { animation-delay: 860ms; }
+.home .logo.ai { animation-delay: 930ms; }
+.home .logo.ae { animation-delay: 1000ms; }
+.home .logo.pt { animation-delay: 1070ms; }
+.home .logo.gpt { animation-delay: 1140ms; }
+
+@keyframes logo-pop-jiggle {
+  0% { opacity: 0; transform: rotate(var(--r)) scale(.2); }
+  58% { opacity: 1; transform: rotate(calc(var(--r) - 7deg)) scale(1.12); }
+  76% { transform: rotate(calc(var(--r) + 4deg)) scale(.96); }
+  90% { transform: rotate(calc(var(--r) - 2deg)) scale(1.02); }
+  100% { opacity: 1; transform: rotate(var(--r)) scale(1); }
+}
+
+.home .logo:is(:hover, :focus-visible) { transform: rotate(0); }
+.home .logo .peek { display: none; }
+.home .logo:is(:hover, :focus-visible, .is-previewing) .peek {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (hover: hover) and (min-width: 701px) {
+  .projects .card,
+  .portfolio-grid .card,
+  .portfolio-grid .portfolio-card {
+    position: relative;
+    transition: transform .28s cubic-bezier(.2,.7,.2,1), border-color .25s, box-shadow .25s;
+  }
+
+  .projects .card::after,
+  .portfolio-grid .card::after,
+  .portfolio-grid .portfolio-card::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    background: #090a0d35;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .28s ease;
+  }
+
+  .projects .card .card-copy,
+  .portfolio-grid .card .card-copy,
+  .portfolio-grid .portfolio-card .card-copy {
+    z-index: 2;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    min-height: 0;
+    padding: 22px 26px;
+    background: none;
+    backdrop-filter: none;
+    border-top: 0;
+    transform: translateY(10px);
+    transition: opacity .24s ease, transform .24s ease;
+  }
+
+  .projects .card .card-copy p,
+  .portfolio-grid .card .card-copy p,
+  .portfolio-grid .portfolio-card .card-copy p { opacity: 1; }
+
+  .projects .card:is(:hover, :focus-visible),
+  .portfolio-grid .card:is(:hover, :focus-visible),
+  .portfolio-grid .portfolio-card:is(:hover, :focus-visible) {
+    transform: scale(.975);
+    border-color: #d4c7ff40;
+    box-shadow: 0 12px 45px #0005;
+  }
+
+  .projects .card:is(:hover, :focus-visible)::after,
+  .portfolio-grid .card:is(:hover, :focus-visible)::after,
+  .portfolio-grid .portfolio-card:is(:hover, :focus-visible)::after { opacity: 1; }
+
+  .projects .card:is(:hover, :focus-visible) .card-copy,
+  .portfolio-grid .card:is(:hover, :focus-visible) .card-copy,
+  .portfolio-grid .portfolio-card:is(:hover, :focus-visible) .card-copy {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .projects .card:is(:hover, :focus-visible) .art,
+  .portfolio-grid .card:is(:hover, :focus-visible) .art,
+  .portfolio-grid .portfolio-card:is(:hover, :focus-visible) .art { filter: brightness(.8); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home .portrait,
+  .home .logo { animation: none; opacity: 1; }
+}
