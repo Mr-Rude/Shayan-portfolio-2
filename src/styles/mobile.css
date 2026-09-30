@@ -164,8 +164,11 @@
   .logo {
     width: 43px;
     height: 43px;
-    border-radius: 12px;
-    font-size: 17px;
+    border-radius: 0;
+    font-size: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
     touch-action: none;
     -webkit-tap-highlight-color: transparent;
   }
