@@ -13,7 +13,7 @@ npm run build     # production build into dist/
 npm run preview   # serve the production build locally
 ```
 
-The build uses relative paths, so `dist/` can be uploaded to any static host (Netlify, Vercel, GitHub Pages, cPanel) as is.
+The build uses relative paths, so `dist/` can be uploaded to any static host (Netlify, Vercel, GitHub Pages, cPanel) as is. just checking
 
 ## Where to edit content
 
