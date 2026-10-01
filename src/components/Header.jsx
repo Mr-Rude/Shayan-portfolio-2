@@ -21,7 +21,6 @@ export default function Header() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#/home/about">About Me</a>
-          <a href="#/home/skills">Skills</a>
           <a href="#/portfolio">Portfolio</a>
           <a href="#/home/contact">Contact Me</a>
         </nav>

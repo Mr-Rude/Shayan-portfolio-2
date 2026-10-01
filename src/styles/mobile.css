@@ -45,7 +45,7 @@
     min-width: 0;
     flex: 1 1 auto;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: center;
     gap: 2px;
     font-size: 10px;
@@ -587,12 +587,7 @@
   }
 
   .nav-links {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-  }
-
-  .nav-links a:last-child {
-    padding-left: 7px;
-    padding-right: 7px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .project-tile {

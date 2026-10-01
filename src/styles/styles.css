@@ -38,7 +38,7 @@ header{height:84px;position:sticky;top:0}.nav{height:100%;max-width:none;width:v
 .projects .card:not(.wide) .card-copy small{font-size:clamp(7px,1vh,10px);letter-spacing:1.3px}
 .projects .card:not(.wide) .arrow{right:16px;bottom:16px}
 .nav-links{gap:clamp(8px,1.1vw,24px)}
-.nav-links a{display:inline-block;padding:10px 16px;border:1px solid transparent;border-radius:30px;transition:transform .2s,background .2s,color .2s,border-color .2s;white-space:nowrap}
+.nav-links a{display:inline-block;padding:10px 16px;border:1px solid #c1ff8050;border-radius:30px;color:var(--green);transition:transform .2s,background .2s,color .2s,border-color .2s;white-space:nowrap}
 .nav-links a:is(:hover,:focus-visible){transform:translateY(-2px) scale(1.025);background:#c1ff800d;border-color:#c1ff8050;color:var(--green)}
 .preview-bar button,.back,footer a,.detail-end span{display:inline-block;border-radius:20px;padding:7px 12px;transition:transform .2s,color .2s,background .2s;cursor:pointer}
 .preview-bar button:hover,.back:hover,footer a:hover,.detail-end:hover span{transform:translateY(-2px);color:var(--green);background:#c1ff800b}

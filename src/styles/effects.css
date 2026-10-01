@@ -14,6 +14,19 @@
   animation: logo-pop-jiggle 620ms cubic-bezier(.2,.75,.25,1) backwards;
   animation-delay: 650ms;
 }
+.home .logo::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: -10%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #9b83ff99 0%, #8170df4d 42%, transparent 100%);
+  filter: blur(10px);
+  opacity: .68;
+  pointer-events: none;
+  animation: logo-halo 2.8s ease-in-out infinite;
+}
+.home .logo-mark { position: relative; z-index: 1; }
 .home .logo.u { animation-delay: 650ms; }
 .home .logo.b { animation-delay: 720ms; }
 .home .logo.m { animation-delay: 790ms; }
@@ -29,6 +42,11 @@
   76% { transform: rotate(calc(var(--r) + 4deg)) scale(.96); }
   90% { transform: rotate(calc(var(--r) - 2deg)) scale(1.02); }
   100% { opacity: 1; transform: rotate(var(--r)) scale(1); }
+}
+
+@keyframes logo-halo {
+  0%, 100% { opacity: .48; transform: scale(.82); }
+  50% { opacity: .94; transform: scale(1.16); }
 }
 
 .home .logo:is(:hover, :focus-visible) { transform: rotate(0); }
@@ -110,4 +128,5 @@
 @media (prefers-reduced-motion: reduce) {
   .home .portrait,
   .home .logo { animation: none; opacity: 1; }
+  .home .logo::before { animation: none; opacity: .68; }
 }
