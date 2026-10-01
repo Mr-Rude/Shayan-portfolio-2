@@ -29,6 +29,8 @@ export function caseStudy(p) {
     software: p.software,
     year: 'To be confirmed',
     idea: `The brief and creative direction for ${p.title} will be added here.`,
+    renderIntro: `Preview copy for the final ${p.software} render. Project-specific context will be added here.`,
+    detailNote: 'Preview copy introducing the close-up image and the details it highlights.',
     process: `Process details for ${p.title} will be added when the work is selected.`,
     support: 'Supporting images and video to be selected.',
   };

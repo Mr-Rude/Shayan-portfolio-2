@@ -558,6 +558,15 @@
     margin: 28px 0;
   }
 
+  .detail-copy {
+    max-width: none;
+    margin: 26px 0 22px;
+  }
+
+  .detail-copy h2 {
+    font-size: clamp(25px, 8vw, 34px);
+  }
+
   .detail-end {
     padding: 38px 0;
   }

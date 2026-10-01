@@ -31,6 +31,9 @@ header{height:var(--nav-height)}
 .portfolio-grid .arrow{right:12px;bottom:10px;font-size:20px}
 .portfolio-page footer{margin-top:45px}
 .detail-end a{display:inline-block;color:var(--green);padding:12px 20px;border:1px solid #c1ff8050;border-radius:30px}
+.detail-copy{max-width:760px;margin:48px 0 34px}
+.detail-copy h2{font-size:clamp(28px,3.3vw,44px);font-weight:500;line-height:1.1;margin:12px 0 18px}
+.detail-copy p{max-width:620px;color:var(--muted);font-size:14px;line-height:1.8;margin:0}
 @media(max-width:700px){
  :root{--nav-height:72px}
  header{height:var(--nav-height)}

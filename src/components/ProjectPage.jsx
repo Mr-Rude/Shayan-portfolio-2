@@ -62,7 +62,19 @@ export default function ProjectPage({ project }) {
         <Media tone={tone} label="DETAIL / DEVELOPMENT IMAGE" />
       </div>
 
+      <section className="detail-copy">
+        <div className="eyebrow">Render preview</div>
+        <h2>A closer look at the final scene.</h2>
+        <p id="project-render-intro">{c.renderIntro}</p>
+      </section>
+
       <Media wide tone={tone} label="LARGE PROCESS IMAGE / RENDER" />
+
+      <section className="detail-copy">
+        <div className="eyebrow">Supporting detail</div>
+        <h2>Details worth a closer look.</h2>
+        <p id="project-detail-note">{c.detailNote}</p>
+      </section>
 
       <div className="detail-split">
         <Media tone={tone} label="CLOSE-UP / SUPPORTING IMAGE" />
