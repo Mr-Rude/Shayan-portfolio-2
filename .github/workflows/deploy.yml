@@ -1,0 +1,23 @@
+name: Deploy to Vercel
+
+# Vercel's Hobby plan refuses to auto-deploy commits on a private repo when the
+# commit author is not the Vercel account owner. This asks Vercel to build the
+# latest main through a Deploy Hook instead, which works for any author.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Vercel deploy hook
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Add the VERCEL_DEPLOY_HOOK_URL secret (GitHub repo > Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"
