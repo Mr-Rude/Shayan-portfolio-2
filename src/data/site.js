@@ -1,15 +1,22 @@
-// Placeholder text for the about, skills and contact sections.
-export const skills = ['3D Design', '3D Modeling', 'Lighting', 'Texturing', 'Motion Graphics', 'Illustration', 'Video Editing'];
-
-export const experience = [
-  { label: 'Experience from your CV', detail: 'Role / dates' },
-  { label: 'Previous experience', detail: 'Role / dates' },
+export const aboutCopy = [
+  "I'm Shayan Khan, a CGI artist and graphics designer with a strong interest in 3D design, digital environments, cinematic visuals, and realistic rendering.",
+  "I create visually engaging 3D scenes through modeling, texturing, lighting, animation, and composition. I'm especially interested in environment creation, cinematic camera work, materials, lighting, and rendering.",
+  'My supporting experience in compositing, motion graphics, video editing, and graphic design helps me refine and present the final visuals professionally.',
 ];
 
-// Add an `href` to each row once real destinations are ready,
-// e.g. 'https://instagram.com/handle', 'mailto:you@example.com', 'https://wa.me/923001234567'.
+export const skills = ['CGI', 'Animation', 'Texturing', 'Modeling', 'Lighting', 'Motion Graphics', 'Video Editing'];
+
+export const experience = [
+  { label: 'CGI Artist / 3D Designer', detail: 'Fan-Made Hot Wheels CGI Commercial Concept / FYP · Feb-Jun 2026' },
+  { label: 'Senior Designer', detail: 'Climate Change and Environmental Sustainability Module · Aga Khan University · Jan-Apr 2024' },
+  { label: 'Senior Assistant', detail: "Child's Wellbeing Project · Aga Khan University · Jul-Aug 2023" },
+  { label: 'Graphic Designer, Motion Graphics & Video Editor', detail: 'Jan-Jul 2022 · Karachi, Pakistan' },
+];
+
 export const contacts = [
-  { label: 'Instagram', text: 'Your handle ↗', href: null },
-  { label: 'Email', text: 'Your email ↗', href: null },
-  { label: 'WhatsApp', text: 'Start a conversation ↗', href: null },
+  { label: 'Location', text: 'Doha, Qatar', href: null },
+  { label: 'Phone', text: '+974 6640 7511', href: 'tel:+97466407511' },
+  { label: 'Email', text: 'shayankhan3103@gmail.com', href: 'mailto:shayankhan3103@gmail.com' },
+  { label: 'Behance', text: 'behance.net/shayansk', href: 'https://behance.net/shayansk' },
+  { label: 'Instagram', text: 'shayan.sk_renders', href: 'https://instagram.com/shayan.sk_renders' },
 ];

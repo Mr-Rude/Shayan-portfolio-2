@@ -18,6 +18,7 @@ header{height:var(--nav-height)}
 .about-stage .about,.about-stage .skills,.contact-stage .contact,.contact-stage footer{width:100%;margin-left:0;margin-right:0}
 .about-stage .about{margin-top:0}
 .contact-stage .contact{margin-bottom:0}
+.contact.contact--details{grid-template-columns:minmax(0,1fr)}
 .contact-stage footer{padding-top:28px}
 .portfolio-page{width:min(1100px,calc(100% - 56px));max-width:none;padding:52px 0 0}
 .page-heading{margin-bottom:36px}

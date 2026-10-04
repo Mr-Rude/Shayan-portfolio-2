@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import useStageScroll from '../hooks/useStageScroll.js';
 import { projects, homeGroups } from '../data/projects.js';
-import { skills, experience, contacts } from '../data/site.js';
+import { aboutCopy, skills, experience, contacts } from '../data/site.js';
 import Hero from './Hero.jsx';
 import ProjectCard from './ProjectCard.jsx';
 import Footer from './Footer.jsx';
@@ -56,8 +56,7 @@ function AboutAndSkills() {
           </h2>
         </div>
         <div>
-          <p>Your introduction from the CV will sit here: who you are, the work you create, and what you bring to a project.</p>
-          <p>This is a content placeholder, not your final biography.</p>
+          {aboutCopy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
           {experience.map((row) => (
             <div className="experience" key={row.label}>
               <span>{row.label}</span>
@@ -98,20 +97,10 @@ function ContactRow({ label, text, href }) {
 function Contact() {
   return (
     <div className="home-stage contact-stage" id="contact-stage" data-stage-label="Contact">
-      <section className="contact" id="contact">
-        <div className="object">
-          <div className="ring" />
-          <small>ROTATING 3D OBJECT · TO BE CHOSEN</small>
-        </div>
+      <section className="contact contact--details" id="contact">
         <div className="contact-copy">
           <div className="eyebrow">04 / Contact me</div>
-          <h2>
-            Let's make
-            <br />
-            something
-            <br />
-            stand out.
-          </h2>
+          <h2>Let's connect.</h2>
           <div className="contact-list">
             {contacts.map((c) => (
               <ContactRow key={c.label} {...c} />
