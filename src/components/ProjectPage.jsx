@@ -1,5 +1,6 @@
 import { caseStudy } from '../data/projects.js';
 import Footer from './Footer.jsx';
+import BlenderCaseStudy from './BlenderCaseStudy.jsx';
 import HeadphonesCaseStudy from './HeadphonesCaseStudy.jsx';
 
 // Media block. Every card on a case study takes the project's colour tone.
@@ -18,6 +19,9 @@ export default function ProjectPage({ project }) {
 
   if (project.id === 'gpt-ai') {
     return <HeadphonesCaseStudy project={project} />;
+  }
+  if (project.id === 'blender') {
+    return <BlenderCaseStudy project={project} />;
   }
 
   return (

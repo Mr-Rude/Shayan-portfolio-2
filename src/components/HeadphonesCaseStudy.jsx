@@ -99,7 +99,7 @@ export default function HeadphonesCaseStudy({ project }) {
         </div>
       </div>
 
-      <MediaPlaceholder label="Final render / headphones" kind="video" wide videoId="G3YcTGkSOL8" />
+      <MediaPlaceholder label="Final render / headphones" kind="video" videoId="G3YcTGkSOL8" />
 
       <div className="headphones-bridge">
         <h2>From the whole form<br />to the smallest details.</h2>

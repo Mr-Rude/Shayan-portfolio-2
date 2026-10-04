@@ -647,9 +647,7 @@
   .headphones-intro-copy .headphones-summary{font-size:15px}
   .headphones-meta{gap:8px;margin-top:22px}
   .headphones-meta dt,.headphones-meta dd{font-size:8px}
-  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface{aspect-ratio:1.15 / 1}
-  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface span{width:58%;height:calc(100% - 20px)}
-  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface iframe{inset:10px auto 10px 50%;width:58%;height:calc(100% - 20px)}
+  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface{aspect-ratio:9 / 16}
   .headphones-bridge{grid-template-columns:minmax(0,1fr);gap:12px;margin:26px 0 72px}
   .headphones-bridge h2,.headphones-section-copy h2,.headphones-notes h2{font-size:34px}
   .headphones-section{margin-bottom:76px}
@@ -674,4 +672,30 @@
   .home .logo.gpt{pointer-events:auto}
   .home .logo.gpt.is-preview-open .peek{display:flex;right:12px;width:min(220px,calc(100vw - 32px));height:auto;max-height:56svh;gap:8px;pointer-events:auto}
   .home .logo.gpt .logo-preview-video{width:min(128px,100%);max-height:38svh}
+}
+
+@media (max-width:760px) {
+  .wrap.detail.blender-case-study{width:calc(100% - 32px);padding:0 0 28px}
+  .blender-intro{grid-template-columns:minmax(0,1fr);gap:20px;margin:58px 0 42px}
+  .blender-intro h1{font-size:clamp(54px,13vw,72px);margin-top:12px}
+  .blender-intro-copy{padding-top:0}
+  .blender-intro-copy .blender-summary{font-size:16px}
+  .blender-intro-copy p,.blender-section-copy p,.blender-hero-caption p,.blender-project-notes p,.blender-media-note{font-size:12px}
+  .blender-meta{gap:10px;margin-top:22px}
+  .blender-meta dt,.blender-meta dd{font-size:9px}
+  .blender-hero{margin-bottom:76px}
+  .blender-media-labels{font-size:7px;letter-spacing:.8px}
+  .blender-hero-frame{aspect-ratio:1.15/1}
+  .blender-hero-portrait{height:calc(100% - 24px)}
+  .blender-hero-caption{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:18px}
+  .blender-hero-caption h2,.blender-section-copy h2,.blender-project-notes h2{font-size:34px}
+  .blender-section{margin-bottom:78px}
+  .blender-section-copy{margin-bottom:22px}
+  .blender-media-pair,.blender-development-grid{gap:18px}
+  .blender-project-notes{margin-bottom:36px;padding-top:26px}
+}
+
+@media (max-width:520px) {
+  .blender-media-pair,.blender-development-grid{grid-template-columns:minmax(0,1fr)}
+  .blender-media--portrait .blender-media-frame{aspect-ratio:.82/1}
 }
