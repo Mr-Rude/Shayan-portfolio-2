@@ -1,48 +1,45 @@
-import { useEffect, useRef, useState } from 'react';
 import Footer from './Footer.jsx';
 
-function YouTubeEmbed({ videoId, label, loadImmediately }) {
-  const containerRef = useRef(null);
-  const [shouldLoad, setShouldLoad] = useState(loadImmediately);
-
-  useEffect(() => {
-    if (loadImmediately || shouldLoad || !containerRef.current) return;
-    if (!('IntersectionObserver' in window)) {
-      setShouldLoad(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setShouldLoad(true);
-        observer.disconnect();
-      }
-    });
-    observer.observe(containerRef.current);
-    return () => observer.disconnect();
-  }, [loadImmediately, shouldLoad]);
+function YouTubeEmbed({ videoId, label }) {
+  const params = new URLSearchParams({
+    autoplay: '1',
+    mute: '1',
+    controls: '0',
+    playsinline: '1',
+    loop: '1',
+    playlist: videoId,
+    rel: '0',
+    enablejsapi: '1',
+    origin: window.location.origin,
+  });
 
   return (
-    <div className="headphones-youtube-embed" ref={containerRef}>
-      {shouldLoad && (
-        <iframe
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=${videoId}&rel=0`}
-          title={label}
-          allow="autoplay; encrypted-media; picture-in-picture"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
-      )}
+    <div className="headphones-youtube-embed">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?${params}`}
+        title={label}
+        allow="autoplay; encrypted-media; picture-in-picture"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        onLoad={(event) => {
+          const player = event.currentTarget.contentWindow;
+          window.setTimeout(() => {
+            for (const func of ['mute', 'playVideo']) {
+              player?.postMessage(JSON.stringify({ event: 'command', func, args: [] }), 'https://www.youtube-nocookie.com');
+            }
+          }, 300);
+        }}
+      />
     </div>
   );
 }
 
-function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, loadImmediately = false }) {
+function MediaPlaceholder({ label, kind = 'image', wide = false, videoId }) {
   return (
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
       <div className="headphones-media-surface" aria-hidden={videoId ? undefined : true}>
         {videoId ? (
-          <YouTubeEmbed videoId={videoId} label={label} loadImmediately={loadImmediately} />
+          <YouTubeEmbed videoId={videoId} label={label} />
         ) : (
           <span>{kind === 'video' ? 'Video placeholder' : 'Image placeholder'}</span>
         )}
@@ -101,7 +98,7 @@ export default function HeadphonesCaseStudy({ project }) {
         </div>
       </div>
 
-      <MediaPlaceholder label="Final render / headphones" kind="video" wide videoId="G3YcTGkSOL8" loadImmediately />
+      <MediaPlaceholder label="Final render / headphones" kind="video" wide videoId="G3YcTGkSOL8" />
 
       <div className="headphones-bridge">
         <h2>From the whole form<br />to the smallest details.</h2>
