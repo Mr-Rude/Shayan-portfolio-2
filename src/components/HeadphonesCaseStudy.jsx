@@ -1,3 +1,11 @@
+import section2Left from '../assets/GPT/2 L.png';
+import section2Right from '../assets/GPT/2 R.png';
+import section3Left from '../assets/GPT/3 L.png';
+import section3Right from '../assets/GPT/3 R.png';
+import section4Left from '../assets/GPT/4L.png';
+import section4Right from '../assets/GPT/4R.png';
+import section5Left from '../assets/GPT/5L.png';
+import section5Right from '../assets/GPT/5R.png';
 import Footer from './Footer.jsx';
 
 function YouTubeEmbed({ videoId, label }) {
@@ -25,12 +33,14 @@ function YouTubeEmbed({ videoId, label }) {
   );
 }
 
-function MediaPlaceholder({ label, kind = 'image', wide = false, videoId }) {
+function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, image }) {
   return (
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
-      <div className="headphones-media-surface" aria-hidden={videoId ? undefined : true}>
+      <div className="headphones-media-surface" aria-hidden={videoId || image ? undefined : true}>
         {videoId ? (
           <YouTubeEmbed videoId={videoId} label={label} />
+        ) : image ? (
+          <img src={image} alt={label} />
         ) : (
           <span>{kind === 'video' ? 'Video placeholder' : 'Image placeholder'}</span>
         )}
@@ -102,8 +112,8 @@ export default function HeadphonesCaseStudy({ project }) {
         title="Direct, inspect, refine."
         description="The Blender production was carried out by Astra through prompts and visual feedback. Screenshots became a way to specify changes: mark an unwanted contour, indicate a joint center, or draw the intended curve, then review the next version."
         media={[
-          { label: 'Visual direction / intended support contour' },
-          { label: 'Visual direction / alignment and joint center' },
+          { label: 'Visual direction / joint alignment and center', image: section2Left },
+          { label: 'Visual direction / refined support contour', image: section2Right },
         ]}
       />
 
@@ -113,8 +123,8 @@ export default function HeadphonesCaseStudy({ project }) {
         title="Small corrections. A clearer silhouette."
         description="The development images focus on the curved support around each earcup and its transition into the upper joint. Drawn guides identify changes to thickness, curvature and surface continuity, giving each revision a specific visual target."
         media={[
-          { label: 'Review / marked surface transitions' },
-          { label: 'Later iteration / revised support geometry' },
+          { label: 'Review / marked surface transitions', image: section3Left },
+          { label: 'Later iteration / revised support geometry', image: section3Right },
         ]}
       />
 
@@ -124,10 +134,10 @@ export default function HeadphonesCaseStudy({ project }) {
         title="Movement built around the joints."
         description="The Blender setup includes controls for headband height, earcup swivel and tilt, plus a shared fold control. Joint annotations call out alignment and pivot placement; the viewport recording shows the model being inspected in different poses."
         media={[
-          { label: 'Blender controls / height, swivel, tilt and fold' },
-          { label: 'Alternate view / earcup swivel and articulation' },
+          { label: 'Blender controls / height, swivel, tilt and fold', image: section4Left },
+          { label: 'Alternate view / earcup swivel and articulation', image: section4Right },
         ]}
-        wideMedia={{ label: 'Development recording / pose inspection', kind: 'video' }}
+        wideMedia={{ label: 'Development recording / pose inspection', kind: 'video', videoId: '-ZERodGxbns' }}
       />
 
       <StorySection
@@ -136,8 +146,8 @@ export default function HeadphonesCaseStudy({ project }) {
         title="Leather, mesh and metal."
         description="The finished surface treatment combines fine leather grain, stitched seams, woven grille detail and reflective metal supports. Cool studio lighting follows the edges and separates the dark cushions from the background."
         media={[
-          { label: 'Surface details / leather grain and stitching' },
-          { label: 'Final render / cushion and metal support' },
+          { label: 'Surface details / leather grain and stitching', image: section5Left },
+          { label: 'Final render / cushion and metal support', image: section5Right },
         ]}
       />
 
@@ -147,7 +157,7 @@ export default function HeadphonesCaseStudy({ project }) {
         title="The same sequence, through two views."
         description="The viewport and finished render share the same sequence of full product views and close details. Comparing them shows how surface treatment and lighting shape the final presentation."
         media={[
-          { label: 'Viewport sequence / scene geometry', kind: 'video' },
+          { label: 'Viewport sequence / scene geometry', kind: 'video', videoId: 'B-P0Ll4T6vY' },
           { label: 'Rendered sequence / materials and light', kind: 'video', videoId: 'G3YcTGkSOL8' },
         ]}
       />
@@ -158,8 +168,8 @@ export default function HeadphonesCaseStudy({ project }) {
         title="The result and the process."
         description="Short vertical edits present both the finished headphones and the work behind them. The second reel brings render comparisons, Blender views and prompt exchanges into the same story."
         media={[
-          { label: 'Social edit / finished result', kind: 'video' },
-          { label: 'Social edit / development and prompt workflow', kind: 'video' },
+          { label: 'Social Edits / Part One', kind: 'video', videoId: 'dKNTtbs1FdE' },
+          { label: 'Social Edits / Part Two', kind: 'video', videoId: 'g2ysDaxzilA' },
         ]}
       />
 
