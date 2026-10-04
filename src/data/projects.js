@@ -1,7 +1,7 @@
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
-const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT / AI'];
+const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
 const wideIndices = [0, 3, 6, 7];
@@ -9,7 +9,7 @@ const wideIndices = [0, 3, 6, 7];
 export const projects = Array.from({ length: 12 }, (_, i) => ({
   id: ids[i] || `additional-${i - 7}`,
   software: names[i] || 'To be selected',
-  title: i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
+  title: i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
   tone: tones[i] || '',
   format: wideIndices.includes(i) ? 'wide' : 'portrait',
 }));

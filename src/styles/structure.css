@@ -49,3 +49,46 @@ header{height:var(--nav-height)}
  .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
  .portfolio-grid .card-copy h3{font-size:15px}
 }
+
+.wrap.detail.headphones-case-study{width:min(1140px,calc(100% - 64px));max-width:none;padding:42px 0 0}
+.headphones-case-study .back{margin-bottom:34px}
+.headphones-intro{display:grid;grid-template-columns:1.05fr .8fr;gap:clamp(48px,10vw,150px);align-items:start;margin:0 0 42px}
+.headphones-intro h1{max-width:600px;margin:0;font-size:68px;font-weight:400;line-height:.98;letter-spacing:0}
+.headphones-intro-copy p,.headphones-bridge p,.headphones-section-copy p,.headphones-notes>p{color:var(--muted);font-size:13px;line-height:1.75;margin:0 0 14px}
+.headphones-intro-copy .headphones-summary{font-size:16px;line-height:1.5;color:var(--text);margin:16px 0}
+.headphones-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:28px 0 0;padding-top:16px;border-top:1px solid var(--line)}
+.headphones-meta div{min-width:0}
+.headphones-meta dt,.headphones-meta dd{font-size:9px;line-height:1.6;margin:0}
+.headphones-meta dt{color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.headphones-meta dd{color:var(--text)}
+.headphones-media{min-width:0;margin:0}
+.headphones-media-surface{position:relative;display:grid;place-items:center;overflow:hidden;border:1px solid #ffffff18;border-radius:3px;background:radial-gradient(ellipse at 50% 45%,#132332 0,#0b1017 48%,#080a0d 100%);aspect-ratio:1 / 1}
+.headphones-media-surface:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff08,transparent 48%,#0003);pointer-events:none}
+.headphones-media-surface span{position:relative;z-index:1;display:grid;place-items:center;width:78%;height:100%;padding:12px;border:1px solid #ffffff20;background:linear-gradient(155deg,#152b37,#0c1118 65%,#101924);color:#aeb9c0;text-align:center;text-transform:uppercase;font-size:9px;letter-spacing:1.5px}
+.headphones-youtube-embed{position:absolute;inset:0}
+.headphones-youtube-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.headphones-media--image .headphones-media-surface span{width:100%;height:100%;background:linear-gradient(145deg,#182128,#101316 60%,#18191b);border:0}
+.headphones-media figcaption{margin-top:8px;color:#777987;font-size:8px;line-height:1.5;text-transform:uppercase;letter-spacing:1.2px}
+.headphones-media--wide .headphones-media-surface{aspect-ratio:1.86 / 1}
+.headphones-case-study>.headphones-media:first-of-type{margin:0 0 16px}
+.headphones-case-study>.headphones-media:first-of-type .headphones-media-surface{background:radial-gradient(ellipse at center,#14202b 0,#0c1118 62%,#090a0d 100%);aspect-ratio:1.86 / 1}
+.headphones-case-study>.headphones-media:first-of-type .headphones-media-surface span{width:min(36%,320px);aspect-ratio:9 / 16;height:calc(100% - 24px)}
+.headphones-case-study>.headphones-media:first-of-type .headphones-media-surface iframe{inset:12px auto 12px 50%;transform:translateX(-50%);width:min(36%,320px);height:calc(100% - 24px)}
+.headphones-bridge{display:grid;grid-template-columns:1fr .55fr;gap:38px;align-items:start;margin:26px 0 100px}
+.headphones-bridge h2,.headphones-section-copy h2,.headphones-notes h2{font-size:42px;font-weight:400;line-height:1.02;margin:0}
+.headphones-bridge p{margin-top:4px}
+.headphones-section{margin:0 0 112px}
+.headphones-section-copy{max-width:570px;margin:0 0 34px}
+.headphones-section-copy .eyebrow,.headphones-notes .eyebrow{color:#a3a3ad}
+.headphones-section-copy h2{max-width:540px;margin:0 0 18px}
+.headphones-section-copy p{max-width:570px}
+.headphones-media-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;align-items:center}
+.headphones-media-pair .headphones-media:nth-child(even){transform:translateY(30px)}
+.headphones-media--video:not(.headphones-media--wide) .headphones-media-surface{aspect-ratio:.78 / 1}
+.headphones-section:nth-of-type(5) .headphones-media--video .headphones-media-surface,.headphones-section:nth-of-type(6) .headphones-media--video .headphones-media-surface{aspect-ratio:.76 / 1}
+.headphones-section>.headphones-media--wide{margin-top:40px}
+.headphones-notes{display:grid;grid-template-columns:1fr .72fr;gap:50px;align-items:start;padding:42px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.headphones-notes h2{margin-top:16px}
+.headphones-notes>p{margin-top:22px}
+.headphones-case-study .detail-end{padding:36px 0}
+.headphones-case-study footer{width:100%;margin:0;padding-bottom:30px}

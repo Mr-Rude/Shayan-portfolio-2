@@ -637,3 +637,35 @@
 @media (max-width:370px) {
   .name { font-size:19px; }
 }
+
+@media (max-width:760px) {
+  .wrap.detail.headphones-case-study{width:calc(100% - 32px);padding:28px 0 0}
+  .headphones-case-study .back{margin-bottom:28px}
+  .headphones-intro{grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:28px}
+  .headphones-intro h1{max-width:520px;font-size:52px;line-height:1}
+  .headphones-intro-copy p,.headphones-bridge p,.headphones-section-copy p,.headphones-notes>p{font-size:12px}
+  .headphones-intro-copy .headphones-summary{font-size:15px}
+  .headphones-meta{gap:8px;margin-top:22px}
+  .headphones-meta dt,.headphones-meta dd{font-size:8px}
+  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface{aspect-ratio:1.15 / 1}
+  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface span{width:58%;height:calc(100% - 20px)}
+  .headphones-case-study>.headphones-media:first-of-type .headphones-media-surface iframe{inset:10px auto 10px 50%;width:58%;height:calc(100% - 20px)}
+  .headphones-bridge{grid-template-columns:minmax(0,1fr);gap:12px;margin:26px 0 72px}
+  .headphones-bridge h2,.headphones-section-copy h2,.headphones-notes h2{font-size:34px}
+  .headphones-section{margin-bottom:76px}
+  .headphones-section-copy{margin-bottom:22px}
+  .headphones-media-pair{gap:18px}
+  .headphones-media-pair .headphones-media:nth-child(even){transform:translateY(18px)}
+  .headphones-section>.headphones-media--wide{margin-top:30px}
+  .headphones-notes{grid-template-columns:minmax(0,1fr);gap:12px;padding:30px 0}
+  .headphones-notes>p{margin-top:0}
+}
+
+@media (max-width:520px) {
+  .headphones-intro h1{font-size:46px}
+  .headphones-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .headphones-media-pair{grid-template-columns:minmax(0,1fr);gap:22px}
+  .headphones-media-pair .headphones-media:nth-child(even){transform:none}
+  .headphones-media-surface{aspect-ratio:1.12 / 1}
+  .headphones-media--video:not(.headphones-media--wide) .headphones-media-surface{aspect-ratio:.88 / 1}
+}

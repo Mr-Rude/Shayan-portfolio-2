@@ -1,5 +1,6 @@
 import { caseStudy } from '../data/projects.js';
 import Footer from './Footer.jsx';
+import HeadphonesCaseStudy from './HeadphonesCaseStudy.jsx';
 
 // Media block. Every card on a case study takes the project's colour tone.
 function Media({ label, wide = false, tone }) {
@@ -14,6 +15,10 @@ function Media({ label, wide = false, tone }) {
 export default function ProjectPage({ project }) {
   const c = caseStudy(project);
   const tone = project.tone;
+
+  if (project.id === 'gpt-ai') {
+    return <HeadphonesCaseStudy project={project} />;
+  }
 
   return (
     <main className="wrap detail open" id="project">
