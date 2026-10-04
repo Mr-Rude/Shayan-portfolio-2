@@ -32,7 +32,7 @@ function SelectedProjects() {
             {indices.map((i) => (
               <div className="project-tile" key={projects[i].id}>
                 <h3 className="software-heading">{projects[i].software}</h3>
-                <ProjectCard project={projects[i]} index={i} />
+                <ProjectCard project={projects[i]} index={i} homepage />
               </div>
             ))}
           </div>
