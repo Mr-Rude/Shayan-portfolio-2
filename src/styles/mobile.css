@@ -685,8 +685,8 @@
   .blender-meta dt,.blender-meta dd{font-size:9px}
   .blender-hero{margin-bottom:76px}
   .blender-media-labels{font-size:7px;letter-spacing:.8px}
-  .blender-hero-frame{aspect-ratio:1.15/1}
-  .blender-hero-portrait{height:calc(100% - 24px)}
+  .blender-hero-frame{aspect-ratio:9/16}
+  .blender-hero-portrait{height:100%}
   .blender-hero-caption{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:18px}
   .blender-hero-caption h2,.blender-section-copy h2,.blender-project-notes h2{font-size:34px}
   .blender-section{margin-bottom:78px}

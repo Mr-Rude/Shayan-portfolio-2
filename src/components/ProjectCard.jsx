@@ -27,7 +27,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
         />
       )}
       <span className="media-label">
-        {pad(index + 1)} / {showVideo ? 'AI HEADPHONES PREVIEW' : placeholder}
+        {pad(index + 1)} / {showVideo ? `${project.software.toUpperCase()} VIDEO PREVIEW` : placeholder}
       </span>
       <span className="ratio">{ratio}</span>
       <div className="card-copy">

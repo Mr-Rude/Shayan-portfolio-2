@@ -12,7 +12,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
   title: i === 1 ? 'Magical Orb Environment' : i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
   tone: tones[i] || '',
   format: wideIndices.includes(i) ? 'wide' : 'portrait',
-  videoId: i === 7 ? 'G3YcTGkSOL8' : null,
+  videoId: i === 1 ? 'pXEKJn-RP54' : i === 7 ? 'G3YcTGkSOL8' : null,
 }));
 
 // Homepage project stages: each inner array is one full-screen stage.

@@ -1,9 +1,44 @@
+import section2Left from '../assets/Blender/2L.png';
+import section2Right from '../assets/Blender/2R.png';
+import section3Left from '../assets/Blender/3L.png';
+import section3Right from '../assets/Blender/3R.png';
+import section4Left from '../assets/Blender/4L.png';
+import section4Right from '../assets/Blender/4R.png';
+import section5Left from '../assets/Blender/5L.png';
+import section5Right from '../assets/Blender/5R.png';
 import Footer from './Footer.jsx';
 
-function MediaSlot({ label, shape = 'landscape' }) {
+function youtubeEmbedUrl(videoId) {
+  const params = new URLSearchParams({
+    autoplay: '1',
+    mute: '1',
+    controls: '0',
+    playsinline: '1',
+    loop: '1',
+    playlist: videoId,
+    rel: '0',
+  });
+  return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
+}
+
+function MediaSlot({ label, shape = 'landscape', image, videoId }) {
   return (
     <figure className={`blender-media blender-media--${shape}`}>
-      <div className="blender-media-frame" aria-hidden="true" />
+      <div className="blender-media-frame" aria-hidden={image || videoId ? undefined : true}>
+        {image ? (
+          <img src={image} alt={label} />
+        ) : videoId ? (
+          <iframe
+            className="blender-media-video"
+            src={youtubeEmbedUrl(videoId)}
+            title={label}
+            allow="autoplay; encrypted-media; picture-in-picture"
+            loading="eager"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        ) : null}
+      </div>
       <figcaption>{label}</figcaption>
     </figure>
   );
@@ -44,7 +79,7 @@ function StorySection({ number, title, heading, description, media, note }) {
 export default function BlenderCaseStudy({ project }) {
   return (
     <main className="wrap detail open blender-case-study" id="project">
-      <header className="blender-intro">
+      <div className="blender-intro">
         <div>
           <div className="eyebrow">Selected project / Dark fantasy environment</div>
           <h1>{project.title}</h1>
@@ -62,15 +97,25 @@ export default function BlenderCaseStudy({ project }) {
             <div><dt>Format</dt><dd>9 seconds · 24 fps<br />1080 × 1920</dd></div>
           </dl>
         </div>
-      </header>
+      </div>
 
       <section className="blender-hero">
         <div className="blender-media-labels">
           <span>01 / Final cinematic render</span>
           <span>Portrait reel · Sound available</span>
         </div>
-        <div className="blender-hero-frame" aria-hidden="true">
-          <div className="blender-hero-portrait" />
+        <div className="blender-hero-frame">
+          <div className="blender-hero-portrait">
+            <iframe
+              className="blender-hero-video"
+              src={youtubeEmbedUrl('pXEKJn-RP54')}
+              title="Final cinematic render / Blender"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              loading="eager"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
         </div>
         <div className="blender-hero-caption">
           <h2>Magic rising from ancient ruins.</h2>
@@ -86,8 +131,8 @@ export default function BlenderCaseStudy({ project }) {
         heading="A magical orb. An ancient setting."
         description="The floating orb is the central subject, framed by ancient stone ruins. Swirling energy strands lead the eye around it, while broken masonry and surrounding vegetation establish the environment. The composition places the magical presence at the heart of the scene."
         media={[
-          { label: 'Blender process / scene structure in solid view', shape: 'square' },
-          { label: 'Final composition / magical orb and ancient ruins', shape: 'square' },
+          { label: 'Blender process / scene structure in solid view', shape: 'portrait', image: section2Left },
+          { label: 'Final composition / magical orb and ancient ruins', shape: 'portrait', image: section2Right },
         ]}
       />
 
@@ -97,8 +142,8 @@ export default function BlenderCaseStudy({ project }) {
         heading="Shaping the magical orb."
         description="The orb takes shape through Geometry Nodes in Blender. A noise-based displacement changes the sphere into an irregular form, giving the magical subject its distinctive silhouette before materials and lighting are added."
         media={[
-          { label: 'Orb development / base sphere to displaced form', shape: 'portrait' },
-          { label: 'Geometry nodes / noise-driven position offset', shape: 'landscape' },
+          { label: 'Orb development / base sphere to displaced form', shape: 'portrait', image: section3Left },
+          { label: 'Geometry nodes / noise-driven position offset', shape: 'landscape', image: section3Right },
         ]}
         note="Noise is centered with a 0.5 vector subtraction, then scaled by 0.7 before displacing the sphere."
       />
@@ -109,8 +154,8 @@ export default function BlenderCaseStudy({ project }) {
         heading="Building a dark fantasy atmosphere."
         description="Layered materials and lighting define the orb, energy strands and weathered ruins. Blue-green reflections and warmer accents give the magical elements contrast against the dark setting. VFX and the final composition bring these elements into a cinematic fantasy atmosphere."
         media={[
-          { label: 'Solid view / magical orb geometry', shape: 'square' },
-          { label: 'Material preview / magical orb surface', shape: 'square' },
+          { label: 'Solid view / magical orb geometry', shape: 'square', image: section4Left },
+          { label: 'Material preview / magical orb surface', shape: 'square', image: section4Right },
         ]}
       />
 
@@ -120,8 +165,8 @@ export default function BlenderCaseStudy({ project }) {
         heading="Energy in motion around the orb."
         description="Swirling energy strands wrap around the floating orb, opening and gathering as the animation progresses. Their movement gives the magical subject a changing silhouette within the ancient stone setting."
         media={[
-          { label: 'Energy strands / extended swirl', shape: 'square' },
-          { label: 'Energy strands / gathered around the orb', shape: 'square' },
+          { label: 'Energy strands / starting swirls', shape: 'portrait', image: section5Left },
+          { label: 'Energy strands / extended swirls', shape: 'portrait', image: section5Right },
         ]}
       />
 
@@ -131,8 +176,8 @@ export default function BlenderCaseStudy({ project }) {
         heading="From solid view to cinematic render."
         description="The process moves from basic scene structure in solid view to material preview and the final cinematic render. These comparisons show how the orb, energy strands and ruins develop into the finished dark fantasy environment through materials, lighting, VFX and composition."
         media={[
-          { label: 'Blender process / solid view to material preview', shape: 'landscape' },
-          { label: 'Blender process / solid view to final cinematic render', shape: 'landscape' },
+          { label: 'Blender process / solid view to material preview', shape: 'vertical', videoId: 'XBPCd8bng1g' },
+          { label: 'Blender process / solid view to final cinematic render', shape: 'vertical', videoId: 'pXEKJn-RP54' },
         ]}
       />
 

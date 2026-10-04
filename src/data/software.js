@@ -11,7 +11,7 @@ import gptLogo from '../assets/logos/GPT.svg';
 // `cls` sets position, colour and entrance delay (see styles.css / effects.css).
 export const software = [
   { cls: 'u', mark: unrealLogo, label: 'Unreal preview', title: 'UNREAL ENGINE', lines: ['Project reel appears here on hover.', 'Video to be selected.'] },
-  { cls: 'b', mark: blenderLogo, label: 'Blender preview', title: 'BLENDER', lines: ['Matching project video'] },
+  { cls: 'b', mark: blenderLogo, label: 'Blender preview', title: 'BLENDER', lines: ['Matching project video'], videoId: 'pXEKJn-RP54' },
   { cls: 'm', mark: mayaLogo, label: 'Maya preview', title: 'MAYA', lines: ['Matching project video'] },
   { cls: 'pr', mark: premiereLogo, label: 'Premiere preview', title: 'PREMIERE PRO', lines: ['Matching project video'] },
   { cls: 'ai', mark: illustratorLogo, label: 'Illustrator preview', title: 'ILLUSTRATOR', lines: ['Matching project preview'] },
