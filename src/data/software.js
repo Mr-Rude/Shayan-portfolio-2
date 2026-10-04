@@ -17,5 +17,5 @@ export const software = [
   { cls: 'ai', mark: illustratorLogo, label: 'Illustrator preview', title: 'ILLUSTRATOR', lines: ['Matching project preview'] },
   { cls: 'ae', mark: afterEffectsLogo, label: 'After Effects preview', title: 'AFTER EFFECTS', lines: ['Matching project video'] },
   { cls: 'pt', mark: texturingLogo, label: 'Texturing preview', title: 'TEXTURING', lines: ['Matching project video'] },
-  { cls: 'gpt', mark: gptLogo, label: 'GPT AI work preview', title: 'AI / GPT', lines: ['Your AI-assisted project preview.', 'Work to be selected.'] },
+  { cls: 'gpt', mark: gptLogo, label: 'GPT AI work preview', title: 'AI / GPT', lines: ['Your AI-assisted project preview.', 'Work to be selected.'], videoId: 'G3YcTGkSOL8' },
 ];

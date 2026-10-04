@@ -669,3 +669,9 @@
   .headphones-media-surface{aspect-ratio:1.12 / 1}
   .headphones-media--video:not(.headphones-media--wide) .headphones-media-surface{aspect-ratio:.88 / 1}
 }
+
+@media (max-width:760px) {
+  .home .logo.gpt{pointer-events:auto}
+  .home .logo.gpt.is-preview-open .peek{display:flex;width:min(220px,calc(100vw - 32px));height:auto;max-height:56svh;gap:8px;pointer-events:auto}
+  .home .logo.gpt .logo-preview-video{width:min(128px,100%);max-height:38svh}
+}
