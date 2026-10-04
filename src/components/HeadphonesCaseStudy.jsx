@@ -9,8 +9,6 @@ function YouTubeEmbed({ videoId, label }) {
     loop: '1',
     playlist: videoId,
     rel: '0',
-    enablejsapi: '1',
-    origin: window.location.origin,
   });
 
   return (
@@ -19,16 +17,9 @@ function YouTubeEmbed({ videoId, label }) {
         src={`https://www.youtube-nocookie.com/embed/${videoId}?${params}`}
         title={label}
         allow="autoplay; encrypted-media; picture-in-picture"
+        loading="eager"
         referrerPolicy="strict-origin-when-cross-origin"
         allowFullScreen
-        onLoad={(event) => {
-          const player = event.currentTarget.contentWindow;
-          window.setTimeout(() => {
-            for (const func of ['mute', 'playVideo']) {
-              player?.postMessage(JSON.stringify({ event: 'command', func, args: [] }), 'https://www.youtube-nocookie.com');
-            }
-          }, 300);
-        }}
       />
     </div>
   );
