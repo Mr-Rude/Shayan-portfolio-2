@@ -2,6 +2,7 @@ import { caseStudy } from '../data/projects.js';
 import Footer from './Footer.jsx';
 import BlenderCaseStudy from './BlenderCaseStudy.jsx';
 import HeadphonesCaseStudy from './HeadphonesCaseStudy.jsx';
+import AfterEffectsCaseStudy from './AfterEffectsCaseStudy.jsx';
 
 // Media block. Every card on a case study takes the project's colour tone.
 function Media({ label, wide = false, tone }) {
@@ -22,6 +23,9 @@ export default function ProjectPage({ project }) {
   }
   if (project.id === 'blender') {
     return <BlenderCaseStudy project={project} />;
+  }
+  if (project.id === 'after-effects') {
+    return <AfterEffectsCaseStudy project={project} />;
   }
 
   return (

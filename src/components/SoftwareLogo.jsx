@@ -3,7 +3,7 @@ import { Fragment, useState } from 'react';
 /**
  * A floating software mark. Mouse and keyboard users see the preview on hover/focus (CSS).
  */
-export default function SoftwareLogo({ cls, mark, label, title, lines, videoId }) {
+export default function SoftwareLogo({ cls, mark, label, title, lines, videoId, videoOrientation = 'portrait' }) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const icon = typeof mark === 'string' ? (
     <img src={mark} alt={label} />
@@ -30,7 +30,7 @@ export default function SoftwareLogo({ cls, mark, label, title, lines, videoId }
       <span className="peek">
         {title}
         {videoId && previewOpen ? (
-          <span className="logo-preview-video">
+          <span className={`logo-preview-video logo-preview-video--${videoOrientation}`}>
             <iframe
               src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=${videoId}&rel=0`}
               title={`${title} video preview`}
