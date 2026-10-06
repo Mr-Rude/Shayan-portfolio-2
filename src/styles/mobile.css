@@ -732,7 +732,7 @@
   .unreal-intro{grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:30px}
   .unreal-intro h1{font-size:clamp(50px,13vw,68px)}
   .unreal-intro-copy .unreal-summary{margin-top:0}
-  .unreal-intro-copy p,.unreal-section-copy p,.unreal-caption p,.unreal-notes>p{font-size:12px}
+  .unreal-intro-copy p,.unreal-section-copy p,.unreal-caption p,.unreal-notes-copy p{font-size:12px}
   .unreal-meta{gap:9px;margin-top:22px}
   .unreal-meta dt,.unreal-meta dd{font-size:8px}
   .unreal-hero{margin-bottom:72px}
@@ -743,16 +743,18 @@
   .unreal-section-copy{margin-bottom:22px}
   .unreal-pair,.unreal-trio{gap:16px}
   .unreal-pair .unreal-media:nth-child(even){transform:translateY(18px)}
-  .unreal-chase-pair{grid-template-columns:1fr;gap:22px}
-  .unreal-chase-pair .unreal-media:first-child,.unreal-chase-pair .unreal-media:last-child{grid-column:1;grid-row:auto;transform:none}
-  .unreal-blueprint{width:82%;margin-bottom:20px}
+  .unreal-shot-stack{grid-template-columns:1fr;gap:22px}
+  .unreal-shot-stack .unreal-media:first-child,.unreal-shot-stack .unreal-media:last-child{grid-column:1;transform:none}
+  .unreal-secondary-media{width:100%}
+  .unreal-process{grid-template-columns:minmax(0,1fr);gap:0;margin-bottom:28px}
+  .unreal-process .unreal-section-copy{margin-bottom:22px}
+  .unreal-material-grid{gap:16px}
+  .unreal-disclosure-media,.unreal-disclosure-media--wide{width:100%}
   .unreal-notes{padding:30px 0}
 }
 
 @media (max-width:520px) {
-  .unreal-pair,.unreal-trio{grid-template-columns:minmax(0,1fr);gap:22px}
+  .unreal-pair,.unreal-trio,.unreal-material-grid{grid-template-columns:minmax(0,1fr);gap:22px}
   .unreal-pair .unreal-media:nth-child(even){transform:none}
   .unreal-trio .unreal-media:nth-child(2),.unreal-trio .unreal-media:nth-child(3){transform:none}
-  .unreal-pair--video .unreal-media-frame{aspect-ratio:1.15 / 1}
-  .unreal-blueprint{width:100%}
 }

@@ -177,7 +177,7 @@ header{height:var(--nav-height)}
 .wrap.detail.unreal-case-study{width:min(980px,calc(100% - 64px));max-width:none;padding:42px 0 36px}
 .unreal-intro{display:grid;grid-template-columns:1fr .78fr;gap:clamp(48px,9vw,130px);align-items:start;margin:0 0 42px}
 .unreal-intro h1{max-width:580px;margin:0;font-size:clamp(56px,6vw,76px);font-weight:400;line-height:.94;letter-spacing:-.055em}
-.unreal-intro-copy p,.unreal-section-copy p,.unreal-caption p,.unreal-notes>p{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 12px}
+.unreal-intro-copy p,.unreal-section-copy p,.unreal-caption p,.unreal-notes-copy p{color:var(--muted);font-size:12px;line-height:1.7;margin:0 0 12px}
 .unreal-intro-copy .unreal-summary{font-size:14px;line-height:1.55;color:var(--text);margin:20px 0 12px}
 .unreal-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 0;padding-top:14px;border-top:1px solid var(--line)}
 .unreal-meta div{min-width:0}
@@ -187,11 +187,15 @@ header{height:var(--nav-height)}
 .unreal-hero{margin-bottom:94px}
 .unreal-labels{display:flex;justify-content:space-between;gap:15px;margin-bottom:10px;color:#858691;font-size:8px;text-transform:uppercase;letter-spacing:1.1px}
 .unreal-media{min-width:0;margin:0}
-.unreal-media-frame{position:relative;overflow:hidden;border:1px solid #ffffff18;background:#111;aspect-ratio:1.45 / 1}
+.unreal-media-frame{position:relative;overflow:hidden;border:1px solid #ffffff18;background:#08090e;aspect-ratio:1.45 / 1}
 .unreal-media-frame>img{display:block;width:100%;height:100%;object-fit:contain}
 .unreal-media-frame>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.unreal-media-frame--image{aspect-ratio:auto;background:transparent}
+.unreal-media-frame--image>img{height:auto}
 .unreal-media figcaption{margin-top:7px;color:#777987;font-size:7px;line-height:1.5;text-transform:uppercase;letter-spacing:1px}
 .unreal-media--wide .unreal-media-frame{aspect-ratio:16 / 9}
+.unreal-media--wide .unreal-media-frame--image{aspect-ratio:auto}
+.unreal-media--portrait .unreal-media-frame{aspect-ratio:.78 / 1}
 .unreal-caption{display:grid;grid-template-columns:1fr .58fr;gap:34px;align-items:start;margin-top:18px}
 .unreal-caption h2,.unreal-section-copy h2,.unreal-notes h2{font-size:34px;font-weight:400;line-height:1.04;letter-spacing:-.035em;margin:0}
 .unreal-caption p{margin:4px 0 0}
@@ -200,16 +204,26 @@ header{height:var(--nav-height)}
 .unreal-section-copy .eyebrow,.unreal-notes .eyebrow{color:#a3a3ad}
 .unreal-section-copy h2{margin:0 0 14px}
 .unreal-section-copy p{max-width:560px}
+.unreal-section-copy p>span{display:block}
+.unreal-section-copy p>span+span{margin-top:12px}
 .unreal-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;align-items:center}
 .unreal-pair .unreal-media:nth-child(even){transform:translateY(26px)}
 .unreal-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:center}
 .unreal-trio .unreal-media:nth-child(2){transform:translateY(24px)}
 .unreal-trio .unreal-media:nth-child(3){transform:translateY(48px)}
-.unreal-chase-pair{display:grid;grid-template-columns:1.2fr .88fr;gap:20px;align-items:center}
-.unreal-chase-pair .unreal-media:first-child{grid-column:1;grid-row:1}
-.unreal-chase-pair .unreal-media:last-child{grid-column:2;grid-row:1;transform:translateY(42px)}
-.unreal-blueprint{width:62%;margin:0 0 28px auto}
+.unreal-material-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.unreal-shot-stack{display:grid;grid-template-columns:1fr .62fr;gap:20px}
+.unreal-shot-stack .unreal-media:first-child{grid-column:1 / -1}
+.unreal-shot-stack .unreal-media:last-child{grid-column:2}
+.unreal-secondary-media{width:78%;margin:30px auto 0}
+.unreal-process{display:grid;grid-template-columns:.78fr 1.22fr;gap:28px;align-items:center;margin-bottom:28px}
+.unreal-process .unreal-section-copy{margin:0}
 .unreal-pair--video .unreal-media-frame{aspect-ratio:.78 / 1}
+.unreal-disclosure{margin-top:28px;padding:14px 0 0;border-top:1px solid var(--line);font-size:10px}
+.unreal-disclosure summary{width:max-content;max-width:100%;cursor:pointer;color:var(--text)}
+.unreal-disclosure-media{width:40%;max-width:320px;margin:20px auto 0}
+.unreal-disclosure-media--wide{width:70%;max-width:640px}
 .unreal-notes{display:grid;grid-template-columns:1fr .62fr;gap:42px;align-items:start;padding:36px 0 42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.unreal-notes p{margin:5px 0 0}
+.unreal-notes-copy p{margin:5px 0 14px}
+.unreal-notes-copy .unreal-disclaimer{font-size:8px}
 .unreal-case-study footer{width:100%;margin:0}
