@@ -16,7 +16,8 @@ export const experience = [
 export const contacts = [
   { label: 'Location', text: 'Doha, Qatar', href: null },
   { label: 'Phone', text: '+974 6640 7511', href: 'tel:+97466407511' },
+  { label: 'WhatsApp', text: '+974 6640 7511', href: 'https://wa.me/97466407511' },
   { label: 'Email', text: 'shayankhan3103@gmail.com', href: 'mailto:shayankhan3103@gmail.com' },
-  { label: 'Behance', text: 'behance.net/shayansk', href: 'https://behance.net/shayansk' },
-  { label: 'Instagram', text: 'shayan.sk_renders', href: 'https://instagram.com/shayan.sk_renders' },
+  { label: 'Behance', text: 'behance.net/shayansk', href: 'https://www.behance.net/shayansk' },
+  { label: 'Instagram', text: 'Shayan.SK_renders', href: 'https://www.instagram.com/shayan.sk_renders/' },
 ];
