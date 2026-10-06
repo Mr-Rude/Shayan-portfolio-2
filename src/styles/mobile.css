@@ -639,6 +639,29 @@
 }
 
 @media (max-width:760px) {
+  .wrap.detail.maya-case-study{width:calc(100% - 32px);padding:30px 0 28px}
+  .maya-case-study .back{margin-bottom:28px}
+  .maya-intro{grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:30px}
+  .maya-intro h1{font-size:clamp(50px,13vw,68px)}
+  .maya-intro-copy{padding-top:0}
+  .maya-intro-copy .maya-summary{margin-top:0}
+  .maya-meta{gap:9px;margin-top:22px}
+  .maya-meta dt,.maya-meta dd{font-size:8px}
+  .maya-hero{margin-bottom:72px}
+  .maya-media-labels{font-size:7px;letter-spacing:.8px}
+  .maya-hero-caption,.maya-notes{grid-template-columns:minmax(0,1fr);gap:12px}
+  .maya-hero-caption h2,.maya-section-copy h2,.maya-notes h2{font-size:34px}
+  .maya-section{margin-bottom:74px}
+  .maya-section-copy{margin-bottom:22px}
+  .maya-gallery,.maya-section--trio .maya-gallery{gap:16px}
+  .maya-notes{padding:30px 0}
+}
+
+@media (max-width:520px) {
+  .maya-gallery,.maya-section--trio .maya-gallery{grid-template-columns:minmax(0,1fr);gap:22px}
+}
+
+@media (max-width:760px) {
   .wrap.detail.headphones-case-study{width:calc(100% - 32px);padding:28px 0 0}
   .headphones-case-study .back{margin-bottom:28px}
   .headphones-intro{grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:28px}

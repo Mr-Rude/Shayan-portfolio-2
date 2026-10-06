@@ -12,7 +12,7 @@ import gptLogo from '../assets/logos/GPT.svg';
 export const software = [
   { cls: 'u', mark: unrealLogo, label: 'Unreal preview', title: 'UNREAL ENGINE', lines: ['Hot Wheels fan-made commercial'], videoId: '1xUwqvB7zuI', videoOrientation: 'landscape' },
   { cls: 'b', mark: blenderLogo, label: 'Blender preview', title: 'BLENDER', lines: ['Matching project video'], videoId: 'pXEKJn-RP54' },
-  { cls: 'm', mark: mayaLogo, label: 'Maya preview', title: 'MAYA', lines: ['Matching project video'] },
+  { cls: 'm', mark: mayaLogo, label: 'Maya preview', title: 'MAYA', lines: ['The Last Code'], videoId: 'N0rUn0U5d_I', videoOrientation: 'landscape' },
   { cls: 'pr', mark: premiereLogo, label: 'Premiere preview', title: 'PREMIERE PRO', lines: ['Matching project video'] },
   { cls: 'ai', mark: illustratorLogo, label: 'Illustrator preview', title: 'ILLUSTRATOR', lines: ['Matching project preview'] },
   { cls: 'ae', mark: afterEffectsLogo, label: 'After Effects preview', title: 'AFTER EFFECTS', lines: ['Animation explainer'], videoId: 'flkgchLutFM', videoOrientation: 'landscape' },
