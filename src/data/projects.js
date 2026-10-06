@@ -9,10 +9,10 @@ const wideIndices = [0, 2, 3, 4, 5, 6];
 export const projects = Array.from({ length: 12 }, (_, i) => ({
   id: ids[i] || `additional-${i - 7}`,
   software: names[i] || 'To be selected',
-  title: i === 1 ? 'Magical Orb Environment' : i === 4 ? 'Types of 2D animation.' : i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
+  title: i === 0 ? 'Hot Wheels fan-made commercial' : i === 1 ? 'Magical Orb Environment' : i === 4 ? 'Types of 2D animation.' : i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
   tone: tones[i] || '',
   format: wideIndices.includes(i) ? 'wide' : 'portrait',
-  videoId: i === 1 ? 'pXEKJn-RP54' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null,
+  videoId: i === 0 ? 'jlNNxGAux4o' : i === 1 ? 'pXEKJn-RP54' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null,
 }));
 
 // Homepage project stages: each inner array is one full-screen stage.

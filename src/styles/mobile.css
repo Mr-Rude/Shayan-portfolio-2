@@ -726,3 +726,33 @@
   .ae-media-pair .ae-media:nth-child(even){transform:none}
   .ae-media-frame{aspect-ratio:1.2 / 1}
 }
+
+@media (max-width:760px) {
+  .wrap.detail.unreal-case-study{width:calc(100% - 32px);padding:30px 0 28px}
+  .unreal-intro{grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:30px}
+  .unreal-intro h1{font-size:clamp(50px,13vw,68px)}
+  .unreal-intro-copy .unreal-summary{margin-top:0}
+  .unreal-intro-copy p,.unreal-section-copy p,.unreal-caption p,.unreal-notes>p{font-size:12px}
+  .unreal-meta{gap:9px;margin-top:22px}
+  .unreal-meta dt,.unreal-meta dd{font-size:8px}
+  .unreal-hero{margin-bottom:72px}
+  .unreal-labels{font-size:7px;letter-spacing:.8px}
+  .unreal-caption,.unreal-notes{grid-template-columns:minmax(0,1fr);gap:12px}
+  .unreal-caption h2,.unreal-section-copy h2,.unreal-notes h2{font-size:34px}
+  .unreal-section{margin-bottom:74px}
+  .unreal-section-copy{margin-bottom:22px}
+  .unreal-pair,.unreal-trio{gap:16px}
+  .unreal-pair .unreal-media:nth-child(even){transform:translateY(18px)}
+  .unreal-chase-pair{grid-template-columns:1fr;gap:22px}
+  .unreal-chase-pair .unreal-media:first-child,.unreal-chase-pair .unreal-media:last-child{grid-column:1;grid-row:auto;transform:none}
+  .unreal-blueprint{width:82%;margin-bottom:20px}
+  .unreal-notes{padding:30px 0}
+}
+
+@media (max-width:520px) {
+  .unreal-pair,.unreal-trio{grid-template-columns:minmax(0,1fr);gap:22px}
+  .unreal-pair .unreal-media:nth-child(even){transform:none}
+  .unreal-trio .unreal-media:nth-child(2),.unreal-trio .unreal-media:nth-child(3){transform:none}
+  .unreal-pair--video .unreal-media-frame{aspect-ratio:1.15 / 1}
+  .unreal-blueprint{width:100%}
+}
