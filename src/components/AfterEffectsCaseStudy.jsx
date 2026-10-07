@@ -5,30 +5,33 @@ import section3Right from '../assets/After Effects/3R.png';
 import section4Left from '../assets/After Effects/4L.png';
 import section4Right from '../assets/After Effects/4R.png';
 import section5 from '../assets/After Effects/5.png';
+import explainerVideo from '../assets/After Effects/videos/2D Explainer Video.mp4';
 import Footer from './Footer.jsx';
 
-function youtubeEmbedUrl(videoId) {
+function youtubeEmbedUrl(videoId, audioEnabled = false) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: '1',
-    controls: '0',
+    mute: audioEnabled ? '0' : '1',
+    controls: audioEnabled ? '1' : '0',
     playsinline: '1',
-    loop: '1',
+    loop: audioEnabled ? '0' : '1',
     playlist: videoId,
     rel: '0',
   });
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
 }
 
-function Media({ label, image, videoId, wide = false }) {
+function Media({ label, image, videoId, videoSrc, wide = false, audioEnabled = false }) {
   return (
     <figure className={`ae-media${wide ? ' ae-media--wide' : ''}`}>
       <div className="ae-media-frame">
         {image ? (
           <img src={image} alt={label} />
+        ) : videoSrc ? (
+          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         ) : videoId ? (
           <iframe
-            src={youtubeEmbedUrl(videoId)}
+            src={youtubeEmbedUrl(videoId, audioEnabled)}
             title={label}
             allow="autoplay; encrypted-media; picture-in-picture"
             loading="eager"
@@ -85,7 +88,7 @@ export default function AfterEffectsCaseStudy() {
           <span>01 / Explainer film</span>
           <span>Four animation styles · 2D</span>
         </div>
-        <Media label="Types of 2D animation / explainer film" videoId="flkgchLutFM" wide />
+        <Media label="Types of 2D animation / explainer film" videoSrc={explainerVideo} wide />
         <div className="ae-hero-caption">
           <h2>One introduction.<br />Four ways to animate.</h2>
           <p>

@@ -107,7 +107,8 @@ header{height:var(--nav-height)}
 .home .logo:is(.b,.gpt) .logo-preview-video{width:min(120px,100%)}
 .logo-preview-video{position:relative;display:block;flex:none;align-self:center;width:min(120px,100%);height:auto;aspect-ratio:9 / 16;max-height:38svh;overflow:hidden;border-radius:4px;background:#0b1118}
 .logo-preview-video--landscape{width:min(195px,100%);aspect-ratio:16 / 9}
-.logo-preview-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.logo-preview-video iframe,.logo-preview-video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.logo-preview-video video{object-fit:cover}
 .home .logo.ae .peek{width:230px;height:auto;min-height:0;padding:12px;gap:9px}
 .projects .project-stage .video-preview .art{display:none}
 .home-video-preview{position:absolute;z-index:1;inset:0;width:100%;height:100%;border:0;pointer-events:none}
@@ -168,7 +169,8 @@ header{height:var(--nav-height)}
 .maya-hero{margin:0 0 92px}
 .maya-media-labels{display:flex;justify-content:space-between;gap:15px;margin-bottom:10px;color:#858691;font-size:8px;text-transform:uppercase;letter-spacing:1.1px}
 .maya-hero-frame{position:relative;overflow:hidden;aspect-ratio:16/9;border:1px solid #ffffff18;background:#08090c}
-.maya-hero-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.maya-hero-frame iframe,.maya-hero-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.maya-hero-frame video,.fisherman-video-panel video{object-fit:contain}
 .maya-hero-caption{display:grid;grid-template-columns:1fr .58fr;gap:34px;align-items:start;margin-top:18px}
 .maya-hero-caption h2,.maya-section-copy h2,.maya-notes h2{font-size:34px;font-weight:400;line-height:1.04;letter-spacing:-.035em;margin:0}
 .maya-hero-caption p{margin:4px 0 0}
@@ -206,7 +208,8 @@ header{height:var(--nav-height)}
 .ae-media{min-width:0;margin:0}
 .ae-media-frame{position:relative;overflow:hidden;border:1px solid #ffffff18;background:#f4f4f4;aspect-ratio:1.45 / 1}
 .ae-media-frame>img{display:block;width:100%;height:100%;object-fit:contain}
-.ae-media-frame>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ae-media-frame>iframe,.ae-media-frame>video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ae-media-frame>video{object-fit:contain}
 .ae-media figcaption{margin-top:7px;color:#777987;font-size:7px;line-height:1.5;text-transform:uppercase;letter-spacing:1px}
 .ae-media--wide .ae-media-frame{aspect-ratio:16 / 9}
 .ae-hero-caption{display:grid;grid-template-columns:1fr .58fr;gap:34px;align-items:start;margin-top:18px}
@@ -238,7 +241,7 @@ header{height:var(--nav-height)}
 .fisherman-hero{margin-bottom:44px}
 .fisherman-media-labels{display:flex;justify-content:space-between;gap:15px;margin-bottom:10px;color:#858691;font-size:8px;text-transform:uppercase;letter-spacing:1.1px}
 .fisherman-video-panel{position:relative;width:100%;aspect-ratio:16 / 9;border:1px solid #ffffff18;background:#08090c}
-.fisherman-video-panel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.fisherman-video-panel iframe,.fisherman-video-panel video{position:absolute;inset:0;width:100%;height:100%;border:0}
 .fisherman-bridge{display:grid;grid-template-columns:1fr .58fr;gap:34px;align-items:start;margin:0 0 76px}
 .fisherman-bridge h2,.fisherman-section-copy h2,.fisherman-notes h2{font-size:34px;font-weight:400;line-height:1.04;letter-spacing:-.035em;margin:0}
 .fisherman-bridge p{margin:4px 0 0}
@@ -274,7 +277,8 @@ header{height:var(--nav-height)}
 .unreal-media{min-width:0;margin:0}
 .unreal-media-frame{position:relative;overflow:hidden;border:1px solid #ffffff18;background:#08090e;aspect-ratio:1.45 / 1}
 .unreal-media-frame>img{display:block;width:100%;height:100%;object-fit:contain}
-.unreal-media-frame>iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.unreal-media-frame>iframe,.unreal-media-frame>video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.unreal-media-frame>video{object-fit:contain}
 .unreal-media-frame--image{aspect-ratio:auto;background:transparent}
 .unreal-media-frame--image>img{height:auto}
 .unreal-media figcaption{margin-top:7px;color:#777987;font-size:7px;line-height:1.5;text-transform:uppercase;letter-spacing:1px}

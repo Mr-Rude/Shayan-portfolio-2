@@ -7,7 +7,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
   const shape = square ? 'portfolio-card' : project.format === 'wide' ? 'wide' : '';
   const ratio = square ? '1:1' : project.format === 'wide' ? '16:9' : '9:16';
   const placeholder = index > 7 ? 'ADDITIONAL PROJECT PLACEHOLDER' : 'PROJECT MEDIA PLACEHOLDER';
-  const showVideo = homepage && Boolean(project.videoId);
+  const showVideo = homepage && Boolean(project.videoId || project.homeVideoSrc);
   const hasThumbnail = square && Boolean(project.thumbnailUrl);
   const cropThumbnail16x9 = hasThumbnail && project.thumbnailCrop16x9;
 
@@ -26,7 +26,19 @@ export default function ProjectCard({ project, index, square = false, homepage =
       ) : hasThumbnail ? (
         <img className="card-thumbnail" src={project.thumbnailUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
       ) : null}
-      {showVideo && (
+      {showVideo && project.homeVideoSrc && (
+        <video
+          className="home-video-preview"
+          src={project.homeVideoSrc}
+          title={`${project.title} video preview`}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="none"
+        />
+      )}
+      {showVideo && project.videoId && (
         <iframe
           className="home-video-preview"
           src={`https://www.youtube-nocookie.com/embed/${project.videoId}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=${project.videoId}&rel=0`}

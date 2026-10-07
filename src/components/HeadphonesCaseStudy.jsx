@@ -8,13 +8,13 @@ import section5Left from '../assets/GPT/5L.png';
 import section5Right from '../assets/GPT/5R.png';
 import Footer from './Footer.jsx';
 
-function YouTubeEmbed({ videoId, label }) {
+function YouTubeEmbed({ videoId, label, audioEnabled = false }) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: '1',
-    controls: '0',
+    mute: audioEnabled ? '0' : '1',
+    controls: audioEnabled ? '1' : '0',
     playsinline: '1',
-    loop: '1',
+    loop: audioEnabled ? '0' : '1',
     playlist: videoId,
     rel: '0',
   });
@@ -33,12 +33,12 @@ function YouTubeEmbed({ videoId, label }) {
   );
 }
 
-function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, image }) {
+function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, image, audioEnabled = false }) {
   return (
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
       <div className="headphones-media-surface" aria-hidden={videoId || image ? undefined : true}>
         {videoId ? (
-          <YouTubeEmbed videoId={videoId} label={label} />
+          <YouTubeEmbed videoId={videoId} label={label} audioEnabled={audioEnabled} />
         ) : image ? (
           <img src={image} alt={label} />
         ) : (
@@ -99,7 +99,7 @@ export default function HeadphonesCaseStudy({ project }) {
         </div>
       </div>
 
-      <MediaPlaceholder label="Final render / headphones" kind="video" videoId="G3YcTGkSOL8" />
+      <MediaPlaceholder label="Final render / headphones" kind="video" videoId="G3YcTGkSOL8" audioEnabled />
 
       <div className="headphones-bridge">
         <h2>From the whole form<br />to the smallest details.</h2>

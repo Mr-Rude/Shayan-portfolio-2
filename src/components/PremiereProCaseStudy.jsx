@@ -28,7 +28,7 @@ function Media({ image, label, wide = false }) {
   );
 }
 
-export default function PremiereProCaseStudy() {
+export default function PremiereProCaseStudy({ project }) {
   return (
     <main className="wrap detail open fisherman-case-study" id="project">
       <a className="back" href="#/portfolio">← All projects</a>
@@ -59,14 +59,7 @@ export default function PremiereProCaseStudy() {
           <span>Adobe Premiere Pro · 0:53</span>
         </div>
         <div className="fisherman-video-panel">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/lj-fTIbL_NI?playsinline=1&rel=0"
-            title="The Story of Fisherman / finished film"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="eager"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+          <video src={project.homeVideoSrc} title="The Story of Fisherman / finished film" autoPlay controls loop playsInline preload="auto" />
         </div>
       </section>
 

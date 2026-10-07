@@ -725,10 +725,11 @@
 }
 
 @media (max-width:760px) {
-  .home .logo:is(.b,.gpt,.ae){pointer-events:auto}
-  .home .logo:is(.b,.gpt,.ae).is-preview-open .peek{display:flex;right:12px;width:min(230px,calc(100vw - 32px));height:auto;max-height:56svh;gap:8px;pointer-events:auto}
-  .home .logo:is(.b,.gpt) .logo-preview-video{width:min(90px,100%);max-height:34svh}
-  .home .logo.ae .logo-preview-video--landscape{width:min(195px,100%);max-height:38svh}
+  .home .logo { pointer-events: none; }
+  .home .logo:is(:hover, :focus-visible) { transform: none; }
+  .home .logo .peek,
+  .home .logo:is(:hover, :focus-visible) .peek,
+  .home .logo.is-preview-open .peek { display: none !important; }
 }
 
 @media (min-width:761px) and (max-width:1000px) {

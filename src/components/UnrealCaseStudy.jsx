@@ -1,4 +1,13 @@
 import Footer from './Footer.jsx';
+import sectionOneVideo from '../assets/Unreal/videos/1.mp4';
+import sectionEightVideo from '../assets/Unreal/videos/8.mp4';
+import sectionNineLeftVideo from '../assets/Unreal/videos/9L.mp4';
+import sectionNineRightVideo from '../assets/Unreal/videos/9R.mp4';
+import sectionTenTopLeftVideo from '../assets/Unreal/videos/10TopL.mp4';
+import sectionTenTopRightVideo from '../assets/Unreal/videos/10TopR.mp4';
+import sectionThirteenTopVideo from '../assets/Unreal/videos/13T.mp4';
+import sectionFourteenLeftVideo from '../assets/Unreal/videos/14L.mp4';
+import sectionFourteenRightVideo from '../assets/Unreal/videos/14R.mp4';
 import storyboardLeft from '../assets/Unreal/2L.png';
 import storyboardRight from '../assets/Unreal/2R.png';
 import lookCenter from '../assets/Unreal/3C.png';
@@ -29,18 +38,21 @@ import roomLayout from '../assets/Unreal/13R.png';
 import roomBottom from '../assets/Unreal/13B.png';
 import finalReveal from '../assets/Unreal/15.png';
 
-function Media({ label, caption = label, image, videoId, wide = false, portrait = false }) {
+function Media({ label, caption = label, image, videoId, videoSrc, wide = false, portrait = false }) {
   const mediaClass = [
     'unreal-media',
     wide && 'unreal-media--wide',
     portrait && 'unreal-media--portrait',
   ].filter(Boolean).join(' ');
-  const frameClass = `unreal-media-frame${image ? ' unreal-media-frame--image' : ''}${videoId ? ' unreal-media-frame--video' : ''}`;
+  const frameClass = `unreal-media-frame${image ? ' unreal-media-frame--image' : ''}${videoId || videoSrc ? ' unreal-media-frame--video' : ''}`;
 
   return (
     <figure className={mediaClass} aria-label={label}>
       <div className={frameClass}>
         {image && <img src={image} alt={label} />}
+        {videoSrc && (
+          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+        )}
         {videoId && (
           <iframe
             src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
@@ -95,7 +107,7 @@ export default function UnrealCaseStudy() {
           <span>01 / Final film</span>
           <span>Full project cut · 1:54</span>
         </div>
-        <Media label="Final film" caption={null} videoId="1xUwqvB7zuI" wide />
+        <Media label="Final film" caption={null} videoSrc={sectionOneVideo} wide />
         <div className="unreal-caption">
           <h2>A chase that begins as a dream.</h2>
           <p>
@@ -177,7 +189,7 @@ export default function UnrealCaseStudy() {
           </StoryCopy>
           <Media label="Blueprint graph / spline mesh construction" image={roadBlueprint} />
         </div>
-        <Media label="Viewport test / vehicles moving on the desert road" videoId="-jE3QWvT7VM" wide />
+        <Media label="Viewport test / vehicles moving on the desert road" videoSrc={sectionEightVideo} wide />
       </section>
 
       <section className="unreal-section">
@@ -185,8 +197,8 @@ export default function UnrealCaseStudy() {
           The early Jeep test paired a sports car with rocky terrain, but the movement felt slow and the setting suggested an off-road vehicle. This revised direction changed both the car and environment, moving the chase onto roads that better supported speed.
         </StoryCopy>
         <div className="unreal-pair unreal-pair--video">
-          <Media label="Early test / Jeep on rocky terrain" videoId="miEpK_jya44" portrait />
-          <Media label="Revised test / city intersection" videoId="oZt4HLaRReg" portrait />
+          <Media label="Early test / Jeep on rocky terrain" videoSrc={sectionNineLeftVideo} portrait />
+          <Media label="Revised test / city intersection" videoSrc={sectionNineRightVideo} portrait />
         </div>
       </section>
 
@@ -200,8 +212,8 @@ export default function UnrealCaseStudy() {
           </span>
         </StoryCopy>
         <div className="unreal-pair unreal-pair--video">
-          <Media label="Earlier workflow / car animation in Maya" videoId="-3SXlPTNyFs" portrait />
-          <Media label="Revised workflow / rig checks in Unreal" videoId="s5RyvIimhtA" portrait />
+          <Media label="Earlier workflow / car animation in Maya" videoSrc={sectionTenTopLeftVideo} portrait />
+          <Media label="Revised workflow / rig checks in Unreal" videoSrc={sectionTenTopRightVideo} portrait />
         </div>
         <div className="unreal-pair">
           <Media label="Curved path at the city intersection" image={cityCurves} />
@@ -245,7 +257,7 @@ export default function UnrealCaseStudy() {
         <StoryCopy number="13" topic="Room scale and posing" title={<>Make the final room<br />feel believable.</>}>
           The room was checked for the relative sizes of the character, furniture, props and toy track. A mannequin provided another scale reference. The bed pose was prepared in Maya. Bringing the character into the room also exposed alignment and placement problems during development; the test below records that stage before the final reveal.
         </StoryCopy>
-        <Media label="Maya / preparing the character’s bed pose" videoId="63zxGTX-3hQ" wide />
+        <Media label="Maya / preparing the character’s bed pose" videoSrc={sectionThirteenTopVideo} wide />
         <div className="unreal-pair unreal-pair--room">
           <Media label="Room setup / mannequin, character, furniture and toy track" image={roomCharacter} />
           <Media label="Room layout / checking the proportions of the set" image={roomLayout} />
@@ -260,8 +272,8 @@ export default function UnrealCaseStudy() {
           An earlier version included the girl playing with cars beside the toy track. These animation tests explored that action, but refining the movement was taking too long and the result was not working as intended. The playing sequence was removed, and the final film goes directly to the character in bed with the toy car in her hand.
         </StoryCopy>
         <div className="unreal-pair">
-          <Media label="Earlier ending / character playing with the cars" videoId="rd1w4QKkiIA" wide />
-          <Media label="Unreal Sequencer / testing the character movement" videoId="ktyAwnPlpto" wide />
+          <Media label="Earlier ending / character playing with the cars" videoSrc={sectionFourteenLeftVideo} wide />
+          <Media label="Unreal Sequencer / testing the character movement" videoSrc={sectionFourteenRightVideo} wide />
         </div>
         <details className="unreal-disclosure">
           <summary>Another animation test · 36 seconds</summary>

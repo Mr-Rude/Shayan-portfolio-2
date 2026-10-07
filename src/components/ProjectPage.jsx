@@ -37,7 +37,7 @@ export default function ProjectPage({ project }) {
     return <MayaCaseStudy project={project} />;
   }
   if (project.id === 'premiere-pro') {
-    return <PremiereProCaseStudy />;
+    return <PremiereProCaseStudy project={project} />;
   }
 
   return (

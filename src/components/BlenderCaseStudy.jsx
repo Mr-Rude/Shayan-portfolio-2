@@ -8,13 +8,13 @@ import section5Left from '../assets/Blender/5L.png';
 import section5Right from '../assets/Blender/5R.png';
 import Footer from './Footer.jsx';
 
-function youtubeEmbedUrl(videoId) {
+function youtubeEmbedUrl(videoId, audioEnabled = false) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: '1',
-    controls: '0',
+    mute: audioEnabled ? '0' : '1',
+    controls: audioEnabled ? '1' : '0',
     playsinline: '1',
-    loop: '1',
+    loop: audioEnabled ? '0' : '1',
     playlist: videoId,
     rel: '0',
   });
@@ -108,7 +108,7 @@ export default function BlenderCaseStudy({ project }) {
           <div className="blender-hero-portrait">
             <iframe
               className="blender-hero-video"
-              src={youtubeEmbedUrl('pXEKJn-RP54')}
+              src={youtubeEmbedUrl('pXEKJn-RP54', true)}
               title="Final cinematic render / Blender"
               allow="autoplay; encrypted-media; picture-in-picture"
               loading="eager"

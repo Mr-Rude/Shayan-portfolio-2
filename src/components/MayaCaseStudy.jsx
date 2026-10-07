@@ -96,14 +96,7 @@ export default function MayaCaseStudy({ project }) {
           <span>Final cut · 0:42</span>
         </div>
         <div className="maya-hero-frame">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/qilFeNUbXiw?playsinline=1&rel=0"
-            title="The Last Code / final film"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            loading="eager"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          />
+          <video src={project.homeVideoSrc} title="The Last Code / final film" autoPlay controls loop playsInline preload="auto" />
         </div>
         <div className="maya-hero-caption">
           <h2>Out of the shadows.</h2>
