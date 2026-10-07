@@ -36,12 +36,11 @@ src/
   hooks/useStageScroll.js  desktop wheel + arrow-key stage snapping
   components/
     Header.jsx             name with letter-flip hover, main nav
-    PreviewBar.jsx         review strip (remove from App.jsx before launch)
     Home.jsx               intro, project stages, about/skills, contact
     Hero.jsx               portrait, rings, software marks
     SoftwareLogo.jsx       hover/focus preview, touch-and-hold on phones
     ProjectCard.jsx        card used on home and portfolio grid
-    PortfolioPage.jsx      twelve-card grid
+    PortfolioPage.jsx      case-study project grid
     ProjectPage.jsx        shared case-study template
     UnrealCaseStudy.jsx    Unreal Engine Hot Wheels commercial case study
     AfterEffectsCaseStudy.jsx  2D animation explainer case study

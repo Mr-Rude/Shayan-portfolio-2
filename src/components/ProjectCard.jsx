@@ -8,14 +8,24 @@ export default function ProjectCard({ project, index, square = false, homepage =
   const ratio = square ? '1:1' : project.format === 'wide' ? '16:9' : '9:16';
   const placeholder = index > 7 ? 'ADDITIONAL PROJECT PLACEHOLDER' : 'PROJECT MEDIA PLACEHOLDER';
   const showVideo = homepage && Boolean(project.videoId);
+  const hasThumbnail = square && Boolean(project.thumbnailUrl);
+  const cropThumbnail16x9 = hasThumbnail && project.thumbnailCrop16x9;
 
   return (
     <a
-      href={`#/project/${project.id}`}
-      className={['card', shape, project.tone, showVideo && 'video-preview'].filter(Boolean).join(' ')}
+      href={`#/project/${project.caseStudyRouteId || project.id}`}
+      className={['card', shape, project.tone, showVideo && 'video-preview', hasThumbnail && 'has-thumbnail', hasThumbnail && project.thumbnailFit === 'contain' && 'thumbnail-contain', hasThumbnail && project.thumbnailBackground && 'has-thumbnail-background', hasThumbnail && project.thumbnailLetterbox && 'thumbnail-letterbox', cropThumbnail16x9 && 'thumbnail-crop-16x9'].filter(Boolean).join(' ')}
       aria-label={`${project.title}, view case study`}
     >
       <div className="art" />
+      {hasThumbnail && project.thumbnailBackground && <img className="card-thumbnail-background" src={project.thumbnailUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />}
+      {cropThumbnail16x9 ? (
+        <span className="card-thumbnail-frame">
+          <img className="card-thumbnail" src={project.thumbnailUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
+        </span>
+      ) : hasThumbnail ? (
+        <img className="card-thumbnail" src={project.thumbnailUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
+      ) : null}
       {showVideo && (
         <iframe
           className="home-video-preview"
@@ -27,13 +37,13 @@ export default function ProjectCard({ project, index, square = false, homepage =
         />
       )}
       <span className="media-label">
-        {pad(index + 1)} / {showVideo ? `${project.software.toUpperCase()} VIDEO PREVIEW` : placeholder}
+        {pad(index + 1)} / {hasThumbnail ? project.thumbnailLabel : showVideo ? `${project.software.toUpperCase()} VIDEO PREVIEW` : placeholder}
       </span>
       <span className="ratio">{ratio}</span>
       <div className="card-copy">
         <small>{project.software}</small>
         <h3>{project.title}</h3>
-        <p>Project story and media to be added.</p>
+        <p>{square && project.description ? project.description : 'Project story and media to be added.'}</p>
       </div>
       <span className="arrow" aria-hidden="true">
         ↗

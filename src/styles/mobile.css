@@ -62,21 +62,6 @@
     line-height: 1.15;
   }
 
-  .preview-bar {
-    min-height: 26px;
-    height: auto;
-    padding: 5px 10px;
-    gap: 5px;
-    overflow: hidden;
-    font-size: 7px;
-    white-space: nowrap;
-  }
-
-  .preview-bar button {
-    padding: 4px 6px;
-    font-size: 8px;
-  }
-
   /* One 16px gutter on every page. Sections nested inside a padded stage add none of their own. */
   .wrap,
   .wrap.detail,

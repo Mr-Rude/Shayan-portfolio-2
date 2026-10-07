@@ -1,19 +1,67 @@
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
+import unrealThumbnail from '../assets/Unreal/5D.png';
+
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
 const wideIndices = [0, 2, 3, 4, 5, 6];
+const caseStudyDetails = {
+  'unreal-engine': {
+    title: 'Hot Wheels fan-made commercial',
+    description: 'A cinematic chase moving from snow and city streets to a desert dream.',
+    thumbnailUrl: unrealThumbnail,
+    thumbnailCrop16x9: true,
+    thumbnailBackground: true,
+  },
+  'blender': {
+    title: 'Magical Orb Environment',
+    description: 'A dark fantasy scene shaped by glowing energy, ancient ruins and cinematic lighting.',
+    thumbnailVideoId: 'pXEKJn-RP54',
+  },
+  'maya': {
+    title: 'The Last Code',
+    description: 'A weathered sports car travels from a shadowed garage to a mountain road at night.',
+    thumbnailVideoId: 'qilFeNUbXiw',
+    thumbnailBackground: true,
+    thumbnailLetterbox: true,
+  },
+  'after-effects': {
+    title: 'Types of 2D animation',
+    description: 'An explainer introducing modern 2D, motion graphics, kinetic typography and 2.5D animation.',
+    thumbnailVideoId: 'flkgchLutFM',
+    thumbnailBackground: true,
+    thumbnailLetterbox: true,
+  },
+  'gpt-ai': {
+    title: 'AI Headphones',
+    description: 'A headphone visualization directed through prompts, visual feedback and refinement.',
+    thumbnailVideoId: 'G3YcTGkSOL8',
+  },
+};
 
 export const projects = Array.from({ length: 12 }, (_, i) => ({
   id: ids[i] || `additional-${i - 7}`,
   software: names[i] || 'To be selected',
-  title: i === 0 ? 'Hot Wheels fan-made commercial' : i === 1 ? 'Magical Orb Environment' : i === 2 ? 'The Last Code' : i === 4 ? 'Types of 2D animation.' : i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`,
+  title: caseStudyDetails[ids[i]]?.title || (i === 4 ? 'Types of 2D animation.' : i === 7 ? 'AI Headphones' : i < 8 ? `${names[i]} project` : `Additional project ${String(i - 7).padStart(2, '0')}`),
   tone: tones[i] || '',
   format: wideIndices.includes(i) ? 'wide' : 'portrait',
-  videoId: i === 0 ? 'jlNNxGAux4o' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null,
+  description: caseStudyDetails[ids[i]]?.description || '',
+  thumbnailUrl: caseStudyDetails[ids[i]]?.thumbnailUrl
+    || (caseStudyDetails[ids[i]]?.thumbnailVideoId
+      ? `https://img.youtube.com/vi/${caseStudyDetails[ids[i]].thumbnailVideoId}/hqdefault.jpg`
+      : null),
+  thumbnailLabel: caseStudyDetails[ids[i]]?.thumbnailLabel || 'VIDEO STILL',
+  thumbnailFit: caseStudyDetails[ids[i]]?.thumbnailFit || 'cover',
+  thumbnailCrop16x9: Boolean(caseStudyDetails[ids[i]]?.thumbnailCrop16x9),
+  thumbnailBackground: Boolean(caseStudyDetails[ids[i]]?.thumbnailBackground),
+  thumbnailLetterbox: Boolean(caseStudyDetails[ids[i]]?.thumbnailLetterbox),
+  caseStudyRouteId: caseStudyDetails[ids[i]]?.caseStudyRouteId || ids[i],
+  videoId: i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null,
 }));
+
+const portfolioProjectIds = ['unreal-engine', 'after-effects', 'maya', 'blender', 'gpt-ai'];
 
 // Homepage project stages: each inner array is one full-screen stage.
 export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];
@@ -21,6 +69,8 @@ export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];
 export function findProject(id) {
   return projects.find((p) => p.id === id) || null;
 }
+
+export const portfolioProjects = portfolioProjectIds.map(findProject).filter(Boolean);
 
 // Case-study copy. Returns placeholder text built from the project until real copy is added.
 export function caseStudy(p) {

@@ -2,7 +2,7 @@
 [hidden]{display:none!important}
 header{height:var(--nav-height)}
 .home-stage{scroll-margin-top:var(--nav-height)}
-#intro-stage{height:calc(100svh - var(--nav-height) - 32px);min-height:560px}
+#intro-stage{height:calc(100svh - var(--nav-height));min-height:560px}
 #intro-stage .hero{height:calc(100% - var(--role-height))}
 .projects{display:block}
 .project-stage{height:calc(100svh - var(--nav-height));min-height:560px;display:flex;align-items:center;justify-content:center;gap:clamp(20px,3vw,60px);padding:28px 0}
@@ -26,6 +26,15 @@ header{height:var(--nav-height)}
 .page-heading p{font-size:14px;line-height:1.7;color:var(--muted);margin:0}
 .portfolio-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .portfolio-grid .portfolio-card{width:100%;aspect-ratio:1;min-width:0}
+.portfolio-grid .card-thumbnail{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter .4s}
+.portfolio-grid .card-thumbnail-background{position:absolute;inset:-12px;width:calc(100% + 24px);height:calc(100% + 24px);object-fit:cover;filter:blur(3px) brightness(.55);transform:scale(1.04);pointer-events:none}
+.portfolio-grid .has-thumbnail-background .card-thumbnail-background{transform:scale(1.65)}
+.portfolio-grid .thumbnail-crop-16x9 .card-thumbnail-frame{position:absolute;z-index:0;top:50%;left:0;width:100%;aspect-ratio:16 / 9;overflow:hidden;transform:translateY(-50%)}
+.portfolio-grid .thumbnail-crop-16x9 .card-thumbnail{inset:0;width:100%;height:100%;object-fit:cover;transform:none}
+.portfolio-grid .thumbnail-letterbox .card-thumbnail{-webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 19%,#000 34%,#000 69%,transparent 84%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,transparent 19%,#000 34%,#000 69%,transparent 84%,transparent 100%)}
+.portfolio-grid .thumbnail-contain .card-thumbnail{object-fit:contain;transform:scale(1.15)}
+.portfolio-grid .has-thumbnail .art:before,.portfolio-grid .has-thumbnail .art:after{display:none}
+.portfolio-grid .has-thumbnail:hover .card-thumbnail,.portfolio-grid .has-thumbnail:focus-visible .card-thumbnail{filter:brightness(.65)}
 .portfolio-grid .card-copy{padding:40px 16px 16px}
 .portfolio-grid .card-copy h3{font-size:clamp(16px,1.6vw,24px)}
 .portfolio-grid .card-copy p{font-size:11px}
@@ -38,8 +47,8 @@ header{height:var(--nav-height)}
 @media(max-width:700px){
  :root{--nav-height:72px}
  header{height:var(--nav-height)}
- #intro-stage{height:auto;min-height:calc(100svh - var(--nav-height) - 32px)}
- #intro-stage .hero{height:calc(100svh - var(--nav-height) - 32px - 90px);min-height:420px}
+ #intro-stage{height:auto;min-height:calc(100svh - var(--nav-height))}
+ #intro-stage .hero{height:calc(100svh - var(--nav-height) - 90px);min-height:420px}
  .home-stage{scroll-snap-align:start}
  .project-stage{height:auto;min-height:0;padding:45px 0;display:flex;gap:16px}
  .project-stage .project-tile:only-child{width:100%}
