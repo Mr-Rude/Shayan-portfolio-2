@@ -17,6 +17,7 @@ header{height:var(--nav-height)}
 .about-stage,.contact-stage{width:var(--reading-width);margin:auto;min-height:calc(100svh - var(--nav-height));display:flex;flex-direction:column;justify-content:center}
 .about-stage .about,.about-stage .skills,.contact-stage .contact,.contact-stage footer{width:100%;margin-left:0;margin-right:0}
 .about-stage .about{margin-top:0}
+.about-experience{grid-column:1/-1}
 .contact-stage .contact{margin-bottom:0}
 .contact.contact--details{grid-template-columns:minmax(0,1fr)}
 .contact-stage footer{padding-top:28px}
@@ -101,11 +102,13 @@ header{height:var(--nav-height)}
 .headphones-notes>p{margin-top:22px}
 .headphones-case-study .detail-end{padding:36px 0}
 .headphones-case-study footer{width:100%;margin:0;padding-bottom:30px}
-.home .logo:is(.b,.gpt) .peek{height:auto;min-height:0;padding:12px;gap:10px}
-.logo-preview-video{position:relative;display:block;flex:none;align-self:center;width:min(170px,100%);height:auto;aspect-ratio:9 / 16;max-height:42svh;overflow:hidden;border-radius:4px;background:#0b1118}
-.logo-preview-video--landscape{width:min(230px,100%);aspect-ratio:16 / 9}
+.hero .logo .peek{width:clamp(180px,15vw,270px);height:140px;padding:13px}
+.home .logo:is(.b,.gpt) .peek{height:auto;min-height:0;padding:12px;gap:9px}
+.home .logo:is(.b,.gpt) .logo-preview-video{width:min(120px,100%)}
+.logo-preview-video{position:relative;display:block;flex:none;align-self:center;width:min(120px,100%);height:auto;aspect-ratio:9 / 16;max-height:38svh;overflow:hidden;border-radius:4px;background:#0b1118}
+.logo-preview-video--landscape{width:min(195px,100%);aspect-ratio:16 / 9}
 .logo-preview-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.home .logo.ae .peek{width:260px;height:auto;min-height:0;padding:12px;gap:10px}
+.home .logo.ae .peek{width:230px;height:auto;min-height:0;padding:12px;gap:9px}
 .projects .project-stage .video-preview .art{display:none}
 .home-video-preview{position:absolute;z-index:1;inset:0;width:100%;height:100%;border:0;pointer-events:none}
 .projects .project-stage .video-preview .media-label,.projects .project-stage .video-preview .ratio{z-index:2;pointer-events:none}

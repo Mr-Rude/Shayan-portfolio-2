@@ -5,7 +5,7 @@
 
 @media (max-width: 760px) {
   :root {
-    --nav-height: 72px;
+    --nav-height: 60px;
     --mobile-gutter: 16px;
   }
 
@@ -43,22 +43,22 @@
 
   .nav-links {
     min-width: 0;
-    flex: 1 1 auto;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    flex: 0 0 auto;
+    display: flex;
     align-items: center;
-    gap: 2px;
-    font-size: 10px;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-left: auto;
+    font-size: 8px;
     letter-spacing: 0;
   }
 
   .nav-links a,
   .nav-links a:last-child {
-    min-width: 0;
-    padding: 7px 2px;
-    border-radius: 14px;
+    padding: 5px 6px;
+    border-radius: 9px;
     text-align: center;
-    white-space: normal;
+    white-space: nowrap;
     line-height: 1.15;
   }
 
@@ -101,9 +101,9 @@
 
   .home-stage#intro-stage,
   #intro-stage.home-stage {
-    min-height: calc(100svh - var(--nav-height) - 26px);
+    min-height: 0;
     display: grid;
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: 440px auto;
   }
 
   .home-stage#intro-stage .hero,
@@ -111,7 +111,7 @@
   .hero {
     width: 100%;
     min-height: 0;
-    height: auto;
+    height: 440px;
     margin: 0;
     overflow: visible;
   }
@@ -122,15 +122,14 @@
   }
 
   .hero-top {
-    padding-top: 14px;
+    padding-top: 20px;
     font-size: 7px;
     letter-spacing: 2px;
   }
 
   .portrait {
-    width: min(77vw, 300px);
-    height: 78%;
-    max-height: 410px;
+    width: min(72vw, 285px);
+    height: auto;
     object-fit: contain;
     object-position: center bottom;
     mask-image: linear-gradient(#000 91%, transparent);
@@ -166,14 +165,14 @@
 
   .home .logo::before { display: none; }
 
-  .u { left: 5%; top: 18%; }
-  .b { right: 6%; top: 18%; }
-  .m { left: 13%; top: 41%; }
-  .pr { right: 3%; top: 43%; }
-  .ai { left: 3%; top: 67%; }
-  .ae { left: 20%; top: 82%; }
-  .pt { right: 20%; top: 70%; }
-  .gpt { right: 4%; top: 84%; font-size: 12px; }
+  .hero .logo.u { left: 8.5%; right: auto; top: 9.5%; }
+  .hero .logo.b { left: auto; right: 8%; top: 10%; }
+  .hero .logo.m { left: 20%; right: auto; top: 30%; }
+  .hero .logo.pr { left: auto; right: 18%; top: 32%; }
+  .hero .logo.ai { left: 7%; right: auto; top: 84%; }
+  .hero .logo.ae { left: auto; right: 10%; top: 84%; }
+  .hero .logo.pt { left: 6.5%; right: auto; top: 53%; }
+  .hero .logo.gpt { left: auto; right: 7.5%; top: 55%; font-size: 12px; }
 
   .logo .peek,
   .logo:hover .peek,
@@ -202,14 +201,14 @@
   .home-stage .role {
     width: 100%;
     height: auto;
-    min-height: 78px;
+    min-height: 64px;
     margin: 0;
-    padding: 14px var(--mobile-gutter) 16px;
+    padding: 10px var(--mobile-gutter);
   }
 
   .role h1 {
     max-width: 100%;
-    font-size: clamp(27px, 8.1vw, 34px);
+    font-size: clamp(24px, 7.1vw, 30px);
     line-height: .98;
     letter-spacing: .025em;
     white-space: normal;
@@ -218,7 +217,7 @@
   .section-head {
     flex-direction: column;
     align-items: flex-start;
-    margin: 48px 0 14px;
+    margin: 22px 0 14px;
     gap: 12px;
   }
 
@@ -240,23 +239,24 @@
     width: 100%;
     min-height: 0;
     height: auto;
-    padding: 14px 0;
+    padding: 32px 0;
     display: flex;
+    flex-direction: column;
     align-items: stretch;
     justify-content: space-between;
-    gap: 12px;
+    gap: 200px;
   }
 
   .project-stage .project-tile:not(:only-child) {
-    width: calc((100% - 12px) / 2);
+    width: 100%;
   }
 
   .project-tile {
     width: 100%;
     min-width: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 8px;
     align-items: center;
   }
 
@@ -642,6 +642,54 @@
   .maya-notes{padding:30px 0}
 }
 
+@media (min-width: 761px) and (max-width: 1000px) {
+  :root {
+    --nav-height: 72px;
+  }
+
+  header {
+    height: var(--nav-height);
+  }
+
+  #intro-stage {
+    height: auto;
+    min-height: 0;
+  }
+
+  #intro-stage .hero {
+    height: 550px;
+    min-height: 0;
+  }
+
+  #intro-stage > .role {
+    height: 90px;
+    min-height: 90px;
+    padding: 14px 0;
+  }
+
+  .portrait {
+    width: 52%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero .logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .hero .logo.u { left: 8.5%; right: auto; top: 16%; }
+  .hero .logo.b { left: auto; right: 6%; top: 17%; }
+  .hero .logo.m { left: 20.6%; right: auto; top: 39%; }
+  .hero .logo.pr { left: auto; right: 13%; top: 41%; }
+  .hero .logo.ai { left: 7%; right: auto; top: 66%; }
+  .hero .logo.ae { left: 24.6%; right: auto; top: 85%; }
+  .hero .logo.pt { left: auto; right: 19.5%; top: 68%; }
+  .hero .logo.gpt { left: auto; right: 2%; top: 83%; }
+}
+
 @media (max-width:520px) {
   .maya-gallery,.maya-section--trio .maya-gallery{grid-template-columns:minmax(0,1fr);gap:22px}
 }
@@ -678,9 +726,68 @@
 
 @media (max-width:760px) {
   .home .logo:is(.b,.gpt,.ae){pointer-events:auto}
-  .home .logo:is(.b,.gpt,.ae).is-preview-open .peek{display:flex;right:12px;width:min(260px,calc(100vw - 32px));height:auto;max-height:56svh;gap:8px;pointer-events:auto}
-  .home .logo:is(.b,.gpt) .logo-preview-video{width:min(128px,100%);max-height:38svh}
-  .home .logo.ae .logo-preview-video--landscape{width:min(230px,100%);max-height:38svh}
+  .home .logo:is(.b,.gpt,.ae).is-preview-open .peek{display:flex;right:12px;width:min(230px,calc(100vw - 32px));height:auto;max-height:56svh;gap:8px;pointer-events:auto}
+  .home .logo:is(.b,.gpt) .logo-preview-video{width:min(90px,100%);max-height:34svh}
+  .home .logo.ae .logo-preview-video--landscape{width:min(195px,100%);max-height:38svh}
+}
+
+@media (min-width:761px) and (max-width:1000px) {
+  #about-stage,
+  .about-stage {
+    width: calc(100% - 64px);
+  }
+
+  #about,
+  #skills {
+    width: 100%;
+  }
+
+  #about-stage > .about,
+  .about-stage > .about,
+  .about {
+    grid-template-columns: minmax(220px, .8fr) minmax(0, 1.2fr);
+    column-gap: 40px;
+    row-gap: 30px;
+  }
+
+  .about h2 {
+    font-size: clamp(48px, 6vw, 58px);
+  }
+
+  .about-copy p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-bottom: 14px;
+  }
+
+  .about-experience {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 28px;
+  }
+
+  .about-experience .experience {
+    min-width: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 18px;
+    padding: 14px 0;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .about-experience .experience span {
+    flex: 0 0 38%;
+  }
+
+  .about-experience .experience span:last-child {
+    flex: 1 1 auto;
+  }
+
+  .about-stage > .skills {
+    padding-top: 40px;
+  }
 }
 
 @media (max-width:760px) {

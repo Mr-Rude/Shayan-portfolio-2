@@ -55,8 +55,10 @@ function AboutAndSkills() {
             I'm Shayan.
           </h2>
         </div>
-        <div>
+        <div className="about-copy">
           {aboutCopy.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        </div>
+        <div className="about-experience">
           {experience.map((row) => (
             <div className="experience" key={row.label}>
               <span>{row.label}</span>
