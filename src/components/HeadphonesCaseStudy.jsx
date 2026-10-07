@@ -6,6 +6,11 @@ import section4Left from '../assets/GPT/4L.png';
 import section4Right from '../assets/GPT/4R.png';
 import section5Left from '../assets/GPT/5L.png';
 import section5Right from '../assets/GPT/5R.png';
+import mainVideo from '../assets/GPT/videos/Main Video.mp4';
+import section4Video from '../assets/GPT/videos/4B.mp4';
+import section6LeftVideo from '../assets/GPT/videos/6L.mp4';
+import section7LeftVideo from '../assets/GPT/videos/7L.mp4';
+import section7RightVideo from '../assets/GPT/videos/7R.mp4';
 import Footer from './Footer.jsx';
 
 function YouTubeEmbed({ videoId, label, audioEnabled = false }) {
@@ -33,11 +38,13 @@ function YouTubeEmbed({ videoId, label, audioEnabled = false }) {
   );
 }
 
-function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, image, audioEnabled = false }) {
+function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, videoSrc, image, audioEnabled = false }) {
   return (
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
-      <div className="headphones-media-surface" aria-hidden={videoId || image ? undefined : true}>
-        {videoId ? (
+      <div className="headphones-media-surface" aria-hidden={videoId || videoSrc || image ? undefined : true}>
+        {videoSrc ? (
+          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+        ) : videoId ? (
           <YouTubeEmbed videoId={videoId} label={label} audioEnabled={audioEnabled} />
         ) : image ? (
           <img src={image} alt={label} />
@@ -99,7 +106,7 @@ export default function HeadphonesCaseStudy({ project }) {
         </div>
       </div>
 
-      <MediaPlaceholder label="Final render / headphones" kind="video" videoId="G3YcTGkSOL8" audioEnabled />
+      <MediaPlaceholder label="Final render / headphones" kind="video" videoSrc={mainVideo} audioEnabled />
 
       <div className="headphones-bridge">
         <h2>From the whole form<br />to the smallest details.</h2>
@@ -137,7 +144,7 @@ export default function HeadphonesCaseStudy({ project }) {
           { label: 'Blender controls / height, swivel, tilt and fold', image: section4Left },
           { label: 'Alternate view / earcup swivel and articulation', image: section4Right },
         ]}
-        wideMedia={{ label: 'Development recording / pose inspection', kind: 'video', videoId: '-ZERodGxbns' }}
+        wideMedia={{ label: 'Development recording / pose inspection', kind: 'video', videoSrc: section4Video }}
       />
 
       <StorySection
@@ -157,7 +164,7 @@ export default function HeadphonesCaseStudy({ project }) {
         title="The same sequence, through two views."
         description="The viewport and finished render share the same sequence of full product views and close details. Comparing them shows how surface treatment and lighting shape the final presentation."
         media={[
-          { label: 'Viewport sequence / scene geometry', kind: 'video', videoId: 'B-P0Ll4T6vY' },
+          { label: 'Viewport sequence / scene geometry', kind: 'video', videoSrc: section6LeftVideo },
           { label: 'Rendered sequence / materials and light', kind: 'video', videoId: 'G3YcTGkSOL8' },
         ]}
       />
@@ -168,8 +175,8 @@ export default function HeadphonesCaseStudy({ project }) {
         title="The result and the process."
         description="Short vertical edits present both the finished headphones and the work behind them. The second reel brings render comparisons, Blender views and prompt exchanges into the same story."
         media={[
-          { label: 'Social Edits / Part One', kind: 'video', videoId: 'dKNTtbs1FdE' },
-          { label: 'Social Edits / Part Two', kind: 'video', videoId: 'g2ysDaxzilA' },
+          { label: 'Social Edits / Part One', kind: 'video', videoSrc: section7LeftVideo },
+          { label: 'Social Edits / Part Two', kind: 'video', videoSrc: section7RightVideo },
         ]}
       />
 

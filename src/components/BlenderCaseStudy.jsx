@@ -6,6 +6,8 @@ import section4Left from '../assets/Blender/4L.png';
 import section4Right from '../assets/Blender/4R.png';
 import section5Left from '../assets/Blender/5L.png';
 import section5Right from '../assets/Blender/5R.png';
+import mainVideo from '../assets/Blender/videos/Main Video.mp4';
+import section6LeftVideo from '../assets/Blender/videos/6L.mp4';
 import Footer from './Footer.jsx';
 
 function youtubeEmbedUrl(videoId, audioEnabled = false) {
@@ -21,12 +23,14 @@ function youtubeEmbedUrl(videoId, audioEnabled = false) {
   return `https://www.youtube-nocookie.com/embed/${videoId}?${params}`;
 }
 
-function MediaSlot({ label, shape = 'landscape', image, videoId }) {
+function MediaSlot({ label, shape = 'landscape', image, videoId, videoSrc }) {
   return (
     <figure className={`blender-media blender-media--${shape}`}>
-      <div className="blender-media-frame" aria-hidden={image || videoId ? undefined : true}>
+      <div className="blender-media-frame" aria-hidden={image || videoId || videoSrc ? undefined : true}>
         {image ? (
           <img src={image} alt={label} />
+        ) : videoSrc ? (
+          <video className="blender-media-video" src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : videoId ? (
           <iframe
             className="blender-media-video"
@@ -106,14 +110,15 @@ export default function BlenderCaseStudy({ project }) {
         </div>
         <div className="blender-hero-frame">
           <div className="blender-hero-portrait">
-            <iframe
+            <video
               className="blender-hero-video"
-              src={youtubeEmbedUrl('pXEKJn-RP54', true)}
+              src={mainVideo}
               title="Final cinematic render / Blender"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              loading="eager"
-              referrerPolicy="strict-origin-when-cross-origin"
-              allowFullScreen
+              autoPlay
+              controls
+              loop
+              playsInline
+              preload="auto"
             />
           </div>
         </div>
@@ -176,7 +181,7 @@ export default function BlenderCaseStudy({ project }) {
         heading="From solid view to cinematic render."
         description="The process moves from basic scene structure in solid view to material preview and the final cinematic render. These comparisons show how the orb, energy strands and ruins develop into the finished dark fantasy environment through materials, lighting, VFX and composition."
         media={[
-          { label: 'Blender process / solid view to material preview', shape: 'vertical', videoId: 'XBPCd8bng1g' },
+          { label: 'Blender process / solid view to material preview', shape: 'vertical', videoSrc: section6LeftVideo },
           { label: 'Blender process / solid view to final cinematic render', shape: 'vertical', videoId: 'pXEKJn-RP54' },
         ]}
       />
