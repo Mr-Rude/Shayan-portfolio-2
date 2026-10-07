@@ -5,6 +5,7 @@ import HeadphonesCaseStudy from './HeadphonesCaseStudy.jsx';
 import AfterEffectsCaseStudy from './AfterEffectsCaseStudy.jsx';
 import UnrealCaseStudy from './UnrealCaseStudy.jsx';
 import MayaCaseStudy from './MayaCaseStudy.jsx';
+import PremiereProCaseStudy from './PremiereProCaseStudy.jsx';
 
 // Media block. Every card on a case study takes the project's colour tone.
 function Media({ label, wide = false, tone }) {
@@ -34,6 +35,9 @@ export default function ProjectPage({ project }) {
   }
   if (project.id === 'maya') {
     return <MayaCaseStudy project={project} />;
+  }
+  if (project.id === 'premiere-pro') {
+    return <PremiereProCaseStudy />;
   }
 
   return (

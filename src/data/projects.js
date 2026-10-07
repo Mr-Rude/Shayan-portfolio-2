@@ -2,6 +2,7 @@
 // copy and media as work is selected.
 
 import unrealThumbnail from '../assets/Unreal/5D.png';
+import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 205013.png';
 
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
@@ -34,6 +35,13 @@ const caseStudyDetails = {
     thumbnailBackground: true,
     thumbnailLetterbox: true,
   },
+  'premiere-pro': {
+    title: 'The Story of Fisherman',
+    description: 'A short portrait of life and work around the fishing harbor.',
+    thumbnailUrl: fishermanThumbnail,
+    thumbnailLabel: 'THE STORY OF FISHERMAN',
+    videoId: 'lj-fTIbL_NI',
+  },
   'gpt-ai': {
     title: 'AI Headphones',
     description: 'A headphone visualization directed through prompts, visual feedback and refinement.',
@@ -58,10 +66,11 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
   thumbnailBackground: Boolean(caseStudyDetails[ids[i]]?.thumbnailBackground),
   thumbnailLetterbox: Boolean(caseStudyDetails[ids[i]]?.thumbnailLetterbox),
   caseStudyRouteId: caseStudyDetails[ids[i]]?.caseStudyRouteId || ids[i],
-  videoId: i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null,
+  videoId: caseStudyDetails[ids[i]]?.videoId
+    || (i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null),
 }));
 
-const portfolioProjectIds = ['unreal-engine', 'after-effects', 'maya', 'blender', 'gpt-ai'];
+const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai'];
 
 // Homepage project stages: each inner array is one full-screen stage.
 export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];

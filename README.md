@@ -44,6 +44,7 @@ src/
     ProjectPage.jsx        shared case-study template
     UnrealCaseStudy.jsx    Unreal Engine Hot Wheels commercial case study
     AfterEffectsCaseStudy.jsx  2D animation explainer case study
+    PremiereProCaseStudy.jsx  The Story of Fisherman editing case study
     Footer.jsx
 ```
 
