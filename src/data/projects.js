@@ -4,12 +4,15 @@
 import unrealThumbnail from '../assets/Unreal/Portfolio page Display image.png';
 import unrealHomeVideo from '../assets/Unreal/videos/1.mp4';
 import blenderThumbnail from '../assets/Blender/Portfolio page Display image.png';
+import blenderMainVideo from '../assets/Blender/videos/Main Video.mp4';
 import mayaThumbnail from '../assets/Maya/Portfolio page Display image.png';
 import afterEffectsThumbnail from '../assets/After Effects/Portfolio page Display image.png';
 import afterEffectsHomeVideo from '../assets/After Effects/videos/2D Explainer Video.mp4';
 import mayaMainVideo from '../assets/Maya/videos/The Last Code.mp4';
 import premiereProMainVideo from '../assets/PremierePro/videos/Fishermen Main.mp4';
 import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 205013.png';
+import gptMainVideo from '../assets/GPT/videos/Main Video.mp4';
+import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
@@ -26,6 +29,7 @@ const caseStudyDetails = {
     title: 'Magical Orb Environment',
     description: 'A dark fantasy scene shaped by glowing energy, ancient ruins and cinematic lighting.',
     thumbnailUrl: blenderThumbnail,
+    homeVideoSrc: blenderMainVideo,
   },
   'maya': {
     title: 'The Last Code',
@@ -50,6 +54,12 @@ const caseStudyDetails = {
     title: 'AI Headphones',
     description: 'A headphone visualization directed through prompts, visual feedback and refinement.',
     thumbnailVideoId: 'G3YcTGkSOL8',
+    homeVideoSrc: gptMainVideo,
+  },
+  'substance-painter': {
+    title: 'Weathered vehicle',
+    description: 'Chipped paint, exposed metal and rust across an armored car.',
+    homeVideoSrc: substanceMainVideo,
   },
 };
 
@@ -77,7 +87,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
       || (i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null),
 }));
 
-const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai'];
+const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter'];
 
 // Homepage project stages: each inner array is one full-screen stage.
 export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];
