@@ -182,7 +182,7 @@ export default function BlenderCaseStudy({ project }) {
         description="The process moves from basic scene structure in solid view to material preview and the final cinematic render. These comparisons show how the orb, energy strands and ruins develop into the finished dark fantasy environment through materials, lighting, VFX and composition."
         media={[
           { label: 'Blender process / solid view to material preview', shape: 'vertical', videoSrc: section6LeftVideo },
-          { label: 'Blender process / solid view to final cinematic render', shape: 'vertical', videoId: 'pXEKJn-RP54' },
+          { label: 'Blender process / solid view to final cinematic render', shape: 'vertical', videoSrc: mainVideo },
         ]}
       />
 
