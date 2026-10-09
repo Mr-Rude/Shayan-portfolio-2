@@ -165,7 +165,7 @@ export default function HeadphonesCaseStudy({ project }) {
         description="The viewport and finished render share the same sequence of full product views and close details. Comparing them shows how surface treatment and lighting shape the final presentation."
         media={[
           { label: 'Viewport sequence / scene geometry', kind: 'video', videoSrc: section6LeftVideo },
-          { label: 'Rendered sequence / materials and light', kind: 'video', videoId: 'G3YcTGkSOL8' },
+          { label: 'Rendered sequence / materials and light', kind: 'video', videoSrc: mainVideo },
         ]}
       />
 
