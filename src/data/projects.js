@@ -1,7 +1,8 @@
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
-import illustratorThumbnail from '../assets/Illustrator/2 (2).png';
+import illustratorThumbnail from '../assets/Illustrator/Portfolio page Display image.png';
+import substanceThumbnail from '../assets/Substance Painter/Portfolio page Display image.png';
 
 import unrealThumbnail from '../assets/Unreal/Portfolio page Display image.png';
 import unrealHomeVideo from '../assets/Unreal/videos/1.mp4';
@@ -30,12 +31,14 @@ const caseStudyDetails = {
     title: 'Hot Wheels fan-made commercial',
     description: 'A cinematic chase moving from snow and city streets to a desert dream.',
     thumbnailUrl: unrealThumbnail,
+    thumbnailLabel: 'Hot Wheels',
     homeVideoSrc: unrealHomeVideo,
   },
   'blender': {
     title: 'Magical Orb Environment',
     description: 'A dark fantasy scene shaped by glowing energy, ancient ruins and cinematic lighting.',
     thumbnailUrl: blenderThumbnail,
+    thumbnailLabel: 'Magical Orb',
     homeVideoSrc: blenderMainVideo,
   },
   'maya': {
@@ -66,6 +69,7 @@ const caseStudyDetails = {
   'substance-painter': {
     title: 'Weathered vehicle',
     description: 'Chipped paint, exposed metal and rust across an armored car.',
+    thumbnailUrl: substanceThumbnail,
     homeVideoSrc: substanceMainVideo,
   },
 };
@@ -81,7 +85,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
     || (caseStudyDetails[ids[i]]?.thumbnailVideoId
       ? `https://img.youtube.com/vi/${caseStudyDetails[ids[i]].thumbnailVideoId}/hqdefault.jpg`
       : null),
-  thumbnailLabel: caseStudyDetails[ids[i]]?.thumbnailLabel || 'VIDEO STILL',
+  thumbnailLabel: caseStudyDetails[ids[i]]?.thumbnailLabel || caseStudyDetails[ids[i]]?.title || names[i] || 'Project',
   thumbnailFit: caseStudyDetails[ids[i]]?.thumbnailFit || 'cover',
   thumbnailCrop16x9: Boolean(caseStudyDetails[ids[i]]?.thumbnailCrop16x9),
   thumbnailBackground: Boolean(caseStudyDetails[ids[i]]?.thumbnailBackground),
