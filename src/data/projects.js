@@ -20,7 +20,7 @@ import substanceMainVideo from '../assets/Substance Painter/video/substance-pain
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
-const wideIndices = [0, 2, 3, 4, 5, 6];
+const wideIndices = [0, 1, 2, 3, 4, 5, 6, 7];
 const caseStudyDetails = {
   'illustrator': {
     title: 'Ideas in every shape',
@@ -101,7 +101,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
 const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter', 'illustrator'];
 
 // Homepage project stages: each inner array is one full-screen stage.
-export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];
+export const homeGroups = [[2], [1], [0], [7], [4]];
 
 export function findProject(id) {
   return projects.find((p) => p.id === id) || null;

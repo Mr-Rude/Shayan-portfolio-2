@@ -15,9 +15,7 @@ function SelectedProjects() {
           <h2 id="selected-title">Ideas into images.</h2>
         </div>
         <p>
-          Eight project slots across 3D, motion, illustration and AI.
-          <br />
-          Media and project stories are pending.
+          Five selected projects across 3D, motion and AI.
         </p>
       </div>
       <div className="projects" id="home-projects">
@@ -32,13 +30,12 @@ function SelectedProjects() {
             {indices.map((i) => (
               <div className="project-tile" key={projects[i].id}>
                 <h3 className="software-heading">{projects[i].software}</h3>
-                <ProjectCard project={projects[i]} index={i} homepage />
+                <ProjectCard project={projects[i]} index={g} homepage />
               </div>
             ))}
           </div>
         ))}
       </div>
-      <p className="note">Project artwork and descriptions are placeholders until final work is selected.</p>
     </section>
   );
 }
