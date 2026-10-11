@@ -28,7 +28,7 @@ function SelectedProjects() {
             aria-label={`Project group ${g + 1} of ${homeGroups.length}`}
           >
             {indices.map((i) => (
-              <div className="project-tile" key={projects[i].id}>
+              <div className={`project-tile${projects[i].format === 'portrait' ? ' project-tile--portrait' : ''}`} key={projects[i].id}>
                 <h3 className="software-heading">{projects[i].software}</h3>
                 <ProjectCard project={projects[i]} index={g} homepage />
               </div>

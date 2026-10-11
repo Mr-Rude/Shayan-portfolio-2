@@ -13,6 +13,8 @@ header{height:var(--nav-height)}
 .projects .project-stage .project-tile .card{display:block;width:100%;height:auto;flex:none}
 .projects .project-stage .project-tile:only-child .card{aspect-ratio:16/9}
 .projects .project-stage .project-tile:not(:only-child) .card{aspect-ratio:9/16}
+.projects .project-stage .project-tile--portrait:only-child .card{aspect-ratio:9/16}
+@media(min-width:761px){.project-stage .project-tile--portrait:only-child{width:min(100%,calc((100svh - 190px)*.5625))}}
 .projects .project-stage .project-tile .card{max-width:none}
 .about-stage,.contact-stage{width:var(--reading-width);margin:auto;min-height:calc(100svh - var(--nav-height));display:flex;flex-direction:column;justify-content:center}
 .about-stage .about,.about-stage .skills,.contact-stage .contact,.contact-stage footer{width:100%;margin-left:0;margin-right:0}

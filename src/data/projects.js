@@ -20,7 +20,7 @@ import substanceMainVideo from '../assets/Substance Painter/video/substance-pain
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
 const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
-const wideIndices = [0, 1, 2, 3, 4, 5, 6, 7];
+const wideIndices = [0, 2, 3, 4, 5, 6];
 const caseStudyDetails = {
   'illustrator': {
     title: 'Ideas in every shape',
