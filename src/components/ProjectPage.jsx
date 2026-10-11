@@ -7,6 +7,7 @@ import UnrealCaseStudy from './UnrealCaseStudy.jsx';
 import MayaCaseStudy from './MayaCaseStudy.jsx';
 import PremiereProCaseStudy from './PremiereProCaseStudy.jsx';
 import SubstancePainterCaseStudy from './SubstancePainterCaseStudy.jsx';
+import IllustratorCaseStudy from './IllustratorCaseStudy.jsx';
 
 // Media block. Every card on a case study takes the project's colour tone.
 function Media({ label, wide = false, tone }) {
@@ -39,6 +40,9 @@ export default function ProjectPage({ project }) {
   }
   if (project.id === 'premiere-pro') {
     return <PremiereProCaseStudy project={project} />;
+  }
+  if (project.id === 'illustrator') {
+    return <IllustratorCaseStudy />;
   }
   if (project.id === 'substance-painter') {
     return <SubstancePainterCaseStudy />;

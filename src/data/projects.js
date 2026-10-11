@@ -1,6 +1,8 @@
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
+import illustratorThumbnail from '../assets/Illustrator/2 (2).png';
+
 import unrealThumbnail from '../assets/Unreal/Portfolio page Display image.png';
 import unrealHomeVideo from '../assets/Unreal/videos/1.mp4';
 import blenderThumbnail from '../assets/Blender/Portfolio page Display image.png';
@@ -19,6 +21,11 @@ const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects',
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
 const wideIndices = [0, 2, 3, 4, 5, 6];
 const caseStudyDetails = {
+  'illustrator': {
+    title: 'Ideas in every shape',
+    description: 'A collection of campaigns, characters and visual identities.',
+    thumbnailUrl: illustratorThumbnail,
+  },
   'unreal-engine': {
     title: 'Hot Wheels fan-made commercial',
     description: 'A cinematic chase moving from snow and city streets to a desert dream.',
@@ -87,7 +94,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
       || (i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null),
 }));
 
-const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter'];
+const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter', 'illustrator'];
 
 // Homepage project stages: each inner array is one full-screen stage.
 export const homeGroups = [[0], [1, 7], [3], [4], [5], [6], [2]];
