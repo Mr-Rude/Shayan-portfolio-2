@@ -13,7 +13,15 @@ npm run build     # production build into dist/
 npm run preview   # serve the production build locally
 ```
 
-The build uses relative paths, so `dist/` can be uploaded to any static host (Netlify, Vercel, GitHub Pages, cPanel) as is. just checking
+The build uses relative paths, so `dist/` can be uploaded to any static host (Netlify, Vercel, GitHub Pages, cPanel) as is.
+
+## Deploy to Vercel
+
+Import this repository with the Root Directory set to the repository root (the folder containing `package.json` and `vercel.json`).
+
+`vercel.json` sets the Vite framework, installs dependencies with `npm ci --include=dev`, runs `npm run build`, and publishes `dist/`. Including development dependencies ensures Vite is available during the build, even when the environment defaults to production installs.
+
+Commit and push these files, then deploy the new commit in Vercel. Redeploying an older commit will not include this configuration.
 
 ## Where to edit content
 
