@@ -1,3 +1,6 @@
+import { software } from './software.js';
+import cavePoster from '../assets/Cave Environment/Cinematic Cave Display Image.png';
+import caveFilm from '../assets/Cave/cave-film.mp4';
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
@@ -17,11 +20,14 @@ import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 2050
 import gptMainVideo from '../assets/GPT/videos/Main Video.mp4';
 import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 
-const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT'];
-const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai'];
+const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT', 'Environment'];
+const ids = ['unreal-engine', 'blender', 'maya', 'illustrator', 'after-effects', 'premiere-pro', 'substance-painter', 'gpt-ai', 'cinematic-cave'];
 const tones = ['', 'mint', 'blue', 'warm', 'blue', 'mint', '', 'warm'];
 const wideIndices = [0, 2, 3, 4, 5, 6];
+const iconPreviewClasses = { 'unreal-engine': 'u', blender: 'b', maya: 'm', illustrator: 'ai', 'after-effects': 'ae', 'premiere-pro': 'pr', 'substance-painter': 'pt', 'gpt-ai': 'gpt' };
+const iconPreviewFor = (id) => software.find((icon) => icon.cls === iconPreviewClasses[id])?.videoSrc || null;
 const caseStudyDetails = {
+  'cinematic-cave': { title: 'Cinematic Cave Environment', description: 'A hidden chamber shaped by weathered stone, reflective water and contrasting light.', thumbnailUrl: cavePoster, portfolioVideoSrc: caveFilm },
   'illustrator': {
     title: 'Ideas in every shape',
     description: 'A collection of campaigns, characters and visual identities.',
@@ -90,6 +96,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
   thumbnailCrop16x9: Boolean(caseStudyDetails[ids[i]]?.thumbnailCrop16x9),
   thumbnailBackground: Boolean(caseStudyDetails[ids[i]]?.thumbnailBackground),
   thumbnailLetterbox: Boolean(caseStudyDetails[ids[i]]?.thumbnailLetterbox),
+  portfolioVideoSrc: caseStudyDetails[ids[i]]?.portfolioVideoSrc || iconPreviewFor(ids[i]),
   homeVideoSrc: caseStudyDetails[ids[i]]?.homeVideoSrc || null,
   caseStudyRouteId: caseStudyDetails[ids[i]]?.caseStudyRouteId || ids[i],
   videoId: caseStudyDetails[ids[i]]?.homeVideoSrc
@@ -98,7 +105,7 @@ export const projects = Array.from({ length: 12 }, (_, i) => ({
       || (i === 0 ? '1xUwqvB7zuI' : i === 1 ? 'pXEKJn-RP54' : i === 2 ? 'qilFeNUbXiw' : i === 4 ? 'QsRQ7NqAiuI' : i === 7 ? 'G3YcTGkSOL8' : null),
 }));
 
-const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter', 'illustrator'];
+const portfolioProjectIds = ['unreal-engine', 'after-effects', 'premiere-pro', 'maya', 'blender', 'gpt-ai', 'substance-painter', 'illustrator', 'cinematic-cave'];
 
 // Homepage project stages: each inner array is one full-screen stage.
 export const homeGroups = [[2], [1], [0], [7], [4]];

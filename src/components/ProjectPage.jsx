@@ -1,3 +1,4 @@
+import CaveCaseStudy from './CaveCaseStudy.jsx';
 import { caseStudy } from '../data/projects.js';
 import Footer from './Footer.jsx';
 import BlenderCaseStudy from './BlenderCaseStudy.jsx';
@@ -22,6 +23,8 @@ function Media({ label, wide = false, tone }) {
 export default function ProjectPage({ project }) {
   const c = caseStudy(project);
   const tone = project.tone;
+
+  if (project.id === 'cinematic-cave') return <CaveCaseStudy />;
 
   if (project.id === 'gpt-ai') {
     return <HeadphonesCaseStudy project={project} />;
