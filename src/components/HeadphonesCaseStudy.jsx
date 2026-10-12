@@ -6,11 +6,11 @@ import section4Left from '../assets/GPT/4L.png';
 import section4Right from '../assets/GPT/4R.png';
 import section5Left from '../assets/GPT/5L.png';
 import section5Right from '../assets/GPT/5R.png';
-import mainVideo from '../assets/GPT/videos/Main Video.mp4';
-import section4Video from '../assets/GPT/videos/4B.mp4';
-import section6LeftVideo from '../assets/GPT/videos/6L.mp4';
-import section7LeftVideo from '../assets/GPT/videos/7L.mp4';
-import section7RightVideo from '../assets/GPT/videos/7R.mp4';
+import mainVideo from '../assets/GPT/Videos/Main Video.mp4';
+import section4Video from '../assets/GPT/Videos/4B.mp4';
+import section6LeftVideo from '../assets/GPT/Videos/6L.mp4';
+import section7LeftVideo from '../assets/GPT/Videos/7L.mp4';
+import section7RightVideo from '../assets/GPT/Videos/7R.mp4';
 import Footer from './Footer.jsx';
 
 function YouTubeEmbed({ videoId, label, audioEnabled = false }) {

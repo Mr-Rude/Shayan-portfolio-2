@@ -17,7 +17,7 @@ import afterEffectsHomeVideo from '../assets/After Effects/videos/2D Explainer V
 import mayaMainVideo from '../assets/Maya/videos/The Last Code.mp4';
 import premiereProMainVideo from '../assets/PremierePro/videos/Fishermen Main.mp4';
 import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 205013.png';
-import gptMainVideo from '../assets/GPT/videos/Main Video.mp4';
+import gptMainVideo from '../assets/GPT/Videos/Main Video.mp4';
 import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 
 const names = ['Unreal Engine', 'Blender', 'Maya', 'Illustrator', 'After Effects', 'Premiere Pro', 'Substance Painter', 'GPT', 'Environment'];

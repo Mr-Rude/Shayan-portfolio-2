@@ -12,7 +12,7 @@ import afterEffectsLogo from '../assets/logos/AE.svg';
 import afterEffectsPreviewVideo from '../assets/After Effects/videos/Preview.mp4';
 import texturingLogo from '../assets/logos/PT.svg';
 import gptLogo from '../assets/logos/GPT.svg';
-import gptMainVideo from '../assets/GPT/videos/Main Video.mp4';
+import gptMainVideo from '../assets/GPT/Videos/Main Video.mp4';
 import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 
 // Floating software marks around the hero portrait.
