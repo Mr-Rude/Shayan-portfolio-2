@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import wordmark from '../assets/shayan-wordmark.png';
 
 const NAME = 'Shayan Khan';
@@ -15,12 +16,13 @@ function AnimatedName() {
 }
 
 export default function Header() {
+  const [nameTap, setNameTap] = useState(0);
   return (
     <header>
       <div className="nav">
-        <a className="name" href="#/home" aria-label="Shayan Khan, home">
+        <a className="name" href="#/home" aria-label="Shayan Khan, home" onClick={() => setNameTap((tap) => tap + 1)}>
           <span className="name-letters" aria-hidden="true"><AnimatedName /></span>
-          <img className="name-wordmark" src={wordmark} alt="" aria-hidden="true" />
+          <img key={nameTap} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} src={wordmark} alt="" aria-hidden="true" />
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#/home/about">About Me</a>
