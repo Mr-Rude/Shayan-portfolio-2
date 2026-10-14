@@ -1,17 +1,17 @@
-import unrealLogo from '../assets/logos/UNREAL.svg';
+import unrealLogo from '../assets/logos/UNREAL.png';
 import unrealPreviewVideo from '../assets/Unreal/videos/Hotwheels Preview.mp4';
-import blenderLogo from '../assets/logos/BLENDER.svg';
+import blenderLogo from '../assets/logos/BLENDER.png';
 import blenderMainVideo from '../assets/Blender/videos/Main Video.mp4';
-import mayaLogo from '../assets/logos/MAYA.svg';
+import mayaLogo from '../assets/logos/MAYA.png';
 import mayaPreviewVideo from '../assets/Maya/videos/The Last Code Preview.mp4';
-import premiereLogo from '../assets/logos/PR.svg';
+import premiereLogo from '../assets/logos/PR.png';
 import premiereProPreviewVideo from '../assets/PremierePro/videos/Fishermen Preview.mp4';
-import illustratorLogo from '../assets/logos/AI.svg';
+import illustratorLogo from '../assets/logos/AI.png';
 import illustratorShowcaseVideo from '../assets/Illustrator/Video/illustrator-showcase-static-fast-15s.mp4';
-import afterEffectsLogo from '../assets/logos/AE.svg';
+import afterEffectsLogo from '../assets/logos/AE.png';
 import afterEffectsPreviewVideo from '../assets/After Effects/videos/Preview.mp4';
-import texturingLogo from '../assets/logos/PT.svg';
-import gptLogo from '../assets/logos/GPT.svg';
+import texturingLogo from '../assets/logos/PT.png';
+import gptLogo from '../assets/logos/GPT.png';
 import gptMainVideo from '../assets/GPT/Videos/Main Video.mp4';
 import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 

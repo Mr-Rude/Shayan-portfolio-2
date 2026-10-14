@@ -1,4 +1,4 @@
-import wordmark from '../assets/shayan-wordmark.svg';
+import wordmark from '../assets/shayan-wordmark.png';
 
 const NAME = 'Shayan Khan';
 
