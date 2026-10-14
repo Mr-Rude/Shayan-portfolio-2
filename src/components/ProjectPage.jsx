@@ -1,4 +1,5 @@
 import CaveCaseStudy from './CaveCaseStudy.jsx';
+import CaseStudyAudio from './CaseStudyAudio.jsx';
 import { caseStudy } from '../data/projects.js';
 import Footer from './Footer.jsx';
 import BlenderCaseStudy from './BlenderCaseStudy.jsx';
@@ -21,6 +22,10 @@ function Media({ label, wide = false, tone }) {
 }
 
 export default function ProjectPage({ project }) {
+  return <><ProjectContent project={project} /><CaseStudyAudio /></>;
+}
+
+function ProjectContent({ project }) {
   const c = caseStudy(project);
   const tone = project.tone;
 

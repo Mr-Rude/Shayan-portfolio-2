@@ -76,7 +76,7 @@ export default function IllustratorCaseStudy() {
           </div>
         </div>
         <figure className="illustrator-showcase">
-          <video src={showcaseVideo} controls playsInline preload="metadata" aria-label="15-second Illustrator project showcase" />
+          <video muted src={showcaseVideo} controls playsInline preload="metadata" aria-label="15-second Illustrator project showcase" />
           <figcaption>Selected Illustrator projects / 15-second showcase</figcaption>
         </figure>
       </section>

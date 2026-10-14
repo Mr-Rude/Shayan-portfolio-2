@@ -11,7 +11,9 @@ import Footer from './Footer.jsx';
 function youtubeEmbedUrl(videoId, audioEnabled = false) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: audioEnabled ? '0' : '1',
+    mute: '1',
+    enablejsapi: '1',
+    origin: window.location.origin,
     controls: audioEnabled ? '1' : '0',
     playsinline: '1',
     loop: audioEnabled ? '0' : '1',
@@ -28,7 +30,7 @@ function Media({ label, image, videoId, videoSrc, wide = false, audioEnabled = f
         {image ? (
           <img src={image} alt={label} />
         ) : videoSrc ? (
-          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         ) : videoId ? (
           <iframe
             src={youtubeEmbedUrl(videoId, audioEnabled)}

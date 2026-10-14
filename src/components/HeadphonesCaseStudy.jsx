@@ -16,7 +16,9 @@ import Footer from './Footer.jsx';
 function YouTubeEmbed({ videoId, label, audioEnabled = false }) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: audioEnabled ? '0' : '1',
+    mute: '1',
+    enablejsapi: '1',
+    origin: window.location.origin,
     controls: audioEnabled ? '1' : '0',
     playsinline: '1',
     loop: audioEnabled ? '0' : '1',
@@ -43,7 +45,7 @@ function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, videoS
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
       <div className="headphones-media-surface" aria-hidden={videoId || videoSrc || image ? undefined : true}>
         {videoSrc ? (
-          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : videoId ? (
           <YouTubeEmbed videoId={videoId} label={label} audioEnabled={audioEnabled} />
         ) : image ? (

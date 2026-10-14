@@ -59,7 +59,7 @@ export default function PremiereProCaseStudy({ project }) {
           <span>Adobe Premiere Pro · 0:53</span>
         </div>
         <div className="fisherman-video-panel">
-          <video src={project.homeVideoSrc} title="The Story of Fisherman / finished film" autoPlay controls loop playsInline preload="auto" />
+          <video muted src={project.homeVideoSrc} title="The Story of Fisherman / finished film" autoPlay controls loop playsInline preload="auto" />
         </div>
       </section>
 

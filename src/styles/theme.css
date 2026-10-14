@@ -1,0 +1,7 @@
+/* The existing palette is already dark in both OS modes. Declare that support
+   so browsers do not try to darken it again. "only" opts out of auto conversion. */
+:root {
+  color-scheme: dark;
+  color-scheme: only dark;
+  background-color: #08090c;
+}

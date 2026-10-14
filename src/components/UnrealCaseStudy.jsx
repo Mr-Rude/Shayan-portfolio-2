@@ -51,11 +51,11 @@ function Media({ label, caption = label, image, videoId, videoSrc, wide = false,
       <div className={frameClass}>
         {image && <img src={image} alt={label} />}
         {videoSrc && (
-          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         )}
         {videoId && (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0&mute=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`}
             title={label}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             loading="lazy"

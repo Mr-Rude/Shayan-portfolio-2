@@ -13,7 +13,9 @@ import Footer from './Footer.jsx';
 function youtubeEmbedUrl(videoId, audioEnabled = false) {
   const params = new URLSearchParams({
     autoplay: '1',
-    mute: audioEnabled ? '0' : '1',
+    mute: '1',
+    enablejsapi: '1',
+    origin: window.location.origin,
     controls: audioEnabled ? '1' : '0',
     playsinline: '1',
     loop: audioEnabled ? '0' : '1',
@@ -30,7 +32,7 @@ function MediaSlot({ label, shape = 'landscape', image, videoId, videoSrc }) {
         {image ? (
           <img src={image} alt={label} />
         ) : videoSrc ? (
-          <video className="blender-media-video" src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <video muted className="blender-media-video" src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : videoId ? (
           <iframe
             className="blender-media-video"
@@ -110,7 +112,7 @@ export default function BlenderCaseStudy({ project }) {
         </div>
         <div className="blender-hero-frame">
           <div className="blender-hero-portrait">
-            <video
+            <video muted
               className="blender-hero-video"
               src={mainVideo}
               title="Final cinematic render / Blender"

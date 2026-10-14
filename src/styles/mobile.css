@@ -26,6 +26,9 @@
   --nav-height: 84px;
 }
 
+.name .name-letters { display: contents; }
+.name .name-wordmark { display: none; }
+
 @media (max-width: 760px) {
   :root {
     --nav-height: 60px;
@@ -64,6 +67,14 @@
     letter-spacing: -1px;
   }
 
+  /* Outlined desktop lettering also renders on phones without the system font. */
+  .name .name-letters { display: none; }
+  .name .name-wordmark {
+    display: block;
+    width: 4.4em;
+    height: auto;
+  }
+
   .nav-links {
     min-width: 0;
     flex: 0 0 auto;
@@ -72,14 +83,15 @@
     justify-content: flex-end;
     gap: 4px;
     margin-left: auto;
-    font-size: 8px;
+    font-size: 7px;
     letter-spacing: 0;
   }
 
   .nav-links a,
   .nav-links a:last-child {
-    padding: 5px 6px;
-    border-radius: 9px;
+    /* Keep the original footprint while giving each label more breathing room. */
+    padding: 5.575px 8.1px;
+    border-radius: 30px;
     text-align: center;
     white-space: nowrap;
     line-height: 1.15;
@@ -589,13 +601,13 @@
   }
 
   .nav-links {
-    font-size: 9px;
+    font-size: 8px;
   }
 
   .nav-links a,
   .nav-links a:last-child {
-    padding-left: 1px;
-    padding-right: 1px;
+    padding-left: 3.1px;
+    padding-right: 3.1px;
     white-space: nowrap;
   }
 

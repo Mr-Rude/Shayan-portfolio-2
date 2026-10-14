@@ -15,7 +15,7 @@ function Media({ label, wide = false, image, videoSrc }) {
     <figure className={`substance-media${wide ? ' substance-media--wide' : ''}`}>
       <div className="substance-media-frame">
         {videoSrc ? (
-          <video src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : (
           <img src={image} alt={label} loading="lazy" />
         )}

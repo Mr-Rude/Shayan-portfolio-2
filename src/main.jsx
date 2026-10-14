@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
+import './styles/theme.css';
 
 // Same load order as the original site: base, structure, effects, then mobile overrides.
 import './styles/styles.css';

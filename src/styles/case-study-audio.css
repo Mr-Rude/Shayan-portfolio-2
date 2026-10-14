@@ -1,0 +1,13 @@
+.case-study-sound {
+  position: fixed;
+  z-index: 30;
+  right: 16px;
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  padding: 12px 18px;
+  border: 1px solid #c1ff8050;
+  border-radius: 30px;
+  background: #090a0d;
+  color: var(--green);
+  font-size: 13px;
+}
+.case-study-sound:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }

@@ -1,3 +1,5 @@
+import wordmark from '../assets/shayan-wordmark.svg';
+
 const NAME = 'Shayan Khan';
 
 // Each letter gets an index so the hover flip ripples across the name.
@@ -17,7 +19,8 @@ export default function Header() {
     <header>
       <div className="nav">
         <a className="name" href="#/home" aria-label="Shayan Khan, home">
-          <AnimatedName />
+          <span className="name-letters" aria-hidden="true"><AnimatedName /></span>
+          <img className="name-wordmark" src={wordmark} alt="" aria-hidden="true" />
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#/home/about">About Me</a>
