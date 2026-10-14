@@ -947,7 +947,18 @@
   .nav-links a:active { background: #c1ff800d; }
 }
 
-@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+/* Use touch capability rather than screen width, including wide tablets. */
+@media (hover: none), (pointer: coarse) {
+  .name .name-letters { display: none; }
+  .name .name-wordmark {
+    display: block;
+    width: 4.4em;
+    height: auto;
+  }
+}
+
+@media (hover: none) and (prefers-reduced-motion: no-preference),
+       (pointer: coarse) and (prefers-reduced-motion: no-preference) {
   .name .name-wordmark.is-tapped {
     animation: mobile-name-flip .7s ease-in-out;
     transform-origin: center;
