@@ -58,7 +58,23 @@ export default function CaseStudyAudio() {
       cleanups.push(() => target.removeEventListener(event, callback));
     }
 
-    for (const video of root.querySelectorAll('video')) {
+    // Apply these defaults centrally so new case studies inherit autoplay.
+    // Only initialize once; later user pauses must remain respected.
+    const registeredVideos = new WeakSet();
+    function registerVideo(video) {
+      if (registeredVideos.has(video)) return;
+      registeredVideos.add(video);
+      video.muted = true;
+      video.defaultMuted = true;
+      video.playsInline = true;
+      video.autoplay = true;
+      video.play().catch(() => {}); // Native controls remain available if playback is blocked.
+      if (video.dataset.audioDisabled === 'true') {
+        const keepMuted = () => { if (!video.muted) video.muted = true; };
+        keepMuted();
+        listen(video, 'volumechange', keepMuted);
+        return;
+      }
       let started = !video.paused;
       let attemptingSound = false;
       let expectedMuted = true;
@@ -66,7 +82,7 @@ export default function CaseStudyAudio() {
       const item = {
         element: video,
         blocked: false,
-        isPlaying: () => !video.ended && (!video.paused || attemptingSound || (video.autoplay && !started)),
+        isPlaying: () => video.isConnected && !video.ended && (!video.paused || attemptingSound || (video.autoplay && !started)),
         setMuted(muted) {
           const desired = muted || manuallyMuted || item.blocked;
           if (video.muted === desired) return;
@@ -120,17 +136,26 @@ export default function CaseStudyAudio() {
       });
     }
 
+    for (const video of root.querySelectorAll('video')) registerVideo(video);
+    // Also initialize videos inserted later by a project gallery or lazy section.
+    const mediaObserver = new MutationObserver(() => {
+      for (const video of root.querySelectorAll('video')) registerVideo(video);
+      schedule();
+    });
+    mediaObserver.observe(root, { childList: true, subtree: true });
     const embeds = [...root.querySelectorAll('iframe[src*="youtube-nocookie.com/embed/"]')];
     if (embeds.length) loadYouTubeAPI().then((YT) => {
       if (disposed) return;
       for (const iframe of embeds) {
+        const audioDisabled = iframe.dataset.audioDisabled === 'true';
         let ready = false;
         let muted = true;
         const item = {
           element: iframe,
           blocked: false,
-          isPlaying: () => ready && player.getPlayerState() === YT.PlayerState.PLAYING,
+          isPlaying: () => !audioDisabled && ready && player.getPlayerState() === YT.PlayerState.PLAYING,
           setMuted(value) {
+            if (audioDisabled) value = true;
             if (!ready || (value === muted && !value)) return;
             muted = value;
             if (value || item.blocked) player.mute();
@@ -139,8 +164,8 @@ export default function CaseStudyAudio() {
           enable() { item.blocked = false; muted = true; item.setMuted(false); player.playVideo(); },
         };
         const player = new YT.Player(iframe, { events: {
-          onReady() { ready = true; player.mute(); schedule(); },
-          onStateChange: schedule,
+          onReady() { ready = true; player.mute(); if (!disposed) player.playVideo(); schedule(); },
+          onStateChange() { if (audioDisabled && ready) player.mute(); schedule(); },
           onAutoplayBlocked() {
             item.blocked = true;
             player.mute();
@@ -167,6 +192,7 @@ export default function CaseStudyAudio() {
       disposed = true;
       cancelAnimationFrame(frame);
       observer.disconnect();
+      mediaObserver.disconnect();
       cleanups.forEach((cleanup) => cleanup());
       items.forEach((item) => item.setMuted(true));
       enableSound.current = () => {};

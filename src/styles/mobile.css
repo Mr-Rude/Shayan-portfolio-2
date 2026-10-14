@@ -524,9 +524,16 @@
     border-radius: 12px;
   }
 
+  /* Keep the permanent phone overlay close to the copy, with the same
+     3px blur used by the desktop hover treatment. */
   .portfolio-page .portfolio-grid .card-copy {
+    z-index: 2;
     border-top: 0;
-    padding: 28px 10px 9px;
+    min-height: 0;
+    padding: 8px 10px 9px;
+    background: linear-gradient(to bottom, #090a0d35, #090a0da6);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
     opacity: 1;
     transform: none;
   }
@@ -932,4 +939,23 @@
   .unreal-pair,.unreal-trio,.unreal-material-grid{grid-template-columns:minmax(0,1fr);gap:22px}
   .unreal-pair .unreal-media:nth-child(even){transform:none}
   .unreal-trio .unreal-media:nth-child(2),.unreal-trio .unreal-media:nth-child(3){transform:none}
+}
+
+/* Touch feedback ends on release; mouse hover remains in styles.css. */
+@media (hover: none), (pointer: coarse) {
+  .nav-links a { -webkit-tap-highlight-color: transparent; }
+  .nav-links a:active { background: #c1ff800d; }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .name .name-wordmark.is-tapped {
+    animation: mobile-name-flip .7s ease-in-out;
+    transform-origin: center;
+  }
+}
+
+@keyframes mobile-name-flip {
+  0%, 100% { transform: rotateY(0); filter: none; }
+  45% { transform: rotateY(180deg); filter: sepia(1) saturate(4) hue-rotate(35deg); }
+  99% { transform: rotateY(360deg); filter: none; }
 }

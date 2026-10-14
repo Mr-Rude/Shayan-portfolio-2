@@ -38,7 +38,7 @@ import roomLayout from '../assets/Unreal/13R.png';
 import roomBottom from '../assets/Unreal/13B.png';
 import finalReveal from '../assets/Unreal/15.png';
 
-function Media({ label, caption = label, image, videoId, videoSrc, wide = false, portrait = false }) {
+function Media({ label, caption = label, image, videoId, videoSrc, wide = false, portrait = false, audioEnabled = false }) {
   const mediaClass = [
     'unreal-media',
     wide && 'unreal-media--wide',
@@ -51,10 +51,10 @@ function Media({ label, caption = label, image, videoId, videoSrc, wide = false,
       <div className={frameClass}>
         {image && <img src={image} alt={label} />}
         {videoSrc && (
-          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+          <video muted data-audio-disabled={!audioEnabled || undefined} src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         )}
         {videoId && (
-          <iframe
+          <iframe data-audio-disabled={!audioEnabled || undefined}
             src={`https://www.youtube-nocookie.com/embed/${videoId}?playsinline=1&rel=0&mute=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`}
             title={label}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -107,7 +107,7 @@ export default function UnrealCaseStudy() {
           <span>01 / Final film</span>
           <span>Full project cut · 1:54</span>
         </div>
-        <Media label="Final film" caption={null} videoSrc={sectionOneVideo} wide />
+        <Media label="Final film" caption={null} videoSrc={sectionOneVideo} audioEnabled wide />
         <div className="unreal-caption">
           <h2>A chase that begins as a dream.</h2>
           <p>
