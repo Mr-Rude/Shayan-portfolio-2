@@ -23,13 +23,13 @@ test('quick tap navigates without playing a preview', () => {
   assert.equal(s.visible(), false);
   assert.equal(s.hold.consumeClick(), false);
 });
-test('hold previews and release suppresses navigation exactly once', () => {
+test('hold keeps playing after release and suppresses navigation exactly once', () => {
   const s = setup();
   s.hold.down(touch);
   s.elapsed();
   assert.equal(s.visible(), true);
   s.hold.up(touch);
-  assert.equal(s.visible(), false);
+  assert.equal(s.visible(), true);
   assert.equal(s.hold.consumeClick(), true);
   assert.equal(s.hold.consumeClick(), false);
 });
@@ -70,5 +70,26 @@ test('another finger cancels the gesture', () => {
   s.hold.down(touch);
   s.hold.down({ ...touch, pointerId: 2, isPrimary: false });
   s.elapsed();
+  assert.equal(s.visible(), false);
+});
+
+test('dragging after a hold keeps playback while allowing native scrolling', () => {
+  const s = setup();
+  s.hold.down(touch);
+  s.elapsed();
+  s.hold.move({ ...touch, clientY: 100 });
+  s.hold.cancel(false); // Browser hands the pointer over to native scrolling.
+  s.hold.up(touch);
+  assert.equal(s.visible(), true);
+  assert.equal(s.hold.consumeClick(), true);
+});
+test('scrolling after release keeps the preview until explicitly stopped', () => {
+  const s = setup();
+  s.hold.down(touch);
+  s.elapsed();
+  s.hold.up(touch);
+  s.hold.cancel(false);
+  assert.equal(s.visible(), true);
+  s.hold.cancel(); // Card leaves the viewport or another preview starts.
   assert.equal(s.visible(), false);
 });

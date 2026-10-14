@@ -8,7 +8,7 @@ const pad = (n) => String(n).padStart(2, '0');
  */
 export default function ProjectCard({ project, index, square = false, homepage = false }) {
   const hasHoldPreview = square && Boolean(project.portfolioVideoSrc);
-  const { active: previewActive, handlers } = useHoldPreview(hasHoldPreview);
+  const { active: previewActive, cardRef, handlers } = useHoldPreview(hasHoldPreview);
   const shape = square ? 'portfolio-card' : project.format === 'wide' ? 'wide' : '';
   const ratio = square ? '1:1' : project.format === 'wide' ? '16:9' : '9:16';
   const placeholder = index > 7 ? 'ADDITIONAL PROJECT PLACEHOLDER' : 'PROJECT MEDIA PLACEHOLDER';
@@ -18,6 +18,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
 
   return (
     <a
+      ref={cardRef}
       {...handlers}
       href={`#/project/${project.caseStudyRouteId || project.id}`}
       className={['card', shape, hasHoldPreview && 'has-hold-preview', previewActive && 'is-previewing', project.tone, showVideo && 'video-preview', hasThumbnail && 'has-thumbnail', hasThumbnail && project.thumbnailFit === 'contain' && 'thumbnail-contain', hasThumbnail && project.thumbnailBackground && 'has-thumbnail-background', hasThumbnail && project.thumbnailLetterbox && 'thumbnail-letterbox', cropThumbnail16x9 && 'thumbnail-crop-16x9'].filter(Boolean).join(' ')}

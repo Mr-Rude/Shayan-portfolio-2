@@ -19,21 +19,21 @@ export function createHoldPreview({ show, hide, schedule = setTimeout, clear = c
       }, 500);
     },
     move(event) {
-      if (pointer?.id === event.pointerId && Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) > 10) this.cancel();
+      if (pointer?.id === event.pointerId && Math.hypot(event.clientX - pointer.x, event.clientY - pointer.y) > 10) this.cancel(false);
     },
     up(event) {
       if (pointer?.id !== event.pointerId) return;
       stopTimer();
-      if (held) hide();
+
       held = false;
       pointer = null;
     },
-    cancel() {
+    cancel(stopPlayback = true) {
       if (pointer || held) suppressClick = true;
       stopTimer();
       pointer = null;
       held = false;
-      hide();
+      if (stopPlayback) hide();
     },
     consumeClick() {
       const result = suppressClick;
