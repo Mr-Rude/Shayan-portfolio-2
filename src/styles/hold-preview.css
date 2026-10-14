@@ -1,0 +1,32 @@
+.card.is-previewing .portfolio-film-preview { opacity: 1; }
+.hold-preview-hint { display: none; }
+
+@media (hover: none), (pointer: coarse) {
+  .card.has-hold-preview {
+    touch-action: pan-y pinch-zoom;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .portfolio-grid .card.has-hold-preview .card-copy {
+    z-index: 2;
+    min-height: 0;
+    padding: 8px 10px 9px;
+    opacity: 1;
+    transform: none;
+    background: linear-gradient(to bottom, #090a0d35, #090a0da6);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+  .portfolio-grid .card.has-hold-preview .card-copy p { display: none; }
+  .hold-preview-hint {
+    display: block;
+    margin-top: 5px;
+    font-size: 8px;
+    line-height: 1.3;
+    color: #d5d5df;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hold-preview-hint { display: none; }
+}

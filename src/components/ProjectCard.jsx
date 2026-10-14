@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import useHoldPreview from '../hooks/useHoldPreview.js';
+import '../styles/hold-preview.css';
 import '../styles/cave.css';
 const pad = (n) => String(n).padStart(2, '0');
 
@@ -6,8 +7,8 @@ const pad = (n) => String(n).padStart(2, '0');
  * Project card used on the homepage (16:9 or 9:16) and the portfolio grid (square).
  */
 export default function ProjectCard({ project, index, square = false, homepage = false }) {
-  const [previewActive, setPreviewActive] = useState(false);
-  const startPreview = () => { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) setPreviewActive(true); };
+  const hasHoldPreview = square && Boolean(project.portfolioVideoSrc);
+  const { active: previewActive, handlers } = useHoldPreview(hasHoldPreview);
   const shape = square ? 'portfolio-card' : project.format === 'wide' ? 'wide' : '';
   const ratio = square ? '1:1' : project.format === 'wide' ? '16:9' : '9:16';
   const placeholder = index > 7 ? 'ADDITIONAL PROJECT PLACEHOLDER' : 'PROJECT MEDIA PLACEHOLDER';
@@ -17,12 +18,9 @@ export default function ProjectCard({ project, index, square = false, homepage =
 
   return (
     <a
-      onMouseEnter={startPreview}
-      onMouseLeave={() => setPreviewActive(false)}
-      onFocus={startPreview}
-      onBlur={() => setPreviewActive(false)}
+      {...handlers}
       href={`#/project/${project.caseStudyRouteId || project.id}`}
-      className={['card', shape, project.tone, showVideo && 'video-preview', hasThumbnail && 'has-thumbnail', hasThumbnail && project.thumbnailFit === 'contain' && 'thumbnail-contain', hasThumbnail && project.thumbnailBackground && 'has-thumbnail-background', hasThumbnail && project.thumbnailLetterbox && 'thumbnail-letterbox', cropThumbnail16x9 && 'thumbnail-crop-16x9'].filter(Boolean).join(' ')}
+      className={['card', shape, hasHoldPreview && 'has-hold-preview', previewActive && 'is-previewing', project.tone, showVideo && 'video-preview', hasThumbnail && 'has-thumbnail', hasThumbnail && project.thumbnailFit === 'contain' && 'thumbnail-contain', hasThumbnail && project.thumbnailBackground && 'has-thumbnail-background', hasThumbnail && project.thumbnailLetterbox && 'thumbnail-letterbox', cropThumbnail16x9 && 'thumbnail-crop-16x9'].filter(Boolean).join(' ')}
       aria-label={`${project.title}, view case study`}
     >
       <div className="art" />
@@ -64,6 +62,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
       <div className="card-copy">
         <small>{project.software}</small>
         <h3>{project.title}</h3>
+        {hasHoldPreview && <span className="hold-preview-hint">{previewActive ? 'Previewing…' : 'Hold to preview'}</span>}
         <p>{square && project.description ? project.description : 'Project story and media to be added.'}</p>
       </div>
       <span className="arrow" aria-hidden="true">
