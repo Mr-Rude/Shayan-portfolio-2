@@ -12,7 +12,7 @@ function MobileName() {
     if (glyph.code === 32) return null;
     return (
       <span className="name-glyph" key={position} style={{ '--i': index++, left: `${left / nameWidth * 100}%`, width: `${glyph.advance / nameWidth * 100}%` }}>
-        <img src={glyphImages[`../assets/name-letters/${glyph.code}.png`]} alt="" draggable="false" style={{ left: `${glyph.left / glyph.advance * 100}%`, width: `${glyph.width / glyph.advance * 100}%` }} />
+        <span className="name-glyph-ink" style={{ '--glyph-image': `url("${glyphImages[`../assets/name-letters/${glyph.code}.png`]}")`, left: `${glyph.left / glyph.advance * 100}%`, width: `${glyph.width / glyph.advance * 100}%` }} />
       </span>
     );
   });

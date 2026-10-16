@@ -1,5 +1,6 @@
 .card.is-previewing .portfolio-film-preview { opacity: 1; }
 .hold-preview-hint { display: none; }
+.portfolio-grid .card-copy h3 { color: var(--green); }
 
 @media (hover: none), (pointer: coarse) {
   .card.has-hold-preview {
@@ -8,25 +9,45 @@
     -webkit-user-select: none;
     user-select: none;
   }
-  .portfolio-grid .card.has-hold-preview .card-copy {
+  .card.has-hold-preview img { pointer-events: none; -webkit-user-drag: none; }
+  .portfolio-page .portfolio-grid .card.has-hold-preview .card-copy {
     z-index: 2;
     min-height: 0;
-    padding: 8px 10px 9px;
+    padding: 9px 10px;
     opacity: 1;
     transform: none;
     background: linear-gradient(to bottom, #090a0d35, #090a0da6);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
   }
-  .portfolio-grid .card.has-hold-preview .card-copy p { display: none; }
+  .portfolio-grid .card.has-hold-preview .card-copy p,
+  .portfolio-grid .card.has-hold-preview .media-label { display: none; }
+  .portfolio-grid .has-hold-preview .preview-title {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows .25s ease, opacity .25s ease;
+  }
+  .portfolio-grid .has-hold-preview .preview-title > div { overflow: hidden; min-height: 0; }
+  .portfolio-grid .has-hold-preview.is-previewing .preview-title {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .portfolio-page .portfolio-grid .has-hold-preview .card-copy h3 { margin: 0; color: var(--green); }
   .hold-preview-hint {
     display: block;
-    margin-top: 5px;
-    font-size: 8px;
-    line-height: 1.3;
-    color: #d5d5df;
+    margin: 0;
+    max-height: 24px;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #fff;
+    transition: max-height .25s ease, opacity .2s ease;
   }
+  .is-previewing .hold-preview-hint { max-height: 0; opacity: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hold-preview-hint { display: none; }
+  .portfolio-grid .has-hold-preview .preview-title { grid-template-rows: 1fr; opacity: 1; transition: none; }
 }

@@ -93,3 +93,17 @@ test('scrolling after release keeps the preview until explicitly stopped', () =>
   s.hold.cancel(); // Card leaves the viewport or another preview starts.
   assert.equal(s.visible(), false);
 });
+
+test('starting a swipe on an already playing card does not stop it', () => {
+  const s = setup();
+  s.hold.down(touch);
+  s.elapsed();
+  s.hold.up(touch);
+  s.hold.consumeClick();
+  s.hold.down(touch);
+  assert.equal(s.visible(), true);
+  s.hold.move({ ...touch, clientY: 110 });
+  s.hold.up(touch);
+  assert.equal(s.visible(), true);
+  assert.equal(s.hold.consumeClick(), true);
+});

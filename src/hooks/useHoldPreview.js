@@ -5,9 +5,11 @@ export default function useHoldPreview(enabled) {
   const [active, setActive] = useState(false);
   const cardRef = useRef(null);
   const pointerType = useRef('mouse');
+  const heldScroll = useRef(false);
   const previewId = useRef(Symbol('card-preview'));
   const canPreview = () => enabled && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const show = () => {
+    heldScroll.current = pointerType.current === 'touch';
     window.dispatchEvent(new CustomEvent('portfolio-preview-start', { detail: previewId.current }));
     setActive(true);
   };
@@ -17,7 +19,7 @@ export default function useHoldPreview(enabled) {
   }), []);
 
   useEffect(() => {
-    const stop = () => hold.cancel();
+    const stop = () => { heldScroll.current = false; hold.cancel(); };
     // Cancel a pending hold when scrolling, but preserve an established preview.
     const scroll = () => hold.cancel(false);
     const anotherPreview = (event) => {
@@ -27,12 +29,38 @@ export default function useHoldPreview(enabled) {
       if (!entry.isIntersecting) stop();
     });
     if (cardRef.current) observer.observe(cardRef.current);
+    const card = cardRef.current;
+    let lastY = null;
+    const touchStart = (event) => {
+      heldScroll.current = false;
+      lastY = event.touches.length === 1 ? event.touches[0].clientY : null;
+    };
+    const touchMove = (event) => {
+      if (event.touches.length !== 1) { lastY = null; heldScroll.current = false; return; }
+      const y = event.touches[0].clientY;
+      // Some browsers consume the native drag after a long press on a link.
+      // Drive that held drag directly; ordinary swipes retain native scrolling.
+      if (heldScroll.current && lastY !== null && event.cancelable) {
+        event.preventDefault();
+        window.scrollBy({ top: lastY - y, behavior: 'instant' });
+      }
+      lastY = y;
+    };
+    const touchEnd = () => { lastY = null; heldScroll.current = false; };
+    card?.addEventListener('touchstart', touchStart, { passive: true });
+    card?.addEventListener('touchmove', touchMove, { passive: false });
+    card?.addEventListener('touchend', touchEnd, { passive: true });
+    card?.addEventListener('touchcancel', touchEnd, { passive: true });
     window.addEventListener('scroll', scroll, { passive: true, capture: true });
     window.addEventListener('blur', stop);
     window.addEventListener('portfolio-preview-start', anotherPreview);
     document.addEventListener('visibilitychange', stop);
     return () => {
       observer.disconnect();
+      card?.removeEventListener('touchstart', touchStart);
+      card?.removeEventListener('touchmove', touchMove);
+      card?.removeEventListener('touchend', touchEnd);
+      card?.removeEventListener('touchcancel', touchEnd);
       window.removeEventListener('scroll', scroll, true);
       window.removeEventListener('blur', stop);
       window.removeEventListener('portfolio-preview-start', anotherPreview);
@@ -60,7 +88,7 @@ export default function useHoldPreview(enabled) {
       onFocus(event) {
         if (event.currentTarget.matches(':focus-visible') && canPreview()) show();
       },
-      onBlur: () => hold.cancel(),
+      onBlur: () => { if (pointerType.current === 'mouse') hold.cancel(); },
       onClick(event) {
         if (event.detail !== 0 && hold.consumeClick()) event.preventDefault();
       },

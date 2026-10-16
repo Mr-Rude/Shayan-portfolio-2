@@ -7,7 +7,7 @@ export function createHoldPreview({ show, hide, schedule = setTimeout, clear = c
   const stopTimer = () => { if (timer !== null) clear(timer); timer = null; };
   return {
     down(event) {
-      this.cancel();
+      this.cancel(false);
       if (!event.isPrimary || !['touch', 'pen'].includes(event.pointerType)) return;
       suppressClick = false;
       pointer = { id: event.pointerId, x: event.clientX, y: event.clientY };

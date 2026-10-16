@@ -61,9 +61,9 @@ export default function ProjectCard({ project, index, square = false, homepage =
       </span>
       <span className="ratio">{ratio}</span>
       <div className="card-copy">
-        <small>{project.software}</small>
-        <h3>{project.title}</h3>
-        {hasHoldPreview && <span className="hold-preview-hint">{previewActive ? 'Previewing…' : 'Hold to preview'}</span>}
+        {!square && <small>{project.software}</small>}
+        <div className="preview-title"><div><h3>{project.title}</h3></div></div>
+        {hasHoldPreview && <span className="hold-preview-hint">Hold to preview</span>}
         <p>{square && project.description ? project.description : 'Project story and media to be added.'}</p>
       </div>
       <span className="arrow" aria-hidden="true">
