@@ -957,16 +957,29 @@
   }
 }
 
+/* Each outlined letter uses the desktop timing and rotation independently. */
+.name .name-wordmark {
+  position: relative;
+  height: calc(4.4em * var(--name-height));
+  overflow: visible;
+}
+.name .name-glyph {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  transform-origin: center;
+}
+.name-glyph img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  max-width: none;
+  pointer-events: none;
+}
 @media (hover: none) and (prefers-reduced-motion: no-preference),
        (pointer: coarse) and (prefers-reduced-motion: no-preference) {
-  .name .name-wordmark.is-tapped {
-    animation: mobile-name-flip .7s ease-in-out;
-    transform-origin: center;
+  .name .name-wordmark.is-tapped .name-glyph {
+    animation: nameFlip .7s ease-in-out both;
+    animation-delay: calc(var(--i) * 24ms);
   }
-}
-
-@keyframes mobile-name-flip {
-  0%, 100% { transform: rotateY(0); filter: none; }
-  45% { transform: rotateY(180deg); filter: sepia(1) saturate(4) hue-rotate(35deg); }
-  99% { transform: rotateY(360deg); filter: none; }
 }

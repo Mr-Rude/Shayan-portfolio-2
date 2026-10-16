@@ -1,5 +1,22 @@
 import { useState } from 'react';
-import wordmark from '../assets/shayan-wordmark.png';
+import glyphs from '../assets/name-letters/metrics.json';
+const glyphImages = import.meta.glob('../assets/name-letters/*.png', { eager: true, query: '?url', import: 'default' });
+const nameWidth = glyphs.reduce((sum, glyph) => sum + glyph.advance, 0);
+
+function MobileName() {
+  let offset = 0;
+  let index = 0;
+  return glyphs.map((glyph, position) => {
+    const left = offset;
+    offset += glyph.advance;
+    if (glyph.code === 32) return null;
+    return (
+      <span className="name-glyph" key={position} style={{ '--i': index++, left: `${left / nameWidth * 100}%`, width: `${glyph.advance / nameWidth * 100}%` }}>
+        <img src={glyphImages[`../assets/name-letters/${glyph.code}.png`]} alt="" draggable="false" style={{ left: `${glyph.left / glyph.advance * 100}%`, width: `${glyph.width / glyph.advance * 100}%` }} />
+      </span>
+    );
+  });
+}
 
 const NAME = 'Shayan Khan';
 
@@ -22,7 +39,7 @@ export default function Header() {
       <div className="nav">
         <a className="name" href="#/home" aria-label="Shayan Khan, home" onClick={() => setNameTap((tap) => tap + 1)}>
           <span className="name-letters" aria-hidden="true"><AnimatedName /></span>
-          <img key={nameTap} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} src={wordmark} alt="" aria-hidden="true" />
+          <span key={nameTap} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} style={{ '--name-height': 96 / nameWidth }} aria-hidden="true"><MobileName /></span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#/home/about">About Me</a>
