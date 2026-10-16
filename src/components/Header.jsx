@@ -42,8 +42,8 @@ export default function Header() {
           <span key={nameTap} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} style={{ '--name-height': 96 / nameWidth }} aria-hidden="true"><MobileName /></span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#/home/about">About Me</a>
           <a href="#/portfolio">Portfolio</a>
+          <a href="#/home/about">About Me</a>
           <a href="#/home/contact">Contact Me</a>
         </nav>
       </div>
