@@ -37,7 +37,7 @@
   .hold-preview-hint {
     display: block;
     margin: 0;
-    max-height: 24px;
+    max-height: 3em;
     overflow: hidden;
     font-size: 12px;
     line-height: 1.4;

@@ -63,7 +63,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
       <div className="card-copy">
         {!square && <small>{project.software}</small>}
         <div className="preview-title"><div><h3>{project.title}</h3></div></div>
-        {hasHoldPreview && <span className="hold-preview-hint">Hold to preview</span>}
+        {hasHoldPreview && <span className="hold-preview-hint">Tap to open / Hold to preview</span>}
         <p>{square && project.description ? project.description : 'Project story and media to be added.'}</p>
       </div>
       <span className="arrow" aria-hidden="true">
