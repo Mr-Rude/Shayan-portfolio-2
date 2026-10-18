@@ -197,10 +197,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  .home .logo {
-    animation: none;
-    opacity: 1;
-  }
+  /* Use the shared portrait and staggered icon entrance animations. */
 
   .home .logo::before { display: none; }
 
@@ -1002,8 +999,8 @@
   justify-content: space-between;
 }
 @media (hover: none), (pointer: coarse), (max-width: 760px) {
-  .home .hero .logo { animation: none; }
-  .home .hero .logo:not(.is-preview-open)::before { display: none; }
+
+  .home .hero .logo::before { display: block; }
   .home .hero .logo .peek {
     width: min(170px, 45vw);
     height: auto;
