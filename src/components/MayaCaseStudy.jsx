@@ -1,25 +1,26 @@
-import section2Center from '../assets/Maya/2C.png';
-import section2Left from '../assets/Maya/2L.png';
-import section2Right from '../assets/Maya/2R.png';
-import section3BottomLeft from '../assets/Maya/3BL.png';
-import section3BottomRight from '../assets/Maya/3BR.png';
-import section3CenterLeft from '../assets/Maya/3CL.png';
-import section3CenterRight from '../assets/Maya/3CR.png';
-import section3TopLeft from '../assets/Maya/3TL.png';
-import section3TopRight from '../assets/Maya/3TR.png';
+import ViewportVideo from './ViewportVideo.jsx';
+import section2Center from '../assets/Maya/2C.optimized.webp';
+import section2Left from '../assets/Maya/2L.optimized.webp';
+import section2Right from '../assets/Maya/2R.optimized.webp';
+import section3BottomLeft from '../assets/Maya/3BL.optimized.webp';
+import section3BottomRight from '../assets/Maya/3BR.optimized.webp';
+import section3CenterLeft from '../assets/Maya/3CL.optimized.webp';
+import section3CenterRight from '../assets/Maya/3CR.optimized.webp';
+import section3TopLeft from '../assets/Maya/3TL.optimized.webp';
+import section3TopRight from '../assets/Maya/3TR.optimized.webp';
 import section4BottomLeft from '../assets/Maya/4BL.jpg';
 import section4BottomRight from '../assets/Maya/4BR.jpg';
-import section4CenterLeft from '../assets/Maya/4CL.png';
-import section4CenterRight from '../assets/Maya/4CR.png';
-import section4TopLeft from '../assets/Maya/4TL.png';
-import section4TopRight from '../assets/Maya/4TR.png';
+import section4CenterLeft from '../assets/Maya/4CL.optimized.webp';
+import section4CenterRight from '../assets/Maya/4CR.optimized.webp';
+import section4TopLeft from '../assets/Maya/4TL.optimized.webp';
+import section4TopRight from '../assets/Maya/4TR.optimized.webp';
 import Footer from './Footer.jsx';
 
 function Media({ label, image }) {
   return (
     <figure className="maya-media">
       <div className="maya-media-frame">
-        <img src={image} alt={label} loading="lazy" />
+        <img src={image} alt={label} loading="lazy"  decoding="async" />
       </div>
       <figcaption>{label}</figcaption>
     </figure>
@@ -96,7 +97,7 @@ export default function MayaCaseStudy({ project }) {
           <span>Final cut · 0:42</span>
         </div>
         <div className="maya-hero-frame">
-          <video muted src={project.homeVideoSrc} title="The Last Code / final film" autoPlay controls loop playsInline preload="auto" />
+          <ViewportVideo muted src={project.homeVideoSrc} title="The Last Code / final film" autoPlay controls loop playsInline preload="auto" />
         </div>
         <div className="maya-hero-caption">
           <h2>Out of the shadows.</h2>

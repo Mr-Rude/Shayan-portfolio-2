@@ -1,3 +1,4 @@
+import ViewportVideo from './ViewportVideo.jsx';
 import { Fragment, useState } from 'react';
 
 /**
@@ -29,7 +30,7 @@ export default function SoftwareLogo({ cls, mark, label, title, lines, videoId, 
         {hasVideo && previewOpen ? (
           <span className={`logo-preview-video logo-preview-video--${videoOrientation}`}>
             {videoSrc ? (
-              <video src={videoSrc} title={`${title} video preview`} autoPlay muted loop playsInline preload="none" />
+              <ViewportVideo src={videoSrc} title={`${title} video preview`} autoPlay muted loop playsInline preload="none" />
             ) : (
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=${videoId}&rel=0`}

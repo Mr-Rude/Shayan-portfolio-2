@@ -1,3 +1,4 @@
+import ViewportVideo from './ViewportVideo.jsx';
 import useHoldPreview from '../hooks/useHoldPreview.js';
 import '../styles/hold-preview.css';
 import '../styles/cave.css';
@@ -33,9 +34,9 @@ export default function ProjectCard({ project, index, square = false, homepage =
       ) : hasThumbnail ? (
         <img className="card-thumbnail" src={project.thumbnailUrl} alt="" loading="lazy" referrerPolicy="no-referrer" />
       ) : null}
-      {square && project.portfolioVideoSrc && previewActive && <video className="portfolio-film-preview" src={project.portfolioVideoSrc} poster={project.thumbnailUrl} autoPlay muted loop playsInline aria-hidden="true" />}
+      {square && project.portfolioVideoSrc && previewActive && <ViewportVideo className="portfolio-film-preview" src={project.portfolioVideoSrc} poster={project.thumbnailUrl} autoPlay muted loop playsInline aria-hidden="true" />}
       {showVideo && project.homeVideoSrc && (
-        <video
+        <ViewportVideo
           className="home-video-preview"
           src={project.homeVideoSrc}
           title={`${project.title} video preview`}
@@ -52,7 +53,7 @@ export default function ProjectCard({ project, index, square = false, homepage =
           src={`https://www.youtube-nocookie.com/embed/${project.videoId}?autoplay=1&mute=1&controls=0&playsinline=1&loop=1&playlist=${project.videoId}&rel=0`}
           title={`${project.title} video preview`}
           allow="autoplay; encrypted-media; picture-in-picture"
-          loading="eager"
+          loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"
         />
       )}

@@ -1,11 +1,12 @@
-import harbor from '../assets/PremierePro/harbor.jpg';
-import boatDetail from '../assets/PremierePro/boat-detail.jpg';
-import rowing from '../assets/PremierePro/rowing.jpg';
-import portrait from '../assets/PremierePro/portrait.jpg';
-import overhead from '../assets/PremierePro/overhead.jpg';
-import work from '../assets/PremierePro/work.jpg';
-import fishermanTitle from '../assets/PremierePro/Screenshot 2026-09-22 205013.png';
-import entrepreneurTitle from '../assets/PremierePro/Screenshot 2026-09-22 204906.png';
+import ViewportVideo from './ViewportVideo.jsx';
+import harbor from '../assets/PremierePro/harbor.optimized.webp';
+import boatDetail from '../assets/PremierePro/boat-detail.optimized.webp';
+import rowing from '../assets/PremierePro/rowing.optimized.webp';
+import portrait from '../assets/PremierePro/portrait.optimized.webp';
+import overhead from '../assets/PremierePro/overhead.optimized.webp';
+import work from '../assets/PremierePro/work.optimized.webp';
+import fishermanTitle from '../assets/PremierePro/Screenshot 2026-09-22 205013.optimized.webp';
+import entrepreneurTitle from '../assets/PremierePro/Screenshot 2026-09-22 204906.optimized.webp';
 import Footer from './Footer.jsx';
 
 const selectedMoments = [
@@ -21,7 +22,7 @@ function Media({ image, label, wide = false }) {
   return (
     <figure className={`fisherman-media${wide ? ' fisherman-media--wide' : ''}`}>
       <div className="fisherman-media-frame">
-        <img src={image} alt={label} loading="lazy" />
+        <img src={image} alt={label} loading="lazy"  decoding="async" />
       </div>
       <figcaption>{label}</figcaption>
     </figure>
@@ -59,7 +60,7 @@ export default function PremiereProCaseStudy({ project }) {
           <span>Adobe Premiere Pro · 0:53</span>
         </div>
         <div className="fisherman-video-panel">
-          <video muted src={project.homeVideoSrc} title="The Story of Fisherman / finished film" autoPlay controls loop playsInline preload="auto" />
+          <ViewportVideo muted src={project.homeVideoSrc} title="The Story of Fisherman / finished film" autoPlay controls loop playsInline preload="auto" />
         </div>
       </section>
 

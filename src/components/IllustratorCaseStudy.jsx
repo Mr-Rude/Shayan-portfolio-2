@@ -1,32 +1,33 @@
+import ViewportVideo from './ViewportVideo.jsx';
 import Footer from './Footer.jsx';
 import '../styles/illustrator.css';
 import showcaseVideo from '../assets/Illustrator/Video/illustrator-showcase-static-fast-15s.mp4';
-import image02_0 from '../assets/Illustrator/2 (2).png';
-import image02_1 from '../assets/Illustrator/2 (3).png';
-import image02_2 from '../assets/Illustrator/2 (4).png';
-import image02_3 from '../assets/Illustrator/2 (5).png';
-import image02_4 from '../assets/Illustrator/2.png';
-import image03_0 from '../assets/Illustrator/3 (4).png';
-import image03_1 from '../assets/Illustrator/3 (3).png';
-import image03_2 from '../assets/Illustrator/3 (1).png';
-import image03_3 from '../assets/Illustrator/3 (5).png';
-import image03_4 from '../assets/Illustrator/3 (2).png';
-import image04_0 from '../assets/Illustrator/4 (3).png';
-import image04_1 from '../assets/Illustrator/4 (4).png';
-import image04_2 from '../assets/Illustrator/4 (5).png';
-import image04_3 from '../assets/Illustrator/4 (1).png';
-import image04_4 from '../assets/Illustrator/4 (2).png';
-import image05_0 from '../assets/Illustrator/5 (1).png';
-import image05_1 from '../assets/Illustrator/5 (2).png';
-import image05_2 from '../assets/Illustrator/5(3).png';
+import image02_0 from '../assets/Illustrator/2 (2).optimized.webp';
+import image02_1 from '../assets/Illustrator/2 (3).optimized.webp';
+import image02_2 from '../assets/Illustrator/2 (4).optimized.webp';
+import image02_3 from '../assets/Illustrator/2 (5).optimized.webp';
+import image02_4 from '../assets/Illustrator/2.optimized.webp';
+import image03_0 from '../assets/Illustrator/3 (4).optimized.webp';
+import image03_1 from '../assets/Illustrator/3 (3).optimized.webp';
+import image03_2 from '../assets/Illustrator/3 (1).optimized.webp';
+import image03_3 from '../assets/Illustrator/3 (5).optimized.webp';
+import image03_4 from '../assets/Illustrator/3 (2).optimized.webp';
+import image04_0 from '../assets/Illustrator/4 (3).optimized.webp';
+import image04_1 from '../assets/Illustrator/4 (4).optimized.webp';
+import image04_2 from '../assets/Illustrator/4 (5).optimized.webp';
+import image04_3 from '../assets/Illustrator/4 (1).optimized.webp';
+import image04_4 from '../assets/Illustrator/4 (2).optimized.webp';
+import image05_0 from '../assets/Illustrator/5 (1).optimized.webp';
+import image05_1 from '../assets/Illustrator/5 (2).optimized.webp';
+import image05_2 from '../assets/Illustrator/5(3).optimized.webp';
 import image06_0 from '../assets/Illustrator/6 (4).png';
 import image06_1 from '../assets/Illustrator/6 (5).png';
 import image06_2 from '../assets/Illustrator/6 (3).png';
 import image06_3 from '../assets/Illustrator/6 (1).png';
-import image06_4 from '../assets/Illustrator/6 (2).png';
-import image07_0 from '../assets/Illustrator/7 (3).png';
-import image07_1 from '../assets/Illustrator/7 (2).png';
-import image07_2 from '../assets/Illustrator/7.png';
+import image06_4 from '../assets/Illustrator/6 (2).optimized.webp';
+import image07_0 from '../assets/Illustrator/7 (3).optimized.webp';
+import image07_1 from '../assets/Illustrator/7 (2).optimized.webp';
+import image07_2 from '../assets/Illustrator/7.optimized.webp';
 
 const sections = [
   { number: "02", topic: "Social campaigns", title: "A bold voice for a digital brand.", description: "The Shadowbey series pairs a consistent black and lime palette with varied imagery: classical sculpture, chess, space and digital interfaces. Large headlines give each composition a clear point of entry.", layout: "campaigns", images: [{ src: image02_0, label: "Brand voice / sculpture and typography" }, { src: image02_1, label: "UI/UX services / promotional layout" }, { src: image02_2, label: "Stand tall / a visual metaphor" }, { src: image02_3, label: "Digital galaxy / social media campaign" }, { src: image02_4, label: "Avatar and metaverse / headline study" }] },
@@ -41,7 +42,7 @@ function Artwork({ src, label }) {
   return (
     <figure className="illustrator-artwork">
       <a href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open ${label}`}>
-        <img src={src} alt={label} decoding="async" />
+        <img src={src} alt={label} decoding="async"  loading="lazy" />
       </a>
       <figcaption>{label}</figcaption>
     </figure>
@@ -76,7 +77,7 @@ export default function IllustratorCaseStudy() {
           </div>
         </div>
         <figure className="illustrator-showcase">
-          <video autoPlay muted src={showcaseVideo} controls playsInline preload="metadata" aria-label="15-second Illustrator project showcase" />
+          <ViewportVideo autoPlay muted src={showcaseVideo} controls playsInline preload="metadata" aria-label="15-second Illustrator project showcase" />
           <figcaption>Selected Illustrator projects / 15-second showcase</figcaption>
         </figure>
       </section>

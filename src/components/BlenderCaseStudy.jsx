@@ -1,11 +1,12 @@
-import section2Left from '../assets/Blender/2L.png';
-import section2Right from '../assets/Blender/2R.png';
-import section3Left from '../assets/Blender/3L.png';
+import ViewportVideo from './ViewportVideo.jsx';
+import section2Left from '../assets/Blender/2L.optimized.webp';
+import section2Right from '../assets/Blender/2R.optimized.webp';
+import section3Left from '../assets/Blender/3L.optimized.webp';
 import section3Right from '../assets/Blender/3R.png';
 import section4Left from '../assets/Blender/4L.png';
-import section4Right from '../assets/Blender/4R.png';
-import section5Left from '../assets/Blender/5L.png';
-import section5Right from '../assets/Blender/5R.png';
+import section4Right from '../assets/Blender/4R.optimized.webp';
+import section5Left from '../assets/Blender/5L.optimized.webp';
+import section5Right from '../assets/Blender/5R.optimized.webp';
 import mainVideo from '../assets/Blender/videos/Main Video.mp4';
 import section6LeftVideo from '../assets/Blender/videos/6L.mp4';
 import Footer from './Footer.jsx';
@@ -30,9 +31,9 @@ function MediaSlot({ label, shape = 'landscape', image, videoId, videoSrc }) {
     <figure className={`blender-media blender-media--${shape}`}>
       <div className="blender-media-frame" aria-hidden={image || videoId || videoSrc ? undefined : true}>
         {image ? (
-          <img src={image} alt={label} />
+          <img src={image} alt={label}  loading="lazy" decoding="async" />
         ) : videoSrc ? (
-          <video muted className="blender-media-video" src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <ViewportVideo muted className="blender-media-video" src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : videoId ? (
           <iframe
             className="blender-media-video"
@@ -112,7 +113,7 @@ export default function BlenderCaseStudy({ project }) {
         </div>
         <div className="blender-hero-frame">
           <div className="blender-hero-portrait">
-            <video muted
+            <ViewportVideo muted
               className="blender-hero-video"
               src={mainVideo}
               title="Final cinematic render / Blender"

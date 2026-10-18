@@ -1,3 +1,4 @@
+import ViewportVideo from './ViewportVideo.jsx';
 import Footer from './Footer.jsx';
 import sectionOneVideo from '../assets/Unreal/videos/1.mp4';
 import sectionEightVideo from '../assets/Unreal/videos/8.mp4';
@@ -8,35 +9,35 @@ import sectionTenTopRightVideo from '../assets/Unreal/videos/10TopR.mp4';
 import sectionThirteenTopVideo from '../assets/Unreal/videos/13T.mp4';
 import sectionFourteenLeftVideo from '../assets/Unreal/videos/14L.mp4';
 import sectionFourteenRightVideo from '../assets/Unreal/videos/14R.mp4';
-import storyboardLeft from '../assets/Unreal/2L.png';
-import storyboardRight from '../assets/Unreal/2R.png';
-import lookCenter from '../assets/Unreal/3C.png';
-import lookLeft from '../assets/Unreal/3L.png';
-import lookRight from '../assets/Unreal/3R.png';
-import materialOrangeLeft from '../assets/Unreal/4DL.png';
-import materialOrangeRight from '../assets/Unreal/4DR.png';
-import materialGreen from '../assets/Unreal/4UL.png';
-import materialBlue from '../assets/Unreal/4UR.png';
-import citySide from '../assets/Unreal/5D.png';
-import cityFront from '../assets/Unreal/5U.png';
-import supportingCar from '../assets/Unreal/6L.png';
-import supportingVehicles from '../assets/Unreal/6R.png';
-import trafficSelection from '../assets/Unreal/6B.png';
-import desertSpline from '../assets/Unreal/7L.png';
-import desertRoad from '../assets/Unreal/7R.png';
-import roadBlueprint from '../assets/Unreal/8.png';
-import animationTimeline from '../assets/Unreal/10B.png';
-import cityCurves from '../assets/Unreal/10L.png';
-import animationTracks from '../assets/Unreal/10R.png';
-import vehicleSteering from '../assets/Unreal/11L.png';
-import vehicleRoute from '../assets/Unreal/11R.png';
-import cityWireframe from '../assets/Unreal/11B.png';
+import storyboardLeft from '../assets/Unreal/2L.optimized.webp';
+import storyboardRight from '../assets/Unreal/2R.optimized.webp';
+import lookCenter from '../assets/Unreal/3C.optimized.webp';
+import lookLeft from '../assets/Unreal/3L.optimized.webp';
+import lookRight from '../assets/Unreal/3R.optimized.webp';
+import materialOrangeLeft from '../assets/Unreal/4DL.optimized.webp';
+import materialOrangeRight from '../assets/Unreal/4DR.optimized.webp';
+import materialGreen from '../assets/Unreal/4UL.optimized.webp';
+import materialBlue from '../assets/Unreal/4UR.optimized.webp';
+import citySide from '../assets/Unreal/5D.optimized.webp';
+import cityFront from '../assets/Unreal/5U.optimized.webp';
+import supportingCar from '../assets/Unreal/6L.optimized.webp';
+import supportingVehicles from '../assets/Unreal/6R.optimized.webp';
+import trafficSelection from '../assets/Unreal/6B.optimized.webp';
+import desertSpline from '../assets/Unreal/7L.optimized.webp';
+import desertRoad from '../assets/Unreal/7R.optimized.webp';
+import roadBlueprint from '../assets/Unreal/8.optimized.webp';
+import animationTimeline from '../assets/Unreal/10B.optimized.webp';
+import cityCurves from '../assets/Unreal/10L.optimized.webp';
+import animationTracks from '../assets/Unreal/10R.optimized.webp';
+import vehicleSteering from '../assets/Unreal/11L.optimized.webp';
+import vehicleRoute from '../assets/Unreal/11R.optimized.webp';
+import cityWireframe from '../assets/Unreal/11B.optimized.webp';
 import trackModel from '../assets/Unreal/12L.jpeg';
-import bedroomTrack from '../assets/Unreal/12R.jpeg';
-import roomCharacter from '../assets/Unreal/13L.png';
-import roomLayout from '../assets/Unreal/13R.png';
-import roomBottom from '../assets/Unreal/13B.png';
-import finalReveal from '../assets/Unreal/15.png';
+import bedroomTrack from '../assets/Unreal/12R.optimized.webp';
+import roomCharacter from '../assets/Unreal/13L.optimized.webp';
+import roomLayout from '../assets/Unreal/13R.optimized.webp';
+import roomBottom from '../assets/Unreal/13B.optimized.webp';
+import finalReveal from '../assets/Unreal/15.optimized.webp';
 
 function Media({ label, caption = label, image, videoId, videoSrc, wide = false, portrait = false, audioEnabled = false }) {
   const mediaClass = [
@@ -49,9 +50,9 @@ function Media({ label, caption = label, image, videoId, videoSrc, wide = false,
   return (
     <figure className={mediaClass} aria-label={label}>
       <div className={frameClass}>
-        {image && <img src={image} alt={label} />}
+        {image && <img src={image} alt={label}  loading="lazy" decoding="async" />}
         {videoSrc && (
-          <video muted data-audio-disabled={!audioEnabled || undefined} src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+          <ViewportVideo muted data-audio-disabled={!audioEnabled || undefined} src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         )}
         {videoId && (
           <iframe data-audio-disabled={!audioEnabled || undefined}

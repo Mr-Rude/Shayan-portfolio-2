@@ -1,11 +1,12 @@
-import section2Left from '../assets/GPT/2 L.png';
-import section2Right from '../assets/GPT/2 R.png';
-import section3Left from '../assets/GPT/3 L.png';
-import section3Right from '../assets/GPT/3 R.png';
-import section4Left from '../assets/GPT/4L.png';
-import section4Right from '../assets/GPT/4R.png';
-import section5Left from '../assets/GPT/5L.png';
-import section5Right from '../assets/GPT/5R.png';
+import ViewportVideo from './ViewportVideo.jsx';
+import section2Left from '../assets/GPT/2 L.optimized.webp';
+import section2Right from '../assets/GPT/2 R.optimized.webp';
+import section3Left from '../assets/GPT/3 L.optimized.webp';
+import section3Right from '../assets/GPT/3 R.optimized.webp';
+import section4Left from '../assets/GPT/4L.optimized.webp';
+import section4Right from '../assets/GPT/4R.optimized.webp';
+import section5Left from '../assets/GPT/5L.optimized.webp';
+import section5Right from '../assets/GPT/5R.optimized.webp';
 import mainVideo from '../assets/GPT/Videos/Main Video.mp4';
 import section4Video from '../assets/GPT/Videos/4B.mp4';
 import section6LeftVideo from '../assets/GPT/Videos/6L.mp4';
@@ -45,11 +46,11 @@ function MediaPlaceholder({ label, kind = 'image', wide = false, videoId, videoS
     <figure className={['headphones-media', `headphones-media--${kind}`, wide && 'headphones-media--wide'].filter(Boolean).join(' ')}>
       <div className="headphones-media-surface" aria-hidden={videoId || videoSrc || image ? undefined : true}>
         {videoSrc ? (
-          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <ViewportVideo muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : videoId ? (
           <YouTubeEmbed videoId={videoId} label={label} audioEnabled={audioEnabled} />
         ) : image ? (
-          <img src={image} alt={label} />
+          <img src={image} alt={label}  loading="lazy" decoding="async" />
         ) : (
           <span>{kind === 'video' ? 'Video placeholder' : 'Image placeholder'}</span>
         )}

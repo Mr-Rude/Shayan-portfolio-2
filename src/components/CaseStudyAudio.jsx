@@ -67,8 +67,10 @@ export default function CaseStudyAudio() {
       video.muted = true;
       video.defaultMuted = true;
       video.playsInline = true;
-      video.autoplay = true;
-      video.play().catch(() => {}); // Native controls remain available if playback is blocked.
+      if (video.dataset.viewportManaged !== 'true') {
+        video.autoplay = true;
+        video.play().catch(() => {});
+      } // Native controls remain available if playback is blocked.
       if (video.dataset.audioDisabled === 'true') {
         const keepMuted = () => { if (!video.muted) video.muted = true; };
         keepMuted();

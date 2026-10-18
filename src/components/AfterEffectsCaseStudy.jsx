@@ -1,10 +1,11 @@
-import section2Left from '../assets/After Effects/2L.png';
-import section2Right from '../assets/After Effects/2R.png';
-import section3Left from '../assets/After Effects/3L.png';
-import section3Right from '../assets/After Effects/3R.png';
-import section4Left from '../assets/After Effects/4L.png';
-import section4Right from '../assets/After Effects/4R.png';
-import section5 from '../assets/After Effects/5.png';
+import ViewportVideo from './ViewportVideo.jsx';
+import section2Left from '../assets/After Effects/2L.optimized.webp';
+import section2Right from '../assets/After Effects/2R.optimized.webp';
+import section3Left from '../assets/After Effects/3L.optimized.webp';
+import section3Right from '../assets/After Effects/3R.optimized.webp';
+import section4Left from '../assets/After Effects/4L.optimized.webp';
+import section4Right from '../assets/After Effects/4R.optimized.webp';
+import section5 from '../assets/After Effects/5.optimized.webp';
 import explainerVideo from '../assets/After Effects/videos/2D Explainer Video.mp4';
 import Footer from './Footer.jsx';
 
@@ -28,9 +29,9 @@ function Media({ label, image, videoId, videoSrc, wide = false, audioEnabled = f
     <figure className={`ae-media${wide ? ' ae-media--wide' : ''}`}>
       <div className="ae-media-frame">
         {image ? (
-          <img src={image} alt={label} />
+          <img src={image} alt={label}  loading="lazy" decoding="async" />
         ) : videoSrc ? (
-          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
+          <ViewportVideo muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="auto" />
         ) : videoId ? (
           <iframe
             src={youtubeEmbedUrl(videoId, audioEnabled)}

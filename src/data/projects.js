@@ -1,22 +1,22 @@
 import { software } from './software.js';
-import cavePoster from '../assets/Cave Environment/Cinematic Cave Display Image.png';
+import cavePoster from '../assets/Cave Environment/Cinematic Cave Display Image.optimized.webp';
 import caveFilm from '../assets/Cave/cave-film.mp4';
 // All project content lives here. Replace placeholders with final titles,
 // copy and media as work is selected.
 
-import illustratorThumbnail from '../assets/Illustrator/Portfolio page Display image.png';
-import substanceThumbnail from '../assets/Substance Painter/Portfolio page Display image.png';
+import illustratorThumbnail from '../assets/Illustrator/Portfolio page Display image.optimized.webp';
+import substanceThumbnail from '../assets/Substance Painter/Portfolio page Display image.optimized.webp';
 
-import unrealThumbnail from '../assets/Unreal/Portfolio page Display image.png';
+import unrealThumbnail from '../assets/Unreal/Portfolio page Display image.optimized.webp';
 import unrealHomeVideo from '../assets/Unreal/videos/1.mp4';
-import blenderThumbnail from '../assets/Blender/Portfolio page Display image.png';
+import blenderThumbnail from '../assets/Blender/Portfolio page Display image.optimized.webp';
 import blenderMainVideo from '../assets/Blender/videos/Main Video.mp4';
-import mayaThumbnail from '../assets/Maya/Portfolio page Display image.png';
-import afterEffectsThumbnail from '../assets/After Effects/Portfolio page Display image.png';
+import mayaThumbnail from '../assets/Maya/Portfolio page Display image.optimized.webp';
+import afterEffectsThumbnail from '../assets/After Effects/Portfolio page Display image.optimized.webp';
 import afterEffectsHomeVideo from '../assets/After Effects/videos/2D Explainer Video.mp4';
 import mayaMainVideo from '../assets/Maya/videos/The Last Code.mp4';
 import premiereProMainVideo from '../assets/PremierePro/videos/Fishermen Main.mp4';
-import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 205013.png';
+import fishermanThumbnail from '../assets/PremierePro/Screenshot 2026-09-22 205013.optimized.webp';
 import gptMainVideo from '../assets/GPT/Videos/Main Video.mp4';
 import substanceMainVideo from '../assets/Substance Painter/video/substance-painter-showcase-full-frame-15s.mp4';
 

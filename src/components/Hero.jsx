@@ -1,4 +1,4 @@
-import portrait from '../assets/Shayan-cutout.png';
+import portrait from '../assets/Shayan-cutout.optimized.webp';
 import { software } from '../data/software.js';
 import SoftwareLogo from './SoftwareLogo.jsx';
 
@@ -39,7 +39,7 @@ export default function Hero() {
           <span className="dot" />
           SHAYAN KHAN / CGI &amp; MOTION
         </div>
-        <img className="portrait" src={portrait} alt="Shayan Khan" />
+        <img className="portrait" fetchpriority="high" decoding="async" src={portrait} alt="Shayan Khan" />
         {software.map((s) => (
           <SoftwareLogo key={s.cls} {...s} />
         ))}

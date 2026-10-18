@@ -1,10 +1,11 @@
+import ViewportVideo from './ViewportVideo.jsx';
 import Footer from './Footer.jsx';
-import section1Left from '../assets/Substance Painter/1L.png';
-import section1Right from '../assets/Substance Painter/1R.png';
-import section2TopLeft from '../assets/Substance Painter/2TL.png';
-import section2TopRight from '../assets/Substance Painter/2TR.png';
-import section2BottomLeft from '../assets/Substance Painter/2BL.png';
-import section2BottomRight from '../assets/Substance Painter/2BR.png';
+import section1Left from '../assets/Substance Painter/1L.optimized.webp';
+import section1Right from '../assets/Substance Painter/1R.optimized.webp';
+import section2TopLeft from '../assets/Substance Painter/2TL.optimized.webp';
+import section2TopRight from '../assets/Substance Painter/2TR.optimized.webp';
+import section2BottomLeft from '../assets/Substance Painter/2BL.optimized.webp';
+import section2BottomRight from '../assets/Substance Painter/2BR.optimized.webp';
 import section3TopLeft from '../assets/Substance Painter/3TL.jpg';
 import section3TopRight from '../assets/Substance Painter/3TR.jpg';
 import section3Bottom from '../assets/Substance Painter/3B.jpg';
@@ -15,9 +16,9 @@ function Media({ label, wide = false, image, videoSrc }) {
     <figure className={`substance-media${wide ? ' substance-media--wide' : ''}`}>
       <div className="substance-media-frame">
         {videoSrc ? (
-          <video muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
+          <ViewportVideo muted src={videoSrc} title={label} autoPlay controls loop playsInline preload="metadata" />
         ) : (
-          <img src={image} alt={label} loading="lazy" />
+          <img src={image} alt={label} loading="lazy"  decoding="async" />
         )}
       </div>
       <figcaption>{label}</figcaption>
