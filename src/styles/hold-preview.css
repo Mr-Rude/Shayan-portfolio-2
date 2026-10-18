@@ -4,6 +4,7 @@
 
 @media (hover: none), (pointer: coarse) {
   .card.has-hold-preview {
+    container-type: inline-size;
     touch-action: pan-y pinch-zoom;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -13,7 +14,7 @@
   .portfolio-page .portfolio-grid .card.has-hold-preview .card-copy {
     z-index: 2;
     min-height: 0;
-    padding: 9px 10px;
+    padding: 7px 10px;
     opacity: 1;
     transform: none;
     background: linear-gradient(to bottom, #090a0d35, #090a0da6);
@@ -37,9 +38,10 @@
   .hold-preview-hint {
     display: block;
     margin: 0;
-    max-height: 3em;
+    max-height: 1.4em;
     overflow: hidden;
-    font-size: 12px;
+    font-size: min(11px, calc(7cqw - 1.5px));
+    white-space: nowrap;
     line-height: 1.4;
     font-weight: 500;
     color: #fff;

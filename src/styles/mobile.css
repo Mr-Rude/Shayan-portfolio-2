@@ -83,14 +83,15 @@
     justify-content: flex-end;
     gap: 4px;
     margin-left: auto;
-    font-size: 7px;
+    font-size: clamp(9px, 2.5vw, 11px);
     letter-spacing: 0;
   }
 
   .nav-links a,
   .nav-links a:last-child {
     /* Keep the original footprint while giving each label more breathing room. */
-    padding: 5.575px 8.1px;
+    padding: 7px clamp(8px, 2.5vw, 12px);
+    min-height: 30px;
     border-radius: 30px;
     text-align: center;
     white-space: nowrap;
@@ -608,13 +609,13 @@
   }
 
   .nav-links {
-    font-size: 8px;
+    font-size: 9px;
   }
 
   .nav-links a,
   .nav-links a:last-child {
-    padding-left: 3.1px;
-    padding-right: 3.1px;
+    padding-left: 8px;
+    padding-right: 8px;
     white-space: nowrap;
   }
 
