@@ -93,8 +93,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 7px clamp(8px, 2.5vw, 12px);
-    min-height: 30px;
+    padding: 5px clamp(8px, 2.5vw, 12px);
+    min-height: 26px;
     border-radius: 30px;
     text-align: center;
     white-space: nowrap;
@@ -1023,4 +1023,8 @@
 }
 @media (min-width: 761px) and (pointer: coarse) {
   .home .hero .logo.pt .peek { left: auto; right: 0; }
+}
+
+@media (min-width: 761px) and (max-width: 1000px), (min-width: 761px) and (pointer: coarse) {
+  .nav-links a, .nav-links a:last-child { padding-top: 7px; padding-bottom: 7px; }
 }
