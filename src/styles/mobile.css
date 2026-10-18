@@ -990,3 +990,40 @@
     animation-delay: calc(var(--i) * 24ms);
   }
 }
+/* State-driven previews support taps without sticky touchscreen hover. */
+.home .hero .logo { pointer-events: auto; touch-action: pan-y pinch-zoom; }
+.home .hero .logo:not(.is-preview-open) { transform: rotate(var(--r)); }
+.home .hero .logo:not(.is-preview-open) .peek { display: none !important; }
+.home .hero .logo.is-preview-open { transform: rotate(0); z-index: 20; }
+.home .hero .logo.is-preview-open::before { display: block; }
+.home .hero .logo.is-preview-open .peek {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (hover: none), (pointer: coarse), (max-width: 760px) {
+  .home .hero .logo { animation: none; }
+  .home .hero .logo:not(.is-preview-open)::before { display: none; }
+  .home .hero .logo .peek {
+    width: min(170px, 45vw);
+    height: auto;
+    min-height: 0;
+    padding: 10px;
+    gap: 8px;
+    font-size: 10px;
+    top: auto;
+    bottom: calc(100% + 10px);
+    left: 0;
+    right: auto;
+    pointer-events: none;
+  }
+  .home .hero .logo:is(.b,.pr,.gpt) .peek { left: auto; right: 0; }
+  .home .hero .logo:is(.u,.b) .peek { top: calc(100% + 10px); bottom: auto; }
+  .home .hero .logo .logo-preview-video { max-height: 25svh; }
+}
+@media (max-width: 760px) {
+  .home .hero .logo.ae .peek { left: auto; right: 0; }
+}
+@media (min-width: 761px) and (pointer: coarse) {
+  .home .hero .logo.pt .peek { left: auto; right: 0; }
+}

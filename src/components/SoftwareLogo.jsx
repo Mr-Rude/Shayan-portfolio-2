@@ -1,5 +1,5 @@
 import ViewportVideo from './ViewportVideo.jsx';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 
 /**
  * A floating software mark. Mouse and keyboard users see the preview on hover/focus (CSS).
@@ -7,7 +7,28 @@ import { Fragment, useState } from 'react';
 export default function SoftwareLogo({ cls, mark, label, title, lines, videoId, videoSrc, videoOrientation = 'portrait' }) {
   const [previewOpen, setPreviewOpen] = useState(false);
   const hasVideo = Boolean(videoId || videoSrc);
-  const canShowPreview = () => window.matchMedia('(min-width: 761px)').matches;
+  const iconRef = useRef(null);
+  const pointer = useRef('mouse');
+  const openPreview = () => {
+    window.dispatchEvent(new CustomEvent('software-preview-open', { detail: iconRef.current }));
+    setPreviewOpen(true);
+  };
+  useEffect(() => {
+    if (!previewOpen) return;
+    const close = () => setPreviewOpen(false);
+    const outside = (event) => { if (!iconRef.current?.contains(event.target)) close(); };
+    const other = (event) => { if (event.detail !== iconRef.current) close(); };
+    document.addEventListener('pointerdown', outside);
+    document.addEventListener('scroll', close, { capture: true, passive: true });
+    document.addEventListener('touchmove', close, { passive: true });
+    window.addEventListener('software-preview-open', other);
+    return () => {
+      document.removeEventListener('pointerdown', outside);
+      document.removeEventListener('scroll', close, true);
+      document.removeEventListener('touchmove', close);
+      window.removeEventListener('software-preview-open', other);
+    };
+  }, [previewOpen]);
   const icon = typeof mark === 'string' ? (
     <img src={mark} alt={label} />
   ) : mark;
@@ -17,11 +38,26 @@ export default function SoftwareLogo({ cls, mark, label, title, lines, videoId, 
       tabIndex={0}
       className={`logo ${cls}${previewOpen ? ' is-preview-open' : ''}`}
       aria-label={label}
-      onMouseEnter={() => hasVideo && canShowPreview() && setPreviewOpen(true)}
-      onMouseLeave={() => hasVideo && canShowPreview() && setPreviewOpen(false)}
-      onFocus={() => hasVideo && canShowPreview() && setPreviewOpen(true)}
-      onBlur={(event) => {
-        if (hasVideo && canShowPreview() && !event.currentTarget.contains(event.relatedTarget)) setPreviewOpen(false);
+      ref={iconRef}
+      role="button"
+      aria-expanded={previewOpen}
+      onPointerDown={(event) => { pointer.current = event.pointerType; }}
+      onPointerEnter={(event) => { if (event.pointerType === 'mouse') openPreview(); }}
+      onPointerLeave={(event) => { if (event.pointerType === 'mouse') setPreviewOpen(false); }}
+      onClick={() => {
+        if (pointer.current !== 'mouse') {
+          if (previewOpen) setPreviewOpen(false);
+          else openPreview();
+        }
+      }}
+      onFocus={(event) => { if (event.currentTarget.matches(':focus-visible')) openPreview(); }}
+      onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setPreviewOpen(false); }}
+      onKeyDown={(event) => {
+        if (event.key === 'Escape') setPreviewOpen(false);
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (previewOpen) setPreviewOpen(false); else openPreview();
+        }
       }}
     >
       <span className="logo-mark" aria-hidden="true">{icon}</span>
