@@ -89,7 +89,10 @@
 
   .nav-links a,
   .nav-links a:last-child {
-    /* Keep the original footprint while giving each label more breathing room. */
+    /* Center the label within the minimum button height. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 7px clamp(8px, 2.5vw, 12px);
     min-height: 30px;
     border-radius: 30px;
