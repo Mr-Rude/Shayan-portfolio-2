@@ -12,7 +12,7 @@ function MobileName() {
     if (glyph.code === 32) return null;
     return (
       <span className="name-glyph" key={position} style={{ '--i': index++, left: `${left / nameWidth * 100}%`, width: `${glyph.advance / nameWidth * 100}%` }}>
-        <span className="name-glyph-ink" style={{ '--glyph-image': `url("${glyphImages[`../assets/name-letters/${glyph.code}.png`]}")`, left: `${glyph.left / glyph.advance * 100}%`, width: `${glyph.width / glyph.advance * 100}%` }} />
+        <img className="name-glyph-ink" src={glyphImages[`../assets/name-letters/${glyph.code}.png`]} alt="" draggable="false" style={{ left: `${glyph.left / glyph.advance * 100}%`, width: `${glyph.width / glyph.advance * 100}%` }} />
       </span>
     );
   });
@@ -34,6 +34,7 @@ function AnimatedName() {
 
 export default function Header() {
   const [nameTap, setNameTap] = useState(false);
+  const [pressedNav, setPressedNav] = useState(null);
   return (
     <header>
       <div className="nav">
@@ -42,9 +43,9 @@ export default function Header() {
           <span onAnimationEnd={(event) => { if (event.target === event.currentTarget.lastElementChild) setNameTap(false); }} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} style={{ '--name-height': 96 / nameWidth }} aria-hidden="true"><MobileName /></span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
-          <a href="#/portfolio">Portfolio</a>
-          <a href="#/home/about">About Me</a>
-          <a href="#/home/contact">Contact Me</a>
+          <a href="#/portfolio" className={pressedNav === "#/portfolio" ? "is-pressed" : undefined} onClick={() => setPressedNav("#/portfolio")} onAnimationEnd={() => setPressedNav(null)}>Portfolio</a>
+          <a href="#/home/about" className={pressedNav === "#/home/about" ? "is-pressed" : undefined} onClick={() => setPressedNav("#/home/about")} onAnimationEnd={() => setPressedNav(null)}>About Me</a>
+          <a href="#/home/contact" className={pressedNav === "#/home/contact" ? "is-pressed" : undefined} onClick={() => setPressedNav("#/home/contact")} onAnimationEnd={() => setPressedNav(null)}>Contact Me</a>
         </nav>
       </div>
     </header>

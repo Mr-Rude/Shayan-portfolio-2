@@ -975,9 +975,7 @@
   top: 0;
   height: 100%;
   max-width: none;
-  background-color: currentColor;
-  -webkit-mask: var(--glyph-image) center / 100% 100% no-repeat;
-  mask: var(--glyph-image) center / 100% 100% no-repeat;
+  object-fit: fill;
   pointer-events: none;
 }
 @media (prefers-reduced-motion: no-preference) {
@@ -1035,6 +1033,28 @@
   .home #intro-stage .portrait { width: 52%; height: auto; max-width: none; }
 }
 
-/* Keep masked letter layers stable during Safari's individual letter flips. */
-.name .name-glyph-ink { transform: translateZ(0); }
+/* Raster letters avoid Safari mask clipping during individual flips. */
 .name .name-wordmark.is-tapped .name-glyph { will-change: transform; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .name-wordmark.is-tapped .name-glyph-ink {
+    animation: name-glyph-tint .7s ease-in-out both;
+    animation-delay: calc(var(--i) * 24ms);
+  }
+}
+@keyframes name-glyph-tint {
+  0%, 100% { filter: none; }
+  45% { filter: brightness(0) saturate(100%) invert(91%) sepia(32%) saturate(708%) hue-rotate(32deg) brightness(105%) contrast(101%); }
+}
+.nav-links a.is-pressed { animation: nav-tap-feedback 360ms ease-out; }
+@keyframes nav-tap-feedback {
+  0%, 100% { transform: scale(1); }
+  35% { transform: scale(.94); background: #c1ff8030; border-color: #c1ff80; color: #e3ffc4; }
+  70% { transform: scale(1.025); background: #c1ff8015; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a.is-pressed { animation-name: nav-tap-color; }
+}
+@keyframes nav-tap-color {
+  35%, 70% { background: #c1ff8030; border-color: #c1ff80; }
+}
