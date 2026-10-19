@@ -980,8 +980,7 @@
   mask: var(--glyph-image) center / 100% 100% no-repeat;
   pointer-events: none;
 }
-@media (hover: none) and (prefers-reduced-motion: no-preference),
-       (pointer: coarse) and (prefers-reduced-motion: no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   .name .name-wordmark.is-tapped .name-glyph {
     animation: nameFlip .7s ease-in-out both;
     animation-delay: calc(var(--i) * 24ms);
@@ -1028,3 +1027,14 @@
 @media (min-width: 761px) and (max-width: 1000px), (min-width: 761px) and (pointer: coarse) {
   .nav-links a, .nav-links a:last-child { padding-top: 7px; padding-bottom: 7px; }
 }
+
+/* Fit the portrait to tablet width rather than a tall desktop viewport. */
+@media (min-width: 761px) and (max-width: 1100px) and (orientation: portrait) {
+  .home #intro-stage { height: auto; min-height: 0; }
+  .home #intro-stage .hero { height: clamp(550px, 72vw, 760px); min-height: 0; }
+  .home #intro-stage .portrait { width: 52%; height: auto; max-width: none; }
+}
+
+/* Keep masked letter layers stable during Safari's individual letter flips. */
+.name .name-glyph-ink { transform: translateZ(0); }
+.name .name-wordmark.is-tapped .name-glyph { will-change: transform; }

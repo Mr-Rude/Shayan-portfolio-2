@@ -1,8 +1,12 @@
+import { mobileVideoSources } from '../lib/mobileVideoSources.js';
 import { useEffect, useRef, useState } from 'react';
 
 // Share bandwidth with the visible content instead of downloading every film at once.
 export default function ViewportVideo({ src, autoPlay = true, preload, ...props }) {
   const ref = useRef(null);
+  // Choose once per mount so rotating or resizing never restarts a playing film.
+  const [useMobileVideo] = useState(() => typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches);
+  const playbackSrc = useMobileVideo ? (mobileVideoSources.get(src) || src) : src;
   const [near, setNear] = useState(false);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -31,7 +35,7 @@ export default function ViewportVideo({ src, autoPlay = true, preload, ...props 
     sync();
     document.addEventListener('visibilitychange', sync);
     return () => { document.removeEventListener('visibilitychange', sync); video.pause(); };
-  }, [near, visible, src, autoPlay]);
+  }, [near, visible, playbackSrc, autoPlay]);
   return <video {...props} ref={ref} data-viewport-managed="true"
-    src={near ? src : undefined} autoPlay={false} preload={near ? 'metadata' : 'none'} />;
+    src={near ? playbackSrc : undefined} autoPlay={false} preload={near ? 'metadata' : 'none'} />;
 }

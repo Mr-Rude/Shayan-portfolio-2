@@ -33,13 +33,13 @@ function AnimatedName() {
 }
 
 export default function Header() {
-  const [nameTap, setNameTap] = useState(0);
+  const [nameTap, setNameTap] = useState(false);
   return (
     <header>
       <div className="nav">
-        <a className="name" href="#/home" aria-label="Shayan Khan, home" onClick={() => setNameTap((tap) => tap + 1)}>
+        <a className="name" href="#/home" aria-label="Shayan Khan, home" onPointerDown={(event) => { if (event.pointerType !== 'mouse') setNameTap(true); }} onClick={(event) => { if (event.detail === 0) setNameTap(true); }}>
           <span className="name-letters" aria-hidden="true"><AnimatedName /></span>
-          <span key={nameTap} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} style={{ '--name-height': 96 / nameWidth }} aria-hidden="true"><MobileName /></span>
+          <span onAnimationEnd={(event) => { if (event.target === event.currentTarget.lastElementChild) setNameTap(false); }} className={`name-wordmark${nameTap ? ' is-tapped' : ''}`} style={{ '--name-height': 96 / nameWidth }} aria-hidden="true"><MobileName /></span>
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#/portfolio">Portfolio</a>
